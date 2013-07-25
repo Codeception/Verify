@@ -6,6 +6,9 @@ BDD Assertions for PHPUnit and Codeception
 This is very tiny wrapper for PHPUnit assertions, that are aimed to make tests a bit more readable.
 With BDD assertions influenced by Chai, Jasmine, and RSpec your assertions would be a bit closer to natural language.
 
+[![Latest Stable Version](https://poser.pugx.org/codeception/verify/v/stable.png)](https://packagist.org/packages/codeception/verify)
+
+
 ``` php
 <?php
 $user = User::find(1);
