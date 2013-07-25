@@ -13,8 +13,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testContains()
     {
-        verify([3, 2])->contains(3);
-        verify("user have 5 posts", [3, 2])->notContains(5);
+        verify(array(3, 2))->contains(3);
+        verify("user have 5 posts", array(3, 2))->notContains(5);
     }
 
     public function testGreaterLowerThen()
