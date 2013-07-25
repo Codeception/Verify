@@ -40,7 +40,7 @@ verify($user->getPosts())->notNull();
 verify($user->getComments())->isEmpty();
 verify($user->getRoles())->notEmpty();
 verify($user->getPosts())->notEmpty();
-
-
 ?>
 ```
+
+**License: MIT**
