@@ -43,4 +43,14 @@ verify($user->getPosts())->notEmpty();
 ?>
 ```
 
+## Installation
+
+With Composer:
+
+```
+"require-dev": {
+    "codeception/verify": "*"
+}
+```
+
 **License: MIT**
