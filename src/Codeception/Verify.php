@@ -1,7 +1,7 @@
 <?php
 namespace Codeception;
 
-use PHPUnit_Framework_Assert as a;
+use \PHPUnit_Framework_Assert as a;
 
 class Verify {
 
@@ -76,6 +76,16 @@ class Verify {
     public function notNull()
     {
         a::assertNotNull($this->actual, $this->description);
+    }
+
+    public function isEmpty()
+    {
+        a::assertEmpty($this->actual, $this->description);
+    }
+
+    public function notEmpty()
+    {
+        a::assertNotEmpty($this->actual, $this->description);
     }
 }
 

@@ -34,4 +34,10 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         verify(null)->null();
         verify(true)->notNull();
     }
+
+    public function testEmptyNotEmpty()
+    {
+        verify(array('3', '5'))->notEmpty();
+        verify(array())->isEmpty();
+    }
 }

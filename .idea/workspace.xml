@@ -5,11 +5,12 @@
     <ignored path="verify.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374708328279" ignored="false" />
-    <file path="/Verify.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374714733897" ignored="false" />
+    <file path="/Verify.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374716402653" ignored="false" />
     <file path="/composer.json" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374708741710" ignored="false" />
-    <file path="/VerifyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374714690908" ignored="false" />
+    <file path="/VerifyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374716485709" ignored="false" />
     <file path="/function.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374714848191" ignored="false" />
     <file path="/phpunit.xml" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374714867490" ignored="false" />
+    <file path="/README.md" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374715752518" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +19,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="ComposerSettings">
-    <pharConfigPath>$PROJECT_DIR$/src/Codeception/composer.json</pharConfigPath>
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <pharPath>$PROJECT_DIR$/composer.phar</pharPath>
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -36,7 +37,7 @@
       <file leaf-file-name="Verify.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="22" selection-start="28" selection-end="28" vertical-scroll-proportion="-0.7777778">
+            <state line="86" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-17.37037">
               <folding />
             </state>
           </provider>
@@ -46,15 +47,6 @@
         <entry file="file://$PROJECT_DIR$/src/Codeception/function.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="5" selection-start="199" selection-end="199" vertical-scroll-proportion="-6.2222223">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Assert.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/PHPUnit/Framework/Assert.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="468" column="27" selection-start="15734" selection-end="15734" vertical-scroll-proportion="-7.5185184">
               <folding />
             </state>
           </provider>
@@ -72,7 +64,16 @@
       <file leaf-file-name="VerifyTest.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/VerifyTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="29" selection-start="182" selection-end="182" vertical-scroll-proportion="0.24623115">
+            <state line="41" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.85882354">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="0" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,10 +99,11 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/Codeception/composer.json" />
-        <option value="$PROJECT_DIR$/src/Codeception/Verify.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/Codeception/function.php" />
         <option value="$PROJECT_DIR$/phpunit.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/Codeception/Verify.php" />
         <option value="$PROJECT_DIR$/tests/VerifyTest.php" />
       </list>
     </option>
@@ -145,6 +147,48 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="verify" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="verify" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Codeception" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -276,13 +320,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="22" selection-start="28" selection-end="28" vertical-scroll-proportion="-0.7777778">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Codeception/function.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="5" selection-start="199" selection-end="199" vertical-scroll-proportion="-6.2222223">
@@ -304,16 +341,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/PHPUnit/Framework/Assert.php">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="468" column="27" selection-start="15734" selection-end="15734" vertical-scroll-proportion="-7.5185184">
+        <state line="32" column="0" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-17.37037">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/VerifyTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="182" selection-end="182" vertical-scroll-proportion="0.24623115">
+        <state line="41" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.85882354">
           <folding />
         </state>
       </provider>
