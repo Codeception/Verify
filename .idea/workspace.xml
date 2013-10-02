@@ -5,9 +5,9 @@
     <ignored path="verify.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375205176458" ignored="false" />
-    <file path="/Verify.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380750588735" ignored="false" />
+    <file path="/Verify.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380752316928" ignored="false" />
     <file path="/composer.json" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374708741710" ignored="false" />
-    <file path="/VerifyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380750846719" ignored="false" />
+    <file path="/VerifyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380752345808" ignored="false" />
     <file path="/function.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380750648650" ignored="false" />
     <file path="/phpunit.xml" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374714867490" ignored="false" />
     <file path="/README.md" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380751213694" ignored="false" />
@@ -66,10 +66,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Verify.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Verify.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="2051" selection-end="2051" vertical-scroll-proportion="-20.222221">
+            <state line="90" column="0" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.74925375">
               <folding />
             </state>
           </provider>
@@ -123,16 +123,25 @@
       <file leaf-file-name="VerifyTest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/VerifyTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="5" selection-start="1476" selection-end="1476" vertical-scroll-proportion="-23.25926">
+            <state line="2" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-1.5555556">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.030701755">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VERSION" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VERSION">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -160,10 +169,11 @@
         <option value="$PROJECT_DIR$/src/Codeception/composer.json" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/phpunit.xml" />
-        <option value="$PROJECT_DIR$/src/Codeception/Verify.php" />
-        <option value="$PROJECT_DIR$/tests/VerifyTest.php" />
         <option value="$PROJECT_DIR$/src/Codeception/function.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/VERSION" />
+        <option value="$PROJECT_DIR$/tests/VerifyTest.php" />
+        <option value="$PROJECT_DIR$/src/Codeception/Verify.php" />
       </list>
     </option>
   </component>
@@ -379,13 +389,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/phpunit.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="86" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="0.0">
@@ -463,20 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="2051" selection-end="2051" vertical-scroll-proportion="-20.222221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/VerifyTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="5" selection-start="1476" selection-end="1476" vertical-scroll-proportion="-23.25926">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Codeception/function.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="0" selection-start="702" selection-end="702" vertical-scroll-proportion="-11.592592">
@@ -486,7 +475,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.030701755">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VERSION">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/VerifyTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-1.5555556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="0" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.74925375">
           <folding />
         </state>
       </provider>

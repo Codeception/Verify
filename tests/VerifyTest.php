@@ -55,10 +55,11 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         verify_not(array());
     }
 
-    public function textExpectFunctions()
+    public function testExpectFunctions()
     {
         expect(12)->equals(12);
         expect_that(true);
         expect_not(false);
     }
+
 }

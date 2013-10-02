@@ -87,5 +87,6 @@ class Verify {
     {
         a::assertNotEmpty($this->actual, $this->description);
     }
+
 }
 
