@@ -40,4 +40,25 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         verify(array('3', '5'))->notEmpty();
         verify(array())->isEmpty();
     }
+
+    public function testVerifyThat()
+    {
+        verify_that(12);
+        verify_that('hello world');
+        verify_that(array('hello'));
+    }
+
+    public function testVerifyNot()
+    {
+        verify_not(false);
+        verify_not(null);
+        verify_not(array());
+    }
+
+    public function textExpectFunctions()
+    {
+        expect(12)->equals(12);
+        expect_that(true);
+        expect_not(false);
+    }
 }

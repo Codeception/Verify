@@ -4,13 +4,45 @@
     <list default="true" id="10c93e83-d54b-488b-81f1-d5a1fca34c46" name="Default" comment="" />
     <ignored path="verify.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374708328279" ignored="false" />
-    <file path="/Verify.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374716402653" ignored="false" />
+    <file path="/Dummy.txt" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375205176458" ignored="false" />
+    <file path="/Verify.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380750588735" ignored="false" />
     <file path="/composer.json" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374708741710" ignored="false" />
-    <file path="/VerifyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374716485709" ignored="false" />
-    <file path="/function.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374714848191" ignored="false" />
+    <file path="/VerifyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380750846719" ignored="false" />
+    <file path="/function.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380750648650" ignored="false" />
     <file path="/phpunit.xml" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374714867490" ignored="false" />
-    <file path="/README.md" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1374715752518" ignored="false" />
+    <file path="/README.md" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1380751213694" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/unit/ClassProxyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375147488705" ignored="false" />
+    <file path="/ClassProxyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375145536042" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/src/AspectMock/Proxy/ClassProxy.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375149091619" ignored="false" />
+    <file path="/ClassProxy.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375149091619" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/_data/demo/MegaClass.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375143784381" ignored="false" />
+    <file path="/MegaClass.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375143783867" ignored="false" />
+    <file path="/MockTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375150557733" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/unit/MockTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375150580284" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/src/AspectMock/Proxy/Anything.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375141373522" ignored="false" />
+    <file path="/Maybe.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375141371853" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/src/AspectMock/Util/Undefined.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375141361566" ignored="false" />
+    <file path="/fragment.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375144211979" ignored="false" />
+    <file path="/a.dummy" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375142645141" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/_bootstrap.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375147254817" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/_data/cache/src/AspectMock/Proxy/ClassProxy.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375143854993" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/_data/cache/tests/unit/ClassProxyTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375143420134" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/src/AspectMock/Proxy/InstanceProxy.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375146982000" ignored="false" />
+    <file path="/InstanceProxy.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375144392448" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/_data/cache/src/AspectMock/Proxy/InstanceProxy.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375144838713" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/src/AspectMock/Test.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375148782313" ignored="false" />
+    <file path="/Test.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375148781303" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/_data/cache/src/AspectMock/Test.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375145550207" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/unit/InstanceTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375147069278" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/unit/testDoubleTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375152001920" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/tests/_data/cache/src/AspectMock/Proxy/Verifier.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375147142098" ignored="false" />
+    <file path="/Verifier.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375148083010" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/src/AspectMock/Proxy/Verifier.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375148101401" ignored="false" />
+    <file path="/testDoubleTest.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375151995280" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/src/AspectMock/Core/Registry.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375151606659" ignored="false" />
+    <file path="/Registry.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375151606023" ignored="false" />
+    <file path="$USER_HOME$/AspectMock/src/AspectMock/Proxy/MethodProxy.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375150549652" ignored="false" />
+    <file path="/MethodProxy.php" changelist="10c93e83-d54b-488b-81f1-d5a1fca34c46" time="1375150549652" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +69,34 @@
       <file leaf-file-name="Verify.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-17.37037">
+            <state line="91" column="0" selection-start="2051" selection-end="2051" vertical-scroll-proportion="-20.222221">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Assert.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/PHPUnit/Framework/Assert.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2534" column="48" selection-start="82361" selection-end="82361" vertical-scroll-proportion="-9.666667">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsEmpty.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/PHPUnit/Framework/Constraint/IsEmpty.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="6" selection-start="2743" selection-end="2743" vertical-scroll-proportion="-5.3703704">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsTrue.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/PHPUnit/Framework/Constraint/IsTrue.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="0" selection-start="3104" selection-end="3104" vertical-scroll-proportion="-23.25926">
               <folding />
             </state>
           </provider>
@@ -46,7 +105,7 @@
       <file leaf-file-name="function.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Codeception/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="5" selection-start="199" selection-end="199" vertical-scroll-proportion="-6.2222223">
+            <state line="31" column="0" selection-start="702" selection-end="702" vertical-scroll-proportion="-11.592592">
               <folding />
             </state>
           </provider>
@@ -55,25 +114,25 @@
       <file leaf-file-name="composer.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="-10.888889">
+            <state line="14" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VerifyTest.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="VerifyTest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/VerifyTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.85882354">
+            <state line="62" column="5" selection-start="1476" selection-end="1476" vertical-scroll-proportion="-23.25926">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0">
+            <state line="54" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.030701755">
               <folding />
             </state>
           </provider>
@@ -100,11 +159,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/Codeception/composer.json" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/src/Codeception/function.php" />
         <option value="$PROJECT_DIR$/phpunit.xml" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Codeception/Verify.php" />
         <option value="$PROJECT_DIR$/tests/VerifyTest.php" />
+        <option value="$PROJECT_DIR$/src/Codeception/function.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -186,6 +245,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Codeception" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -233,26 +296,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2569546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -316,23 +379,37 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Codeception/function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="5" selection-start="199" selection-end="199" vertical-scroll-proportion="-6.2222223">
+        <state line="8" column="5" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="-10.888889">
+        <state line="14" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+    <entry file="file://$PROJECT_DIR$/tests/VerifyTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+        <state line="41" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -344,16 +421,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/PHPUnit/Framework/Constraint/IsTrue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="0" selection-start="3104" selection-end="3104" vertical-scroll-proportion="-23.25926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/PHPUnit/Framework/Assert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2534" column="48" selection-start="82361" selection-end="82361" vertical-scroll-proportion="-9.666667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/PHPUnit/Framework/Constraint/IsEmpty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="6" selection-start="2743" selection-end="2743" vertical-scroll-proportion="-5.3703704">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Codeception/Verify.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-17.37037">
+        <state line="91" column="0" selection-start="2051" selection-end="2051" vertical-scroll-proportion="-20.222221">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/VerifyTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.85882354">
+        <state line="62" column="5" selection-start="1476" selection-end="1476" vertical-scroll-proportion="-23.25926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Codeception/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="702" selection-end="702" vertical-scroll-proportion="-11.592592">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.030701755">
           <folding />
         </state>
       </provider>
