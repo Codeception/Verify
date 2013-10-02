@@ -23,7 +23,7 @@ if (!function_exists('verify')) {
 
 }
 
-if (!function_exists('verify')) {
+if (!function_exists('expect')) {
     // alias methods
     function expect($description, $actual = null)
      {
