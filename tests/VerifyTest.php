@@ -62,4 +62,11 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         expect_not(false);
     }
 
+    public function testArrayHasKey()
+    {
+        $errors = array('title' => 'You should add title');
+        expect($errors)->hasKey('title');
+        expect($errors)->hasntKey('body');
+    }
+
 }

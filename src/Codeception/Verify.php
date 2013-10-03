@@ -88,5 +88,15 @@ class Verify {
         a::assertNotEmpty($this->actual, $this->description);
     }
 
+    public function hasKey($key)
+    {
+        a::assertArrayHasKey($key, $this->actual, $this->description);
+    }
+
+    public function hasntKey($key)
+    {
+        a::assertArrayNotHasKey($key, $this->actual, $this->description);
+    }
+
 }
 
