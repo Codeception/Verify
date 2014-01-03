@@ -82,6 +82,17 @@ With Composer:
 
 Use in any test `verify` function instead of `$this->assert*` methods.
 
+## Aliases
+
+Functions `v` and `e` available as short-hand aliases:
+
+``` php
+<?php
+v("hello")->equals("hello");       
+e("hello")->equals("hello");       
+?>
+```
+
 ## Extending
 
 `Codeception\Verify` class can be extended with custom assertions. You write your own`verify` function that would instantiate your extended version of Verify class.

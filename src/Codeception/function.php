@@ -20,7 +20,17 @@ if (!function_exists('verify')) {
     {
         verify($fallacy)->isEmpty();
     }
+}
 
+if (!function_exists('v')) {
+    /**
+     * @param $description
+     * @param null $actual
+     * @return Codeception\Verify
+     */
+    function v($description, $actual = null) {
+        return verify($description, $actual);
+    }
 }
 
 if (!function_exists('expect')) {
@@ -41,3 +51,15 @@ if (!function_exists('expect')) {
         expect($fallacy)->isEmpty();
     }
 }
+
+if (!function_exists('e')) {
+    /**
+     * @param $description
+     * @param null $actual
+     * @return Codeception\Verify
+     */
+    function e($description, $actual = null) {
+        return verify($description, $actual);
+    }
+}
+
