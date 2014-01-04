@@ -10,7 +10,7 @@ class Verify {
 
     public function __construct($description, $actual = null)
     {
-		$descriptionGiven = (func_num_args() == 2);
+       $descriptionGiven = (func_num_args() == 2);
 
         if (!$descriptionGiven) {
             $this->actual = $description;
