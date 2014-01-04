@@ -8,14 +8,8 @@ if (!function_exists('verify')) {
     function verify($description) {
         include_once __DIR__.'/Verify.php';
 
-        $descriptionGiven = (func_num_args() == 2);
-
-        if (!$descriptionGiven) {
-            return new Codeception\Verify($description);
-        } else {
-            $actual = func_get_args();
-            return new Codeception\Verify($description, $actual[1]);
-        }
+        $reflect  = new ReflectionClass('\Codeception\Verify');
+        return $reflect->newInstanceArgs(func_get_args());
     }
 
     function verify_that($truth) {
