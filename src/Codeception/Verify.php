@@ -8,14 +8,14 @@ class Verify {
     protected $actual = null;
     protected $description = '';
 
-    public function __construct($description, $actual = null)
+    public function __construct($description)
     {
        $descriptionGiven = (func_num_args() == 2);
 
         if (!$descriptionGiven) {
             $this->actual = $description;
         } else {
-            $this->actual = $actual;
+            $this->actual = func_get_args()[1];
             $this->description = $description;
         }
     }    
