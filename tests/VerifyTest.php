@@ -33,6 +33,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         verify(false)->false();
         verify(null)->null();
         verify(true)->notNull();
+        verify('something should be false', false)->false();
+        verify('something should be true', true)->true();
     }
 
     public function testEmptyNotEmpty()
@@ -73,6 +75,6 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     {
         v("hello")->equals("hello");       
         e("hello")->equals("hello");       
-    }    
+    }
 
 }

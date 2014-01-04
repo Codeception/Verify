@@ -5,19 +5,18 @@ if (!function_exists('verify')) {
      * @param null $actual
      * @return Codeception\Verify
      */
-    function verify($description, $actual = null)
-    {
+    function verify($description) {
         include_once __DIR__.'/Verify.php';
-        return new Codeception\Verify($description, $actual);
+
+        $reflect  = new ReflectionClass('\Codeception\Verify');
+        return $reflect->newInstanceArgs(func_get_args());
     }
 
-    function verify_that($truth)
-    {
+    function verify_that($truth) {
         verify($truth)->notEmpty();
     }
 
-    function verify_not($fallacy)
-    {
+    function verify_not($fallacy) {
         verify($fallacy)->isEmpty();
     }
 }
@@ -25,31 +24,30 @@ if (!function_exists('verify')) {
 if (!function_exists('v')) {
     /**
      * @param $description
-     * @param null $actual
+     * @param mixed $actual
      * @return Codeception\Verify
      */
-    function v($description, $actual = null) {
-        return verify($description, $actual);
+    function v() {
+        return call_user_func_array('verify', func_get_args());
     }
+
 }
 
 if (!function_exists('expect')) {
     // alias methods
-    function expect($description, $actual = null)
-     {
-         include_once __DIR__.'/Verify.php';
-         return new Codeception\Verify($description, $actual);
+    function expect() {
+        include_once __DIR__.'/Verify.php';
+        return call_user_func_array('verify', func_get_args());
      }
 
-    function expect_that($truth)
-    {
+    function expect_that($truth) {
         expect($truth)->notEmpty();
     }
 
-    function expect_not($fallacy)
-    {
+    function expect_not($fallacy) {
         expect($fallacy)->isEmpty();
     }
+
 }
 
 if (!function_exists('e')) {
@@ -58,8 +56,9 @@ if (!function_exists('e')) {
      * @param null $actual
      * @return Codeception\Verify
      */
-    function e($description, $actual = null) {
-        return verify($description, $actual);
+    function e() {
+        return call_user_func_array('verify', func_get_args());
     }
+
 }
 
