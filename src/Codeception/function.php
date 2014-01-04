@@ -1,9 +1,10 @@
 <?php
 if (!function_exists('verify')) {
+
     /**
      * @param $description
      * @param null $actual
-     * @return Codeception\Verify
+     * @return \Codeception\Verify
      */
     function verify($description) {
         include_once __DIR__.'/Verify.php';
@@ -22,10 +23,11 @@ if (!function_exists('verify')) {
 }
 
 if (!function_exists('v')) {
+
     /**
      * @param $description
-     * @param mixed $actual
-     * @return Codeception\Verify
+     * @param null $actual
+     * @return \Codeception\Verify
      */
     function v() {
         return call_user_func_array('verify', func_get_args());
@@ -34,7 +36,12 @@ if (!function_exists('v')) {
 }
 
 if (!function_exists('expect')) {
-    // alias methods
+
+    /**
+     * @param $description
+     * @param null $actual
+     * @return \Codeception\Verify
+     */
     function expect() {
         include_once __DIR__.'/Verify.php';
         return call_user_func_array('verify', func_get_args());
@@ -51,10 +58,11 @@ if (!function_exists('expect')) {
 }
 
 if (!function_exists('e')) {
+
     /**
      * @param $description
      * @param null $actual
-     * @return Codeception\Verify
+     * @return \Codeception\Verify
      */
     function e() {
         return call_user_func_array('verify', func_get_args());
