@@ -15,7 +15,8 @@ class Verify {
         if (!$descriptionGiven) {
             $this->actual = $description;
         } else {
-            $this->actual = func_get_args()[1];
+			$actual = func_get_args();
+            $this->actual = $actual[1];
             $this->description = $description;
         }
     }    

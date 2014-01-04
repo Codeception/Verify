@@ -13,8 +13,8 @@ if (!function_exists('verify')) {
         if (!$descriptionGiven) {
             return new Codeception\Verify($description);
         } else {
-            $actual = func_get_args()[1];
-            return new Codeception\Verify($description, $actual);			
+            $actual = func_get_args();
+            return new Codeception\Verify($description, $actual[1]);
         }
     }
 
@@ -40,8 +40,8 @@ if (!function_exists('v')) {
         if (!$descriptionGiven) {
             return verify($description);
         } else {
-            $actual = func_get_args()[1];
-            return verify($description, $actual);			
+            $actual = func_get_args();
+            return verify($description, $actual[1]);			
         }
     }
 
@@ -57,8 +57,8 @@ if (!function_exists('expect')) {
         if (!$descriptionGiven) {
             return verify($description);
         } else {
-            $actual = func_get_args()[1];
-            return verify($description, $actual);			
+            $actual = func_get_args();
+            return verify($description, $actual[1]);			
         }
      }
 
@@ -85,8 +85,8 @@ if (!function_exists('e')) {
         if (!$descriptionGiven) {
             return verify($description);
         } else {
-            $actual = func_get_args()[1];
-            return verify($description, $actual);			
+            $actual = func_get_args();
+            return verify($description, $actual[1]);
         }
     }
 
