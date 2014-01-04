@@ -33,33 +33,17 @@ if (!function_exists('v')) {
      * @param mixed $actual
      * @return Codeception\Verify
      */
-    function v($description) {
-
-       $descriptionGiven = (func_num_args() == 2);
-
-        if (!$descriptionGiven) {
-            return verify($description);
-        } else {
-            $actual = func_get_args();
-            return verify($description, $actual[1]);			
-        }
+    function v() {
+        return call_user_func_array('verify', func_get_args());
     }
 
 }
 
 if (!function_exists('expect')) {
     // alias methods
-    function expect($description) {
-         include_once __DIR__.'/Verify.php';
-
-        $descriptionGiven = (func_num_args() == 2);
-
-        if (!$descriptionGiven) {
-            return verify($description);
-        } else {
-            $actual = func_get_args();
-            return verify($description, $actual[1]);			
-        }
+    function expect() {
+        include_once __DIR__.'/Verify.php';
+        return call_user_func_array('verify', func_get_args());
      }
 
     function expect_that($truth) {
@@ -78,16 +62,8 @@ if (!function_exists('e')) {
      * @param null $actual
      * @return Codeception\Verify
      */
-    function e($description) {
-
-       $descriptionGiven = (func_num_args() == 2);
-
-        if (!$descriptionGiven) {
-            return verify($description);
-        } else {
-            $actual = func_get_args();
-            return verify($description, $actual[1]);
-        }
+    function e() {
+        return call_user_func_array('verify', func_get_args());
     }
 
 }
