@@ -71,10 +71,4 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         expect($errors)->hasntKey('body');
     }
 
-    public function testAliases()
-    {
-        v("hello")->equals("hello");       
-        e("hello")->equals("hello");       
-    }
-
 }
