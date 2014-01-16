@@ -1,5 +1,6 @@
 <?php
 if (!function_exists('verify')) {
+
     /**
      * @param $description
      * @param null $actual
@@ -21,22 +22,14 @@ if (!function_exists('verify')) {
     }
 }
 
-if (!function_exists('v')) {
+if (!function_exists('expect')) {
+
     /**
      * @param $description
-     * @param mixed $actual
+     * @param null $actual
      * @return Codeception\Verify
      */
-    function v() {
-        return call_user_func_array('verify', func_get_args());
-    }
-
-}
-
-if (!function_exists('expect')) {
-    // alias methods
     function expect() {
-        include_once __DIR__.'/Verify.php';
         return call_user_func_array('verify', func_get_args());
      }
 
@@ -49,16 +42,3 @@ if (!function_exists('expect')) {
     }
 
 }
-
-if (!function_exists('e')) {
-    /**
-     * @param $description
-     * @param null $actual
-     * @return Codeception\Verify
-     */
-    function e() {
-        return call_user_func_array('verify', func_get_args());
-    }
-
-}
-
