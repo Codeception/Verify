@@ -22,19 +22,6 @@ if (!function_exists('verify')) {
     }
 }
 
-if (!function_exists('v')) {
-
-    /**
-     * @param $description
-     * @param null $actual
-     * @return \Codeception\Verify
-     */
-    function v() {
-        return call_user_func_array('verify', func_get_args());
-    }
-
-}
-
 if (!function_exists('expect')) {
 
     /**
@@ -43,7 +30,6 @@ if (!function_exists('expect')) {
      * @return \Codeception\Verify
      */
     function expect() {
-        include_once __DIR__.'/Verify.php';
         return call_user_func_array('verify', func_get_args());
      }
 
@@ -56,17 +42,3 @@ if (!function_exists('expect')) {
     }
 
 }
-
-if (!function_exists('e')) {
-
-    /**
-     * @param $description
-     * @param null $actual
-     * @return \Codeception\Verify
-     */
-    function e() {
-        return call_user_func_array('verify', func_get_args());
-    }
-
-}
-
