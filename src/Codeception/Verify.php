@@ -46,7 +46,7 @@ class Verify {
         a::assertGreaterThan($expected, $this->actual, $this->description);
     }
 
-    public function lessThen($expected)
+    public function lessThan($expected)
     {
         a::assertLessThan($expected, $this->actual, $this->description);
     }
