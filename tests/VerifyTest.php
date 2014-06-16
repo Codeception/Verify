@@ -17,10 +17,10 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         verify("user have 5 posts", array(3, 2))->notContains(5);
     }
 
-    public function testGreaterLowerThen()
+    public function testGreaterLowerThan()
     {
         verify(7)->greaterThan(5);
-        verify(7)->lessThen(10);
+        verify(7)->lessThan(10);
         verify(7)->lessOrEquals(7);
         verify(7)->lessOrEquals(8);
         verify(7)->greaterOrEquals(7);
