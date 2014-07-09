@@ -101,5 +101,15 @@ class Verify {
         a::assertArrayNotHasKey($key, $this->actual, $this->description);
     }
 
+    public function isInstanceOf($key)
+    {
+        a::assertInstanceOf($key, $this->actual, $this->description);
+    }
+
+    public function internalType($key)
+    {
+        a::assertInternalType($key, $this->actual, $this->description);
+    }
+
 }
 
