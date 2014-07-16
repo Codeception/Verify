@@ -106,9 +106,64 @@ class Verify {
         a::assertInstanceOf($key, $this->actual, $this->description);
     }
 
+    public function isNotInstanceOf($key)
+    {
+        a::assertNotInstanceOf($key, $this->actual, $this->description);
+    }
+
     public function internalType($key)
     {
         a::assertInternalType($key, $this->actual, $this->description);
+    }
+
+    public function notInternalType($key)
+    {
+        a::assertNotInternalType($key, $this->actual, $this->description);
+    }
+
+    public function classHasAttribute($key)
+    {
+        a::assertClassHasAttribute($key, $this->actual, $this->description);
+    }
+
+    public function classNotHasAttribute($key)
+    {
+        a::assertClassNotHasAttribute($key, $this->actual, $this->description);
+    }
+
+    public function classHasStaticAttribute($key)
+    {
+        a::assertClassHasStaticAttribute($key, $this->actual, $this->description);
+    }
+
+    public function classNotHasStaticAttribute($key)
+    {
+        a::assertClassNotHasStaticAttribute($key, $this->actual, $this->description);
+    }
+
+    public function containsOnly($key, $isNativeType = NULL)
+    {
+        a::assertContainsOnly($key, $this->actual, $isNativeType, $this->description);
+    }
+
+    public function notContainsOnly($key, $isNativeType = NULL)
+    {
+        a::assertNotContainsOnly($key, $this->actual, $isNativeType, $this->description);
+    }
+
+    public function containsOnlyInstancesOf($key)
+    {
+        a::assertContainsOnlyInstancesOf($key, $this->actual, $this->description);
+    }
+
+    public function count($key)
+    {
+        a::assertCount($key, $this->actual, $this->description);
+    }
+
+    public function notCount($key)
+    {
+        a::assertNotCount($key, $this->actual, $this->description);
     }
 
 }

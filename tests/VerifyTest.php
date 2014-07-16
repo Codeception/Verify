@@ -71,4 +71,55 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         expect($errors)->hasntKey('body');
     }
 
+    public function testIsInstanceOf()
+    {
+        $testClass = new DateTime();
+        expect($testClass)->isInstanceOf('DateTime');
+        expect($testClass)->isNotInstanceOf('DateTimeZone');
+    }
+
+    public function testInternalType()
+    {
+        $testVar = array();
+        expect($testVar)->internalType('array');
+        expect($testVar)->notInternalType('boolean');
+    }
+
+    public function testClassHasAttribute()
+    {
+        expect('Exception')->classHasAttribute('message');
+        expect('Exception')->classNotHasAttribute('fakeproperty');
+    }
+
+    public function testClassHasStaticAttribute()
+    {
+        expect('FakeClassForTesting')->classHasStaticAttribute('staticProperty');
+        expect('FakeClassForTesting')->classNotHasStaticAttribute('fakeProperty');
+    }
+
+    public function testContainsOnly()
+    {
+        expect(array('1', '2', '3'))->containsOnly('string');
+        expect(array('1', '2', 3))->notContainsOnly('string');
+    }
+
+    public function testContainsOnlyInstancesOf()
+    {
+        expect(array(new FakeClassForTesting(), new FakeClassForTesting(), new FakeClassForTesting()))
+            ->containsOnlyInstancesOf('FakeClassForTesting');
+    }
+
+    public function testCount()
+    {
+        expect(array(1,2,3))->count(3);
+        expect(array(1,2,3))->notCount(2);
+    }
+
+}
+
+
+
+class FakeClassForTesting
+{
+    static $staticProperty;
 }
