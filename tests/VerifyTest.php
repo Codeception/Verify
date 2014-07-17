@@ -140,9 +140,9 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testEqualsJsonFile()
     {
-        expect_file('assets' . DIRECTORY_SEPARATOR . 'json-test-file.json')
+        expect_file(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'json-test-file.json')
             ->equalsJsonFile('assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
-        expect('{"some" : "data"}')->equalsJsonFile('assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
+        expect('{"some" : "data"}')->equalsJsonFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
     }
 
     public function testEqualsJsonString()
@@ -163,8 +163,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testMatchesFormatFile()
     {
-        expect('23')->matchesFormatFile('assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
-        expect('asdfas')->notMatchesFormatFile('assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        expect('23')->matchesFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        expect('asdfas')->notMatchesFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
     }
 
     public function testSame()
@@ -199,8 +199,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testEqualsFile()
     {
-        expect('%i')->equalsFile('assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
-        expect('Another string')->notEqualsFile('assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        expect('%i')->equalsFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        expect('Another string')->notEqualsFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
     }
 
     public function testStartsWith()
@@ -220,8 +220,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testEqualsXmlFile()
     {
-        expect_file('assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml')
-            ->equalsXmlFile('assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
+        expect_file(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml')
+            ->equalsXmlFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
         expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
             ->equalsXmlFile('assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
     }
