@@ -7,6 +7,7 @@ class Verify {
 
     protected $actual = null;
     protected $description = '';
+    protected $isFileExpectation = false;
 
     public function __construct($description)
     {
@@ -19,16 +20,32 @@ class Verify {
             $this->actual = $actual[1];
             $this->description = $description;
         }
-    }    
+    }
+
+    /**
+     * @param boolean $isFileExpectation
+     */
+    public function setIsFileExpectation($isFileExpectation)
+    {
+        $this->isFileExpectation = $isFileExpectation;
+    }
 
     public function equals($expected)
     {
-        a::assertEquals($expected, $this->actual, $this->description);
+        if ( ! $this->isFileExpectation ) {
+            a::assertEquals($expected, $this->actual, $this->description);
+        } else {
+            a::assertFileEquals($expected, $this->actual, $this->description);
+        }
     }
 
     public function notEquals($expected)
     {
-        a::assertNotEquals($expected, $this->actual, $this->description);
+        if ( ! $this->isFileExpectation ) {
+            a::assertNotEquals($expected, $this->actual, $this->description);
+        } else {
+            a::assertFileNotEquals($expected, $this->actual, $this->description);
+        }
     }
 
     public function contains($needle)
