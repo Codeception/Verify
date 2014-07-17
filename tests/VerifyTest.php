@@ -141,7 +141,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     public function testEqualsJsonFile()
     {
         expect_file(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'json-test-file.json')
-            ->equalsJsonFile('assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
+            ->equalsJsonFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
         expect('{"some" : "data"}')->equalsJsonFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
     }
 
@@ -223,7 +223,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         expect_file(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml')
             ->equalsXmlFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
         expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
-            ->equalsXmlFile('assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
+            ->equalsXmlFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
     }
 
     public function testEqualsXmlString()
