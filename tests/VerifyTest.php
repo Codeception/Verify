@@ -15,25 +15,25 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         verify(5)->equals(5);
         verify("hello")->equals("hello");
         verify("user have 5 posts", 5)->equals(5);
-        verify(3)->notEquals(5);
+        verify(3)->doesNotEqual(5);
         verify_file(__FILE__)->equals(__FILE__);
-        verify_file(__FILE__)->notEquals(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'composer.json');
+        verify_file(__FILE__)->doesNotEqual(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'composer.json');
     }
 
     public function testContains()
     {
         verify(array(3, 2))->contains(3);
-        verify("user have 5 posts", array(3, 2))->notContains(5);
+        verify("user have 5 posts", array(3, 2))->doesNotContain(5);
     }
 
     public function testGreaterLowerThen()
     {
-        verify(7)->greaterThan(5);
-        verify(7)->lessThan(10);
-        verify(7)->lessOrEquals(7);
-        verify(7)->lessOrEquals(8);
-        verify(7)->greaterOrEquals(7);
-        verify(7)->greaterOrEquals(5);
+        verify(7)->isGreaterThan(5);
+        verify(7)->isLessThan(10);
+        verify(7)->isLessOrEqualTo(7);
+        verify(7)->isLessOrEqualTo(8);
+        verify(7)->isGreaterOrEqualTo(7);
+        verify(7)->isGreaterOrEqualTo(5);
     }
 
     public function testTrueFalseNull()
@@ -48,7 +48,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testEmptyNotEmpty()
     {
-        verify(array('3', '5'))->notEmpty();
+        verify(array('3', '5'))->isNotEmpty();
         verify(array())->isEmpty();
     }
 
@@ -77,7 +77,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     {
         $errors = array('title' => 'You should add title');
         expect($errors)->hasKey('title');
-        expect($errors)->hasntKey('body');
+        expect($errors)->doesNotHaveKey('body');
     }
 
     public function testIsInstanceOf()
@@ -90,26 +90,26 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     public function testInternalType()
     {
         $testVar = array();
-        expect($testVar)->internalType('array');
-        expect($testVar)->notInternalType('boolean');
+        expect($testVar)->isInternalType('array');
+        expect($testVar)->isNotInternalType('boolean');
     }
 
     public function testHasAttribute()
     {
         expect('Exception')->hasAttribute('message');
-        expect('Exception')->notHasAttribute('fakeproperty');
+        expect('Exception')->doesNotHaveAttribute('fakeproperty');
     }
 
     public function testHasStaticAttribute()
     {
         expect('FakeClassForTesting')->hasStaticAttribute('staticProperty');
-        expect('FakeClassForTesting')->notHasStaticAttribute('fakeProperty');
+        expect('FakeClassForTesting')->doesNotHaveStaticAttribute('fakeProperty');
     }
 
     public function testContainsOnly()
     {
         expect(array('1', '2', '3'))->containsOnly('string');
-        expect(array('1', '2', 3))->notContainsOnly('string');
+        expect(array('1', '2', 3))->doesNotContainOnly('string');
     }
 
     public function testContainsOnlyInstancesOf()
@@ -129,13 +129,13 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         $expected = new DOMElement('foo');
         $actual = new DOMElement('foo');
 
-        expect($expected)->equalXMLStructure($actual);
+        expect($expected)->xmlStructurEquals($actual);
     }
 
     public function testFileExists()
     {
         expect_file(__FILE__)->exists();
-        expect_file('completelyrandomfilename.txt')->notExists();
+        expect_file('completelyrandomfilename.txt')->doesNotExist();
     }
 
     public function testEqualsJsonFile()
@@ -152,19 +152,19 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testRegExp()
     {
-        expect('somestring')->regExp('/string/');
+        expect('somestring')->matchesRegExp('/string/');
     }
 
     public function testMatchesFormat()
     {
         expect('somestring')->matchesFormat('%s');
-        expect('somestring')->notMatchesFormat('%i');
+        expect('somestring')->doesNotMatchFormat('%i');
     }
 
     public function testMatchesFormatFile()
     {
         expect('23')->matchesFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
-        expect('asdfas')->notMatchesFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        expect('asdfas')->doesNotMatchFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
     }
 
     public function testSame()
@@ -175,38 +175,38 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testSelectCount()
     {
-        expect($this->xml)->selectCount('foo bar', true);
-        expect($this->xml)->selectCount('foo bar', 2);
+        expect($this->xml)->selectorCount('foo bar', true);
+        expect($this->xml)->selectorCount('foo bar', 2);
     }
 
     public function testSelectEquals()
     {
-        expect($this->xml)->selectEquals('foo bar', 'Baz', true);
-        expect($this->xml)->selectEquals('foo bar', 'Baz', 2);
+        expect($this->xml)->selectorEquals('foo bar', 'Baz', true);
+        expect($this->xml)->selectorEquals('foo bar', 'Baz', 2);
     }
 
     public function testSelectRegExp()
     {
-        expect($this->xml)->selectRegExp('foo bar', '/Ba.*/', true);
-        expect($this->xml)->selectRegExp('foo bar', '/Ba.*/', 2);
+        expect($this->xml)->selectorMatchesRegExp('foo bar', '/Ba.*/', true);
+        expect($this->xml)->selectorMatchesRegExp('foo bar', '/Ba.*/', 2);
     }
 
     public function testEndsWith()
     {
         expect('A completely not funny string')->endsWith('ny string');
-        expect('A completely not funny string')->notEndsWith('A completely');
+        expect('A completely not funny string')->doesNotEndWith('A completely');
     }
 
     public function testEqualsFile()
     {
         expect('%i')->equalsFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
-        expect('Another string')->notEqualsFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        expect('Another string')->doesNotEqualFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
     }
 
     public function testStartsWith()
     {
         expect('A completely not funny string')->startsWith('A completely');
-        expect('A completely not funny string')->notStartsWith('string');
+        expect('A completely not funny string')->doesNotStartWith('string');
     }
 
     public function testTag()
@@ -215,7 +215,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
             'tag' => 'bar',
             'parent' => array('tag' => 'foo')
         );
-        expect($this->xml)->tag($matcher);
+        expect($this->xml)->matchesTag($matcher);
     }
 
     public function testEqualsXmlFile()
