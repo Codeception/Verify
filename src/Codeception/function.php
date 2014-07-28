@@ -14,7 +14,7 @@ if (!function_exists('verify')) {
     }
 
     function verify_that($truth) {
-        verify($truth)->notEmpty();
+        verify($truth)->isNotEmpty();
     }
 
     function verify_not($fallacy) {
@@ -34,7 +34,7 @@ if (!function_exists('expect')) {
      }
 
     function expect_that($truth) {
-        expect($truth)->notEmpty();
+        expect($truth)->isNotEmpty();
     }
 
     function expect_not($fallacy) {

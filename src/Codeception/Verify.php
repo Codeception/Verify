@@ -39,7 +39,7 @@ class Verify {
         }
     }
 
-    public function notEquals($expected)
+    public function doesNotEqual($expected)
     {
         if ( ! $this->isFileExpectation ) {
             a::assertNotEquals($expected, $this->actual, $this->description);
@@ -53,27 +53,27 @@ class Verify {
         a::assertContains($needle, $this->actual, $this->description);
     }
 
-    public function notContains($needle)
+    public function doesNotContain($needle)
     {
         a::assertNotContains($needle, $this->actual, $this->description);
     }
 
-    public function greaterThan($expected)
+    public function isGreaterThan($expected)
     {
         a::assertGreaterThan($expected, $this->actual, $this->description);
     }
 
-    public function lessThan($expected)
+    public function isLessThan($expected)
     {
         a::assertLessThan($expected, $this->actual, $this->description);
     }
 
-    public function greaterOrEquals($expected)
+    public function isGreaterOrEqualTo($expected)
     {
         a::assertGreaterThanOrEqual($expected, $this->actual, $this->description);
     }
 
-    public function lessOrEquals($expected)
+    public function isLessOrEqualTo($expected)
     {
         a::assertLessThanOrEqual($expected, $this->actual, $this->description);
     }
@@ -103,7 +103,7 @@ class Verify {
         a::assertEmpty($this->actual, $this->description);
     }
 
-    public function notEmpty()
+    public function isNotEmpty()
     {
         a::assertNotEmpty($this->actual, $this->description);
     }
@@ -113,7 +113,7 @@ class Verify {
         a::assertArrayHasKey($key, $this->actual, $this->description);
     }
 
-    public function hasntKey($key)
+    public function doesNotHaveKey($key)
     {
         a::assertArrayNotHasKey($key, $this->actual, $this->description);
     }
@@ -128,12 +128,12 @@ class Verify {
         a::assertNotInstanceOf($class, $this->actual, $this->description);
     }
 
-    public function internalType($type)
+    public function isInternalType($type)
     {
         a::assertInternalType($type, $this->actual, $this->description);
     }
 
-    public function notInternalType($type)
+    public function isNotInternalType($type)
     {
         a::assertNotInternalType($type, $this->actual, $this->description);
     }
@@ -147,7 +147,7 @@ class Verify {
         }
     }
 
-    public function notHasAttribute($attribute)
+    public function doesNotHaveAttribute($attribute)
     {
         if ( is_string($attribute)) {
             a::assertClassNotHasAttribute($attribute, $this->actual, $this->description);
@@ -161,7 +161,7 @@ class Verify {
         a::assertClassHasStaticAttribute($attribute, $this->actual, $this->description);
     }
 
-    public function notHasStaticAttribute($attribute)
+    public function doesNotHaveStaticAttribute($attribute)
     {
         a::assertClassNotHasStaticAttribute($attribute, $this->actual, $this->description);
     }
@@ -171,7 +171,7 @@ class Verify {
         a::assertContainsOnly($type, $this->actual, $isNativeType, $this->description);
     }
 
-    public function notContainsOnly($type, $isNativeType = NULL)
+    public function doesNotContainOnly($type, $isNativeType = NULL)
     {
         a::assertNotContainsOnly($type, $this->actual, $isNativeType, $this->description);
     }
@@ -191,7 +191,7 @@ class Verify {
         a::assertNotCount($array, $this->actual, $this->description);
     }
 
-    public function equalXMLStructure($xml, $checkAttributes = FALSE)
+    public function xmlStructurEquals($xml, $checkAttributes = FALSE)
     {
         a::assertEqualXMLStructure($xml, $this->actual, $checkAttributes, $this->description);
     }
@@ -204,10 +204,10 @@ class Verify {
         a::assertFileExists($this->actual, $this->description);
     }
 
-    public function notExists()
+    public function doesNotExist()
     {
         if ( ! $this->isFileExpectation ) {
-            throw new \Exception('notExists() expectation should be called with expect_file()');
+            throw new \Exception('doesNotExist() expectation should be called with expect_file()');
         }
         a::assertFileNotExists($this->actual, $this->description);
     }
@@ -226,7 +226,7 @@ class Verify {
         a::assertJsonStringEqualsJsonString($string, $this->actual, $this->description);
     }
 
-    public function regExp($expression)
+    public function matchesRegExp($expression)
     {
         a::assertRegExp($expression, $this->actual, $this->description);
     }
@@ -236,7 +236,7 @@ class Verify {
         a::assertStringMatchesFormat($format, $this->actual, $this->description);
     }
 
-    public function notMatchesFormat($format)
+    public function doesNotMatchFormat($format)
     {
         a::assertStringNotMatchesFormat($format, $this->actual, $this->description);
     }
@@ -246,7 +246,7 @@ class Verify {
         a::assertStringMatchesFormatFile($formatFile, $this->actual, $this->description);
     }
 
-    public function notMatchesFormatFile($formatFile)
+    public function doesNotMatchFormatFile($formatFile)
     {
         a::assertStringNotMatchesFormatFile($formatFile, $this->actual, $this->description);
     }
@@ -261,17 +261,17 @@ class Verify {
         a::assertNotSame($expected, $this->actual, $this->description);
     }
 
-    public function selectCount($selector, $count)
+    public function selectorCount($selector, $count)
     {
         a::assertSelectCount($selector, $count, $this->actual, $this->description);
     }
 
-    public function selectEquals($selector, $content,  $count)
+    public function selectorEquals($selector, $content, $count)
     {
         a::assertSelectEquals($selector, $content,  $count, $this->actual, $this->description);
     }
 
-    public function selectRegExp($selector, $pattern, $count)
+    public function selectorMatchesRegExp($selector, $pattern, $count)
     {
         a::assertSelectRegExp($selector, $pattern,  $count, $this->actual, $this->description);
     }
@@ -281,7 +281,7 @@ class Verify {
         a::assertStringEndsWith($suffix, $this->actual, $this->description);
     }
 
-    public function notEndsWith($suffix)
+    public function doesNotEndWith($suffix)
     {
         a::assertStringEndsNotWith($suffix, $this->actual, $this->description);
     }
@@ -291,7 +291,7 @@ class Verify {
         a::assertStringEqualsFile($file, $this->actual, $this->description);
     }
 
-    public function notEqualsFile($file)
+    public function doesNotEqualFile($file)
     {
         a::assertStringNotEqualsFile($file, $this->actual, $this->description);
     }
@@ -301,12 +301,12 @@ class Verify {
         a::assertStringStartsWith($prefix, $this->actual, $this->description);
     }
 
-    public function notStartsWith($prefix)
+    public function doesNotStartWith($prefix)
     {
         a::assertStringStartsNotWith($prefix, $this->actual, $this->description);
     }
 
-    public function tag($matcher)
+    public function matchesTag($matcher)
     {
         a::assertTag($matcher, $this->actual, $this->description);
     }
