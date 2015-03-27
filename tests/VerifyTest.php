@@ -20,7 +20,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     public function testGreaterLowerThen()
     {
         verify(7)->greaterThan(5);
-        verify(7)->lessThen(10);
+        verify(7)->lessThan(10);
         verify(7)->lessOrEquals(7);
         verify(7)->lessOrEquals(8);
         verify(7)->greaterOrEquals(7);
