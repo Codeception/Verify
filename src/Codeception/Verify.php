@@ -7,6 +7,7 @@ class Verify {
 
     protected $actual = null;
     protected $description = '';
+    protected $isFileExpectation = false;
 
     public function __construct($description)
     {
@@ -19,16 +20,32 @@ class Verify {
             $this->actual = $actual[1];
             $this->description = $description;
         }
-    }    
+    }
+
+    /**
+     * @param boolean $isFileExpectation
+     */
+    public function setIsFileExpectation($isFileExpectation)
+    {
+        $this->isFileExpectation = $isFileExpectation;
+    }
 
     public function equals($expected)
     {
-        a::assertEquals($expected, $this->actual, $this->description);
+        if ( ! $this->isFileExpectation ) {
+            a::assertEquals($expected, $this->actual, $this->description);
+        } else {
+            a::assertFileEquals($expected, $this->actual, $this->description);
+        }
     }
 
     public function notEquals($expected)
     {
-        a::assertNotEquals($expected, $this->actual, $this->description);
+        if ( ! $this->isFileExpectation ) {
+            a::assertNotEquals($expected, $this->actual, $this->description);
+        } else {
+            a::assertFileNotEquals($expected, $this->actual, $this->description);
+        }
     }
 
     public function contains($needle)
@@ -99,6 +116,213 @@ class Verify {
     public function hasntKey($key)
     {
         a::assertArrayNotHasKey($key, $this->actual, $this->description);
+    }
+
+    public function isInstanceOf($class)
+    {
+        a::assertInstanceOf($class, $this->actual, $this->description);
+    }
+
+    public function isNotInstanceOf($class)
+    {
+        a::assertNotInstanceOf($class, $this->actual, $this->description);
+    }
+
+    public function internalType($type)
+    {
+        a::assertInternalType($type, $this->actual, $this->description);
+    }
+
+    public function notInternalType($type)
+    {
+        a::assertNotInternalType($type, $this->actual, $this->description);
+    }
+
+    public function hasAttribute($attribute)
+    {
+        if ( is_string($attribute)) {
+            a::assertClassHasAttribute($attribute, $this->actual, $this->description);
+        } else {
+            a::assertObjectHasAttribute($attribute, $this->actual, $this->description);
+        }
+    }
+
+    public function notHasAttribute($attribute)
+    {
+        if ( is_string($attribute)) {
+            a::assertClassNotHasAttribute($attribute, $this->actual, $this->description);
+        } else {
+            a::assertObjectNotHasAttribute($attribute, $this->actual, $this->description);
+        }
+    }
+
+    public function hasStaticAttribute($attribute)
+    {
+        a::assertClassHasStaticAttribute($attribute, $this->actual, $this->description);
+    }
+
+    public function notHasStaticAttribute($attribute)
+    {
+        a::assertClassNotHasStaticAttribute($attribute, $this->actual, $this->description);
+    }
+
+    public function containsOnly($type, $isNativeType = NULL)
+    {
+        a::assertContainsOnly($type, $this->actual, $isNativeType, $this->description);
+    }
+
+    public function notContainsOnly($type, $isNativeType = NULL)
+    {
+        a::assertNotContainsOnly($type, $this->actual, $isNativeType, $this->description);
+    }
+
+    public function containsOnlyInstancesOf($class)
+    {
+        a::assertContainsOnlyInstancesOf($class, $this->actual, $this->description);
+    }
+
+    public function count($array)
+    {
+        a::assertCount($array, $this->actual, $this->description);
+    }
+
+    public function notCount($array)
+    {
+        a::assertNotCount($array, $this->actual, $this->description);
+    }
+
+    public function equalXMLStructure($xml, $checkAttributes = FALSE)
+    {
+        a::assertEqualXMLStructure($xml, $this->actual, $checkAttributes, $this->description);
+    }
+
+    public function exists()
+    {
+        if ( ! $this->isFileExpectation ) {
+            throw new \Exception('exists() expectation should be called with expect_file()');
+        }
+        a::assertFileExists($this->actual, $this->description);
+    }
+
+    public function notExists()
+    {
+        if ( ! $this->isFileExpectation ) {
+            throw new \Exception('notExists() expectation should be called with expect_file()');
+        }
+        a::assertFileNotExists($this->actual, $this->description);
+    }
+
+    public function equalsJsonFile($file)
+    {
+        if ( ! $this->isFileExpectation ) {
+            a::assertJsonStringEqualsJsonFile($file, $this->actual, $this->description);
+        } else {
+            a::assertJsonFileEqualsJsonFile($file, $this->actual, $this->description);
+        }
+    }
+
+    public function equalsJsonString($string)
+    {
+        a::assertJsonStringEqualsJsonString($string, $this->actual, $this->description);
+    }
+
+    public function regExp($expression)
+    {
+        a::assertRegExp($expression, $this->actual, $this->description);
+    }
+
+    public function matchesFormat($format)
+    {
+        a::assertStringMatchesFormat($format, $this->actual, $this->description);
+    }
+
+    public function notMatchesFormat($format)
+    {
+        a::assertStringNotMatchesFormat($format, $this->actual, $this->description);
+    }
+
+    public function matchesFormatFile($formatFile)
+    {
+        a::assertStringMatchesFormatFile($formatFile, $this->actual, $this->description);
+    }
+
+    public function notMatchesFormatFile($formatFile)
+    {
+        a::assertStringNotMatchesFormatFile($formatFile, $this->actual, $this->description);
+    }
+
+    public function same($expected)
+    {
+        a::assertSame($expected, $this->actual, $this->description);
+    }
+
+    public function notSame($expected)
+    {
+        a::assertNotSame($expected, $this->actual, $this->description);
+    }
+
+    public function selectCount($selector, $count)
+    {
+        a::assertSelectCount($selector, $count, $this->actual, $this->description);
+    }
+
+    public function selectEquals($selector, $content,  $count)
+    {
+        a::assertSelectEquals($selector, $content,  $count, $this->actual, $this->description);
+    }
+
+    public function selectRegExp($selector, $pattern, $count)
+    {
+        a::assertSelectRegExp($selector, $pattern,  $count, $this->actual, $this->description);
+    }
+
+    public function endsWith($suffix)
+    {
+        a::assertStringEndsWith($suffix, $this->actual, $this->description);
+    }
+
+    public function notEndsWith($suffix)
+    {
+        a::assertStringEndsNotWith($suffix, $this->actual, $this->description);
+    }
+
+    public function equalsFile($file)
+    {
+        a::assertStringEqualsFile($file, $this->actual, $this->description);
+    }
+
+    public function notEqualsFile($file)
+    {
+        a::assertStringNotEqualsFile($file, $this->actual, $this->description);
+    }
+
+    public function startsWith($prefix)
+    {
+        a::assertStringStartsWith($prefix, $this->actual, $this->description);
+    }
+
+    public function notStartsWith($prefix)
+    {
+        a::assertStringStartsNotWith($prefix, $this->actual, $this->description);
+    }
+
+    public function tag($matcher)
+    {
+        a::assertTag($matcher, $this->actual, $this->description);
+    }
+
+    public function equalsXmlFile($file)
+    {
+        if ( ! $this->isFileExpectation ) {
+            a::assertXmlStringEqualsXmlFile($file, $this->actual, $this->description);
+        } else {
+            a::assertXmlFileEqualsXmlFile($file, $this->actual, $this->description);
+        }
+    }
+
+    public function equalsXmlString($xmlString)
+    {
+        a::assertXmlStringEqualsXmlString($xmlString, $this->actual, $this->description);
     }
 
 }
