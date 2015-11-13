@@ -1,5 +1,7 @@
 <?php
+
 include __DIR__.'/../src/Codeception/function.php';
+error_reporting(E_ALL ^ E_DEPRECATED);
 
 class VerifyTest extends PHPUnit_Framework_TestCase {
 
