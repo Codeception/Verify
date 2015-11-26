@@ -24,7 +24,9 @@ class RoboFile extends \Robo\Tasks
             ->push('origin','master --tags')
             ->run();
 
-        $this->taskGitHubRelease($newVer)
+        $this->taskGitHubRelease($version)
+            ->uri('Codeception/Verify')
+            ->askForChanges()
             ->run();
     }
 }

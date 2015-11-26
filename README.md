@@ -84,6 +84,10 @@ Use in any test `verify` function instead of `$this->assert*` methods.
 
 ## Extending
 
-`Codeception\Verify` class can be extended with custom assertions. You write your own`verify` function that would instantiate your extended version of Verify class.
+`Codeception\Verify` class can be extended with custom assertions. You write your own `verify` function that would instantiate your extended version of Verify class.
+
+```php
+function verify(
+```
 
 **License: MIT**
