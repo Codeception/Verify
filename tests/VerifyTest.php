@@ -1,5 +1,7 @@
 <?php
+
 include __DIR__.'/../src/Codeception/function.php';
+include __DIR__.'/../vendor/autoload.php';
 
 class VerifyTest extends PHPUnit_Framework_TestCase {
 
@@ -173,24 +175,6 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         expect(1)->notSame(true);
     }
 
-    public function testSelectCount()
-    {
-        expect($this->xml)->selectCount('foo bar', true);
-        expect($this->xml)->selectCount('foo bar', 2);
-    }
-
-    public function testSelectEquals()
-    {
-        expect($this->xml)->selectEquals('foo bar', 'Baz', true);
-        expect($this->xml)->selectEquals('foo bar', 'Baz', 2);
-    }
-
-    public function testSelectRegExp()
-    {
-        expect($this->xml)->selectRegExp('foo bar', '/Ba.*/', true);
-        expect($this->xml)->selectRegExp('foo bar', '/Ba.*/', 2);
-    }
-
     public function testEndsWith()
     {
         expect('A completely not funny string')->endsWith('ny string');
@@ -209,15 +193,6 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         expect('A completely not funny string')->notStartsWith('string');
     }
 
-    public function testTag()
-    {
-        $matcher = array(
-            'tag' => 'bar',
-            'parent' => array('tag' => 'foo')
-        );
-        expect($this->xml)->tag($matcher);
-    }
-
     public function testEqualsXmlFile()
     {
         expect_file(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml')
@@ -231,7 +206,6 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
             ->equalsXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
-
 }
 
 
