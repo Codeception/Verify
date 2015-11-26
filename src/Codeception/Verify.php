@@ -1,7 +1,7 @@
 <?php
 namespace Codeception;
 
-use \PHPUnit_Framework_Assert as a;
+use PHPUnit_Framework_Assert as a;
 
 class Verify {
 
@@ -140,7 +140,7 @@ class Verify {
 
     public function hasAttribute($attribute)
     {
-        if ( is_string($attribute)) {
+        if (is_string($attribute)) {
             a::assertClassHasAttribute($attribute, $this->actual, $this->description);
         } else {
             a::assertObjectHasAttribute($attribute, $this->actual, $this->description);
@@ -149,7 +149,7 @@ class Verify {
 
     public function notHasAttribute($attribute)
     {
-        if ( is_string($attribute)) {
+        if (is_string($attribute)) {
             a::assertClassNotHasAttribute($attribute, $this->actual, $this->description);
         } else {
             a::assertObjectNotHasAttribute($attribute, $this->actual, $this->description);
@@ -198,7 +198,7 @@ class Verify {
 
     public function exists()
     {
-        if ( ! $this->isFileExpectation ) {
+        if (!$this->isFileExpectation ) {
             throw new \Exception('exists() expectation should be called with expect_file()');
         }
         a::assertFileExists($this->actual, $this->description);
@@ -206,7 +206,7 @@ class Verify {
 
     public function notExists()
     {
-        if ( ! $this->isFileExpectation ) {
+        if (!$this->isFileExpectation ) {
             throw new \Exception('notExists() expectation should be called with expect_file()');
         }
         a::assertFileNotExists($this->actual, $this->description);
@@ -214,7 +214,7 @@ class Verify {
 
     public function equalsJsonFile($file)
     {
-        if ( ! $this->isFileExpectation ) {
+        if (!$this->isFileExpectation ) {
             a::assertJsonStringEqualsJsonFile($file, $this->actual, $this->description);
         } else {
             a::assertJsonFileEqualsJsonFile($file, $this->actual, $this->description);
@@ -261,21 +261,6 @@ class Verify {
         a::assertNotSame($expected, $this->actual, $this->description);
     }
 
-    public function selectCount($selector, $count)
-    {
-        a::assertSelectCount($selector, $count, $this->actual, $this->description);
-    }
-
-    public function selectEquals($selector, $content,  $count)
-    {
-        a::assertSelectEquals($selector, $content,  $count, $this->actual, $this->description);
-    }
-
-    public function selectRegExp($selector, $pattern, $count)
-    {
-        a::assertSelectRegExp($selector, $pattern,  $count, $this->actual, $this->description);
-    }
-
     public function endsWith($suffix)
     {
         a::assertStringEndsWith($suffix, $this->actual, $this->description);
@@ -306,14 +291,9 @@ class Verify {
         a::assertStringStartsNotWith($prefix, $this->actual, $this->description);
     }
 
-    public function tag($matcher)
-    {
-        a::assertTag($matcher, $this->actual, $this->description);
-    }
-
     public function equalsXmlFile($file)
     {
-        if ( ! $this->isFileExpectation ) {
+        if (!$this->isFileExpectation ) {
             a::assertXmlStringEqualsXmlFile($file, $this->actual, $this->description);
         } else {
             a::assertXmlFileEqualsXmlFile($file, $this->actual, $this->description);
@@ -324,6 +304,4 @@ class Verify {
     {
         a::assertXmlStringEqualsXmlString($xmlString, $this->actual, $this->description);
     }
-
 }
-
