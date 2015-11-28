@@ -1,16 +1,14 @@
 Verify
 ======
 
-BDD Assertions for PHPUnit and Codeception
+BDD Assertions for [PHPUnit][1] and [Codeception][2]
 
 This is very tiny wrapper for PHPUnit assertions, that are aimed to make tests a bit more readable.
-With BDD assertions influenced by Chai, Jasmine, and RSpec your assertions would be a bit closer to natural language.
+With [BDD][3] assertions influenced by [Chai][4], [Jasmine][5], and [RSpec][6] your assertions would be a bit closer to natural language.
 
 [![Build Status](https://travis-ci.org/Codeception/Verify.png?branch=master)](https://travis-ci.org/Codeception/Verify) [![Latest Stable Version](https://poser.pugx.org/codeception/verify/v/stable.png)](https://packagist.org/packages/codeception/verify)
 
-
-``` php
-<?php
+```php
 $user = User::find(1);
 
 // equal
@@ -33,7 +31,7 @@ verify($rate)->lessOrEquals(8);
 verify($rate)->greaterOrEquals(7);
 verify($rate)->greaterOrEquals(5);
 
-// true/false/null
+// true / false / null
 verify($user->isAdmin())->true();
 verify($user->isBanned())->false();
 verify($user->invitedBy)->null();
@@ -42,16 +40,13 @@ verify($user->getPosts())->notNull();
 // empty
 verify($user->getComments())->isEmpty();
 verify($user->getRoles())->notEmpty();
-?>
 ```
 
 Shorthands for testing truth/fallacy:
 
-``` php
-<?php
+```php
 verify_that($user->isActivated());
 verify_not($user->isBanned());
-?>
 ```
 
 This 2 functions doesn't check for strict true/false matching, rather `empty` function is used.
@@ -61,21 +56,34 @@ This 2 functions doesn't check for strict true/false matching, rather `empty` fu
 
 If you follow TDD/BDD you'd rather use `expect` instead of `verify`. Which is just an alias functions:
 
-``` php
+```php
 expect("user have 5 posts", $user->getNumPosts())->equals(5);
 expect_that($user->isActive());
 expect_not($user->isBanned());
 ```
 
-
 ## Installation
 
-With Composer:
+### Installing via Composer
 
+Install composer in a common location or in your project:
+
+```sh
+curl -s http://getcomposer.org/installer | php
 ```
+
+Create the `composer.json` file as follows:
+
+```json
 "require-dev": {
     "codeception/verify": "*"
 }
+```
+
+Run the composer installer:
+
+```sh
+php composer.phar install
 ```
 
 ## Usage
@@ -86,4 +94,14 @@ Use in any test `verify` function instead of `$this->assert*` methods.
 
 `Codeception\Verify` class can be extended with custom assertions. You write your own `verify` function that would instantiate your extended version of Verify class.
 
-**License: MIT**
+## License
+
+Verify is open-sourced software licensed under the [MIT][7] License. © Codeception PHP Testing Framework
+
+[1]: https://phpunit.de/
+[2]: http://codeception.com/
+[3]: https://en.wikipedia.org/wiki/Behavior-driven_development
+[4]: http://chaijs.com/
+[5]: http://jasmine.github.io/
+[6]: http://rspec.info/
+[7]: https://github.com/Codeception/Verify/blob/master/LICENSE
