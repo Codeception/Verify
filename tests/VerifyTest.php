@@ -101,7 +101,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         expect('Exception')->hasAttribute('message');
         expect('Exception')->notHasAttribute('fakeproperty');
         
-        $testObject = (object) ['existingAttribute' => true];
+        $testObject = (object) array('existingAttribute' => true);
         expect($testObject)->hasAttribute('existingAttribute');
         expect($testObject)->notHasAttribute('fakeproperty');
     }
