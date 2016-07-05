@@ -54,7 +54,7 @@ These two functions don't check for strict true/false matching, rather `empty` f
 
 ## Alternative Syntax
 
-If you follow TDD/BDD you'd rather use `expect` instead of `verify`. Which is just an alias functions:
+If you follow TDD/BDD you'd rather use `expect` instead of `verify`. Which are just an alias functions:
 
 ```php
 expect("user have 5 posts", $user->getNumPosts())->equals(5);
