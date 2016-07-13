@@ -140,7 +140,7 @@ class Verify {
 
     public function hasAttribute($attribute)
     {
-        if (is_string($attribute)) {
+        if (is_string($this->actual)) {
             a::assertClassHasAttribute($attribute, $this->actual, $this->description);
         } else {
             a::assertObjectHasAttribute($attribute, $this->actual, $this->description);
@@ -149,7 +149,7 @@ class Verify {
 
     public function notHasAttribute($attribute)
     {
-        if (is_string($attribute)) {
+        if (is_string($this->actual)) {
             a::assertClassNotHasAttribute($attribute, $this->actual, $this->description);
         } else {
             a::assertObjectNotHasAttribute($attribute, $this->actual, $this->description);
