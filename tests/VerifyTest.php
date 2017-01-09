@@ -12,13 +12,22 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         $this->xml = new DomDocument;
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
+    
     public function testEquals()
     {
         verify(5)->equals(5);
         verify("hello")->equals("hello");
         verify("user have 5 posts", 5)->equals(5);
-        verify(3)->notEquals(5);
+        verify(3.251)->equals(3.25, 0.01);
+        verify("respects delta", 3.251)->equals(3.25, 0.01);
         verify_file(__FILE__)->equals(__FILE__);
+    }
+
+    public function testNotEquals()
+    {
+        verify(3)->notEquals(5);
+        verify(3.252)->notEquals(3.25, 0.001);
+        verify("respects delta", 3.252, 0.001);
         verify_file(__FILE__)->notEquals(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'composer.json');
     }
 
