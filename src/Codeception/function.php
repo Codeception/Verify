@@ -1,4 +1,8 @@
 <?php
+if (!class_exists('PHPUnit_Framework_Assert') && class_exists('PHPUnit\Framework\Assert')) {
+    class_alias('PHPUnit\Framework\Assert', 'PHPUnit_Framework_Assert');
+}
+
 if (!function_exists('verify')) {
 
     /**
