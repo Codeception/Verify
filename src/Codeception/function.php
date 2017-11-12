@@ -1,8 +1,4 @@
 <?php
-if (!class_exists('PHPUnit_Framework_Assert') && class_exists('PHPUnit\Framework\Assert')) {
-    class_alias('PHPUnit\Framework\Assert', 'PHPUnit_Framework_Assert');
-}
-
 if (!function_exists('verify')) {
     /**
      * @param $description
@@ -60,10 +56,7 @@ if (!function_exists('verify_file')) {
      * @return \Codeception\Verify
      */
     function verify_file() {
-        include_once __DIR__.'/Verify.php';
-
-        $reflect  = new ReflectionClass('\Codeception\Verify');
-        $verify =  $reflect->newInstanceArgs(func_get_args());
+        $verify = call_user_func_array('verify', func_get_args());
         $verify->setIsFileExpectation(true);
         return $verify;
     }

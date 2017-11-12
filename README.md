@@ -1,12 +1,12 @@
 Verify
 ======
 
-BDD Assertions for [PHPUnit][1] and [Codeception][2]
+BDD Assertions for [PHPUnit][1] or [Codeception][2]
 
 This is very tiny wrapper for PHPUnit assertions, that are aimed to make tests a bit more readable.
 With [BDD][3] assertions influenced by [Chai][4], [Jasmine][5], and [RSpec][6] your assertions would be a bit closer to natural language.
 
-[![Build Status](https://travis-ci.org/Codeception/Verify.png?branch=master)](https://travis-ci.org/Codeception/Verify) [![Latest Stable Version](https://poser.pugx.org/codeception/verify/v/stable.png)](https://packagist.org/packages/codeception/verify)
+[![Build Status](https://travis-ci.org/Codeception/Verify.png?branch=master)](https://travis-ci.org/Codeception/Verify)
 
 ```php
 $user = User::find(1);
