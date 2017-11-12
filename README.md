@@ -110,7 +110,7 @@ Set the class name to `Codeception\Verify::$override` property to `verify` funct
   
 ```php
 
-\Codeception\Verify::override = MyVerify::class;
+\Codeception\Verify::$override = MyVerify::class;
 
 // access overridden class
 verify('it works')->success();
