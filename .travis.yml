@@ -5,11 +5,14 @@ php:
   - 7.1
   - 7.2
 
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
 
 sudo: false
 
 before_install:
-  - composer self-update
-  - composer install --prefer-source
+  - composer update --prefer-source
 
 script: vendor/bin/phpunit
