@@ -74,7 +74,7 @@ With Composer:
 
 ```
 "require-dev": {
-    "codeception/verify": "*"
+    "codeception/verify": "^1.0"
 }
 ```
 
@@ -84,10 +84,27 @@ Use in any test `verify` function instead of `$this->assert*` methods.
 
 ## Extending
 
-`Codeception\Verify` class can be extended with custom assertions. You write your own `verify` function that would instantiate your extended version of Verify class.
+In order to add more assertions you can override `Codeception\Verify` class:
 
 ```php
-function verify(
+class MyVerify extends \Codeception\Verify {
+
+    public function success()
+    {
+    }
+
+}
 ```
+
+Set the class name to `Codeception\Verify::override` property to `verify` function use it:
+  
+```php
+
+\Codeception\Verify::override = MyVerify::class;
+
+// access overridden class
+verify('it works')->success();
+```
+
 
 **License: MIT**

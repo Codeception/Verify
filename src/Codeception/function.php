@@ -1,16 +1,21 @@
 <?php
 if (!function_exists('verify')) {
-
     /**
      * @param $description
      * @param null $actual
      * @return \Codeception\Verify
      */
     function verify($description) {
-        include_once __DIR__.'/Verify.php';
+        $descriptionGiven = (func_num_args() == 2);
+        $class = \Codeception\Verify::$override
+            ? \Codeception\Verify::$override
+            : \Codeception\Verify::class;
 
-        $reflect  = new ReflectionClass('\Codeception\Verify');
-        return $reflect->newInstanceArgs(func_get_args());
+        if ($descriptionGiven) {
+            $args = func_get_args();
+            return new $class($args[0], $args[1]);
+        }
+        return new $class($description);
     }
 
     function verify_that($truth) {
