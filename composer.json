@@ -1,6 +1,7 @@
 {
     "name": "codeception/verify",
     "description": "BDD assertion library for PHPUnit",
+    "license": "MIT",
     "authors": [
         {
             "name": "Michael Bodnarchuk",

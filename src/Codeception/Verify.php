@@ -33,19 +33,19 @@ class Verify {
         $this->isFileExpectation = $isFileExpectation;
     }
 
-    public function equals($expected)
+    public function equals($expected, $delta = 0)
     {
         if ( ! $this->isFileExpectation ) {
-            a::assertEquals($expected, $this->actual, $this->description);
+            a::assertEquals($expected, $this->actual, $this->description, $delta);
         } else {
             a::assertFileEquals($expected, $this->actual, $this->description);
         }
     }
 
-    public function notEquals($expected)
+    public function notEquals($expected, $delta = 0)
     {
         if ( ! $this->isFileExpectation ) {
-            a::assertNotEquals($expected, $this->actual, $this->description);
+            a::assertNotEquals($expected, $this->actual, $this->description, $delta);
         } else {
             a::assertFileNotEquals($expected, $this->actual, $this->description);
         }
@@ -143,7 +143,7 @@ class Verify {
 
     public function hasAttribute($attribute)
     {
-        if (is_string($attribute)) {
+        if (is_string($this->actual)) {
             a::assertClassHasAttribute($attribute, $this->actual, $this->description);
         } else {
             a::assertObjectHasAttribute($attribute, $this->actual, $this->description);
@@ -152,7 +152,7 @@ class Verify {
 
     public function notHasAttribute($attribute)
     {
-        if (is_string($attribute)) {
+        if (is_string($this->actual)) {
             a::assertClassNotHasAttribute($attribute, $this->actual, $this->description);
         } else {
             a::assertObjectNotHasAttribute($attribute, $this->actual, $this->description);
