@@ -218,6 +218,56 @@ class VerifyTest extends PHPUnit\Framework\TestCase {
         expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
             ->equalsXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
+
+    public function testThrows()
+    {
+        $func = function () {
+            throw new Exception('foo');
+        };
+
+        verify($func)->throws();
+        verify($func)->throws(Exception::class);
+        verify($func)->throws(Exception::class, 'foo');
+        verify($func)->throws(new Exception());
+        verify($func)->throws(new Exception('foo'));
+
+        verify(function () use ($func) {
+            verify($func)->throws(RuntimeException::class);
+        })->throws(\PHPUnit\Framework\ExpectationFailedException::class);
+
+        verify(function () {
+            verify(function () {})->throws(Exception::class);
+        })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception 'Exception' was not thrown as expected"));
+    }
+
+    public function testDoesNotThrow()
+    {
+        $func = function () {
+            throw new Exception('foo');
+        };
+
+        verify(function () {})->doesNotThrow();
+        verify($func)->doesNotThrow(RuntimeException::class);
+        verify($func)->doesNotThrow(RuntimeException::class, 'bar');
+        verify($func)->doesNotThrow(RuntimeException::class, 'foo');
+        verify($func)->doesNotThrow(new RuntimeException());
+        verify($func)->doesNotThrow(new RuntimeException('bar'));
+        verify($func)->doesNotThrow(new RuntimeException('foo'));
+        verify($func)->doesNotThrow(Exception::class, 'bar');
+        verify($func)->doesNotThrow(new Exception('bar'));
+
+        verify(function () use ($func) {
+            verify($func)->doesNotThrow();
+        })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception was not expected to be thrown"));
+
+        verify(function () use ($func) {
+            verify($func)->doesNotThrow(Exception::class);
+        })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
+
+        verify(function () use ($func) {
+            verify($func)->doesNotThrow(Exception::class, 'foo');
+        })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
+    }
 }
 
 

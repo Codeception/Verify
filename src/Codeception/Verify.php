@@ -2,6 +2,7 @@
 namespace Codeception;
 
 use PHPUnit\Framework\Assert as a;
+use PHPUnit\Framework\ExpectationFailedException;
 
 class Verify {
 
@@ -306,5 +307,68 @@ class Verify {
     public function equalsXmlString($xmlString)
     {
         a::assertXmlStringEqualsXmlString($xmlString, $this->actual, $this->description);
+    }
+
+    /**
+     * @param \Exception|string|null $throws
+     * @param string|false $message
+     * @throws \Throwable
+     */
+    public function throws($throws = null, $message = false)
+    {
+        if ($throws instanceof \Exception) {
+            $message = $throws->getMessage();
+            $throws = get_class($throws);
+        }
+
+        try {
+            call_user_func($this->actual);
+        } catch (\Throwable $e) {
+            if (!$throws) {
+                return; // it throws
+            }
+
+            $actualThrows = get_class($e);
+            $actualMessage = $e->getMessage();
+
+            a::assertSame($throws, $actualThrows, "exception '$throws' was expected, but '$actualThrows' was thrown");
+
+            if ($message) {
+                a::assertSame($message, $actualMessage, "exception message '$message' was expected, but '$actualMessage' was received");
+            }
+        }
+
+        if (!isset($e)) {
+            throw new ExpectationFailedException("exception '$throws' was not thrown as expected");
+        }
+    }
+
+    public function doesNotThrow($throws = null, $message = false)
+    {
+        if ($throws instanceof \Exception) {
+            $message = $throws->getMessage();
+            $throws = get_class($throws);
+        }
+
+        try {
+            call_user_func($this->actual);
+        } catch (\Throwable $e) {
+            if (!$throws) {
+                throw new ExpectationFailedException("exception was not expected to be thrown");
+            }
+
+            $actualThrows = get_class($e);
+            $actualMessage = $e->getMessage();
+
+            if ($throws !== $actualThrows) {
+                return;
+            }
+
+            if (!$message) {
+                throw new ExpectationFailedException("exception '$throws' was not expected to be thrown");
+            } elseif ($message === $actualMessage) {
+                throw new ExpectationFailedException("exception '$throws' with message '$message' was not expected to be thrown");
+            }
+        }
     }
 }
