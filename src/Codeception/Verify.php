@@ -184,14 +184,14 @@ class Verify {
         a::assertContainsOnlyInstancesOf($class, $this->actual, $this->description);
     }
 
-    public function count($array)
+    public function count($expectedCount)
     {
-        a::assertCount($array, $this->actual, $this->description);
+        a::assertCount($expectedCount, $this->actual, $this->description);
     }
 
-    public function notCount($array)
+    public function notCount($expectedCount)
     {
-        a::assertNotCount($array, $this->actual, $this->description);
+        a::assertNotCount($expectedCount, $this->actual, $this->description);
     }
 
     public function equalXMLStructure($xml, $checkAttributes = FALSE)
