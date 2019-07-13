@@ -2,11 +2,11 @@
 
 include_once __DIR__.'/../src/Codeception/function.php';
 
-class VerifyTest extends PHPUnit\Framework\TestCase {
+class VerifyTest extends \Codeception\PHPUnit\TestCase {
 
     protected $xml;
 
-    protected function setUp()
+    protected function _setUp()
     {
         $this->xml = new DomDocument;
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
