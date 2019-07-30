@@ -1,14 +1,14 @@
 <?php
 include __DIR__.'/../vendor/autoload.php';
 
-class OverrideTest extends \PHPUnit\Framework\TestCase
+class OverrideTest extends \Codeception\PHPUnit\TestCase
 {
-    protected function setUp()
+    protected function _setUp()
     {
         
     }
 
-    protected function tearDown()
+    protected function _tearDown()
     {
         \Codeception\Verify::$override = false;
     }
