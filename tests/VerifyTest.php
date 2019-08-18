@@ -291,6 +291,36 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
         verify(function() {})->callable();
         verify(false)->notCallable();
     }
+
+    public function testEqualsCanonicalizing()
+    {
+        verify([3, 2, 1])->equalsCanonicalizing([1, 2, 3]);
+    }
+
+    public function testNotEqualsCanonicalizing()
+    {
+        verify([3, 2, 1])->notEqualsCanonicalizing([2, 3, 0, 1]);
+    }
+
+    public function testEqualsIgnoringCase()
+    {
+        verify('foo')->equalsIgnoringCase('FOO');
+    }
+
+    public function testNotEqualsIgnoringCase()
+    {
+        verify('foo')->notEqualsIgnoringCase('BAR');
+    }
+
+    public function testEqualsWithDelta()
+    {
+        verify(1.01)->equalsWithDelta(1.0, 0.1);
+    }
+
+    public function testNotEqualsWithDelta()
+    {
+        verify(1.2)->notEqualsWithDelta(1.0, 0.1);
+    }
 }
 
 

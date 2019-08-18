@@ -424,4 +424,34 @@ class Verify {
     {
         a::assertIsNotCallable($this->actual, $this->description);
     }
+
+    public function equalsCanonicalizing($expected)
+    {
+        a::assertEqualsCanonicalizing($expected, $this->actual, $this->description);
+    }
+
+    public function notEqualsCanonicalizing($expected)
+    {
+        a::assertNotEqualsCanonicalizing($expected, $this->actual, $this->description);
+    }
+
+    public function equalsIgnoringCase($expected)
+    {
+        a::assertEqualsIgnoringCase($expected, $this->actual, $this->description);
+    }
+
+    public function notEqualsIgnoringCase($expected)
+    {
+        a::assertNotEqualsIgnoringCase($expected, $this->actual, $this->description);
+    }
+
+    public function equalsWithDelta($expected, $delta)
+    {
+        a::assertEqualsWithDelta($expected, $this->actual, $delta, $this->description);
+    }
+
+    public function notEqualsWithDelta($expected, $delta)
+    {
+        a::assertNotEqualsWithDelta($expected, $this->actual, $delta, $this->description);
+    }
 }

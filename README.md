@@ -66,6 +66,12 @@ verify($user->getRoles())->notEmpty();
 * notString
 * notScalar
 * notCallable
+* equalsCanonicalizing
+* notEqualsCanonicalizing
+* equalsIgnoringCase
+* notEqualsIgnoringCase
+* equalsWithDelta
+* notEqualsWithDelta
 ```
 
 Shorthands for testing truth/fallacy:
