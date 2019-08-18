@@ -11,7 +11,7 @@
     "require": {
         "php": ">= 7.0",
         "phpunit/phpunit": "> 6.0",
-        "codeception/phpunit-wrapper": ">6.0.15 <6.1.0 | ^6.6.1 | ^7.7.1 | ^8.0.4"
+        "codeception/phpunit-wrapper": ">6.0.16 <6.1.0 | ^6.7.0 | ^7.7.1 | ^8.0.4"
     },
     "autoload": {
         "files": ["src/Codeception/function.php"],
