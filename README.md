@@ -46,7 +46,7 @@ verify($user->getRoles())->notEmpty();
 * stringNotContainsString
 * stringContainsStringIgnoringCase
 * stringNotContainsStringIgnoringCase
-* array
+* isArray
 * bool
 * float
 * int
@@ -55,7 +55,7 @@ verify($user->getRoles())->notEmpty();
 * resource
 * string
 * scalar
-* callable
+* isCallable
 * notArray
 * notBool
 * notFloat

@@ -240,7 +240,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testIsArray()
     {
-        verify([1,2,3])->array();
+        verify([1,2,3])->isArray();
         verify(false)->notArray();
     }
 
@@ -288,7 +288,7 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
 
     public function testIsCallable()
     {
-        verify(function() {})->callable();
+        verify(function() {})->isCallable();
         verify(false)->notCallable();
     }
 

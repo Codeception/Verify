@@ -325,7 +325,7 @@ class Verify {
         a::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $this->description);
     }
 
-    public function array()
+    public function isArray()
     {
         a::assertIsArray($this->actual, $this->description);
     }
@@ -370,7 +370,7 @@ class Verify {
         a::assertIsScalar($this->actual, $this->description);
     }
 
-    public function callable()
+    public function isCallable()
     {
         a::assertIsCallable($this->actual, $this->description);
     }
