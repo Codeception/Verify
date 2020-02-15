@@ -43,6 +43,20 @@ verify($user->getPosts())->notNull();
 verify($user->getComments())->isEmpty();
 verify($user->getRoles())->notEmpty();
 
+// throws
+verify($callback)->throws();
+verify($callback)->throws(Exception::class);
+verify($callback)->throws(Exception::class, 'exception message');
+verify($callback)->throws(new Exception());
+verify($callback)->throws(new Exception('message'));
+
+// does not throw
+verify($callback)->doesNotThrow();
+verify($callback)->doesNotThrow(Exception::class);
+verify($callback)->doesNotThrow(Exception::class, 'exception message');
+verify($callback)->doesNotThrow(new Exception());
+verify($callback)->doesNotThrow(new Exception('exception message'));
+
 //Other methods:
 * stringContainsString
 * stringNotContainsString
