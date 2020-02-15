@@ -97,13 +97,6 @@ class VerifyTest extends \Codeception\PHPUnit\TestCase {
         expect($testClass)->isNotInstanceOf('DateTimeZone');
     }
 
-    public function testInternalType()
-    {
-        $testVar = array();
-        expect($testVar)->internalType('array');
-        expect($testVar)->notInternalType('boolean');
-    }
-
     public function testHasAttribute()
     {
         expect('Exception')->hasAttribute('message');
