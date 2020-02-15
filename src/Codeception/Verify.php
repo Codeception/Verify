@@ -36,7 +36,7 @@ class Verify {
     public function equals($expected, $delta = 0)
     {
         if ( ! $this->isFileExpectation ) {
-            a::assertEquals($expected, $this->actual, $this->description, $delta);
+            a::assertEqualsWithDelta($expected, $this->actual, $delta, $this->description);
         } else {
             a::assertFileEquals($expected, $this->actual, $this->description);
         }
@@ -45,7 +45,7 @@ class Verify {
     public function notEquals($expected, $delta = 0)
     {
         if ( ! $this->isFileExpectation ) {
-            a::assertNotEquals($expected, $this->actual, $this->description, $delta);
+            a::assertNotEqualsWithDelta($expected, $this->actual, $delta, $this->description);
         } else {
             a::assertFileNotEquals($expected, $this->actual, $this->description);
         }
