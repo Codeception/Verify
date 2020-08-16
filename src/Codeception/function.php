@@ -1,15 +1,17 @@
 <?php
+
+use Codeception\Verify\Verify;
+
 if (!function_exists('verify')) {
     /**
      * @param $description
-     * @param null $actual
-     * @return \Codeception\Verify
+     * @return Verify
      */
     function verify($description) {
         $descriptionGiven = (func_num_args() == 2);
-        $class = \Codeception\Verify::$override
-            ? \Codeception\Verify::$override
-            : \Codeception\Verify::class;
+        $class = Verify::$override
+            ? Verify::$override
+            : Verify::class;
 
         if ($descriptionGiven) {
             $args = func_get_args();
@@ -30,9 +32,7 @@ if (!function_exists('verify')) {
 if (!function_exists('expect')) {
 
     /**
-     * @param $description
-     * @param null $actual
-     * @return \Codeception\Verify
+     * @return Verify
      */
     function expect() {
         return call_user_func_array('verify', func_get_args());
@@ -51,9 +51,7 @@ if (!function_exists('expect')) {
 if (!function_exists('verify_file')) {
 
     /**
-     * @param $description
-     * @param null $actual
-     * @return \Codeception\Verify
+     * @return Verify
      */
     function verify_file() {
         $verify = call_user_func_array('verify', func_get_args());
@@ -64,9 +62,7 @@ if (!function_exists('verify_file')) {
 
 if (!function_exists('expect_file')) {
     /**
-     * @param $description
-     * @param null $actual
-     * @return \Codeception\Verify
+     * @return Verify
      */
     function expect_file() {
         return call_user_func_array('verify_file', func_get_args());
