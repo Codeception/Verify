@@ -6,12 +6,17 @@
         {
             "name": "Michael Bodnarchuk",
             "email": "davert@codeception.com"
+        },
+        {
+            "name": "Gustavo Nieves",
+            "homepage": "https://medium.com/@ganieves"
         }
     ],
     "require": {
-        "php": ">= 7.0",
-        "phpunit/phpunit": "> 6.0",
-        "codeception/phpunit-wrapper": ">6.0.16 <6.1.0 | ^6.7.0 | ^7.7.1 | ^8.0.4 | ^9.0.0"
+        "php": ">= 7.1",
+        "ext-dom": "*",
+        "phpunit/phpunit": ">= 7.0",
+        "codeception/phpunit-wrapper": "^7.8.0 | ^8.1.2 | ^9.0.2"
     },
     "autoload": {
         "files": ["src/Codeception/function.php"],

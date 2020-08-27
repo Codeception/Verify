@@ -1,26 +1,30 @@
 <?php
+
+use Codeception\PHPUnit\TestCase;
+use Codeception\Verify\Verify;
+
 include __DIR__.'/../vendor/autoload.php';
 
-class OverrideTest extends \Codeception\PHPUnit\TestCase
+class OverrideTest extends TestCase
 {
     protected function _setUp()
     {
-        
+
     }
 
     protected function _tearDown()
     {
-        \Codeception\Verify::$override = false;
+        Verify::$override = false;
     }
-    
+
     public function testVerifyCanBeOverridden()
     {
-        \Codeception\Verify::$override = MyVerify::class;
+        Verify::$override = MyVerify::class;
         $this->assertInstanceOf(MyVerify::class, verify(null));
     }
 
 }
 
-class MyVerify extends \Codeception\Verify {
+class MyVerify extends Verify {
 
 }

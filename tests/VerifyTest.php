@@ -11,7 +11,7 @@ class VerifyTest extends \Codeception\PHPUnit\TestCase {
         $this->xml = new DomDocument;
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
-    
+
     public function testEquals()
     {
         verify(5)->equals(5);
@@ -87,7 +87,7 @@ class VerifyTest extends \Codeception\PHPUnit\TestCase {
     {
         $errors = array('title' => 'You should add title');
         expect($errors)->hasKey('title');
-        expect($errors)->hasntKey('body');
+        expect($errors)->hasNotKey('body');
     }
 
     public function testIsInstanceOf()
@@ -101,7 +101,7 @@ class VerifyTest extends \Codeception\PHPUnit\TestCase {
     {
         expect('Exception')->hasAttribute('message');
         expect('Exception')->notHasAttribute('fakeproperty');
-        
+
         $testObject = (object) array('existingAttribute' => true);
         expect($testObject)->hasAttribute('existingAttribute');
         expect($testObject)->notHasAttribute('fakeproperty');
@@ -129,14 +129,6 @@ class VerifyTest extends \Codeception\PHPUnit\TestCase {
     {
         expect(array(1,2,3))->count(3);
         expect(array(1,2,3))->notCount(2);
-    }
-
-    public function testEqualXMLStructure()
-    {
-        $expected = new DOMElement('foo');
-        $actual = new DOMElement('foo');
-
-        expect($expected)->equalXMLStructure($actual);
     }
 
     public function testFileExists()
@@ -364,7 +356,6 @@ class VerifyTest extends \Codeception\PHPUnit\TestCase {
         })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }
 }
-
 
 
 class FakeClassForTesting
