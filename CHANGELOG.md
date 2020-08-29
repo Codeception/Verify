@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5
+
+* Support for full PHPUnit API `(42 new verifiers!)`
+* Updated `supported_verifiers.md` documentation.
+
 ## 1.4
 
 * Improved code quality and maintainability.

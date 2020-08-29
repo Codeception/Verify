@@ -2,12 +2,14 @@
 
 namespace Codeception\Verify\Verifiers;
 
+use Codeception\Exception\InvalidVerifyException;
 use Codeception\PHPUnit\TestCase;
+use PHPUnit\Framework\Constraint\Constraint;
 
 trait VerifyMixedTrait
 {
     /**
-     * Asserts that a variable is empty.
+     * Verifies that a variable is empty.
      */
     public function isEmpty()
     {
@@ -15,7 +17,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that two variables are equal (canonicalizing).
+     * Verifies that two variables are equal (canonicalizing).
      *
      * @param $expected
      */
@@ -25,7 +27,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that two variables are equal (ignoring case).
+     * Verifies that two variables are equal (ignoring case).
      *
      * @param $expected
      */
@@ -35,18 +37,18 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that two variables are equal (with delta).
+     * Verifies that two variables are equal (with delta).
      *
      * @param $expected
      * @param float $delta
      */
-    public function equalsWithDelta($expected, $delta)
+    public function equalsWithDelta($expected, float $delta)
     {
         TestCase::assertEqualsWithDelta($expected, $this->actual, $delta, $this->message);
     }
 
     /**
-     * Asserts that a condition is false.
+     * Verifies that a condition is false.
      */
     public function false()
     {
@@ -54,7 +56,15 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a value is greater than another value.
+     * Verifies that a variable is finite.
+     */
+    public function finite()
+    {
+        TestCase::assertFinite($this->actual, $this->message);
+    }
+
+    /**
+     * Verifies that a value is greater than another value.
      *
      * @param $expected
      */
@@ -64,7 +74,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a value is greater than or equal to another value.
+     * Verifies that a value is greater than or equal to another value.
      *
      * @param $expected
      */
@@ -74,17 +84,25 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of a given type.
+     * Verifies that a variable is infinite.
+     */
+    public function infinite()
+    {
+        TestCase::assertInfinite($this->actual, $this->message);
+    }
+
+    /**
+     * Verifies that a variable is of a given type.
      *
      * @param string $expected
      */
-    public function isInstanceOf($expected)
+    public function isInstanceOf(string $expected)
     {
         TestCase::assertInstanceOf($expected, $this->actual, $this->message);
     }
 
     /**
-     * Asserts that a variable is of type array.
+     * Verifies that a variable is of type array.
      */
     public function array()
     {
@@ -92,7 +110,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type bool.
+     * Verifies that a variable is of type bool.
      */
     public function bool()
     {
@@ -100,7 +118,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type callable.
+     * Verifies that a variable is of type callable.
      */
     public function callable()
     {
@@ -108,7 +126,15 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type float.
+     * Verifies that a variable is of type resource and is closed.
+     */
+    public function isClosedResource()
+    {
+        TestCase::assertIsClosedResource($this->actual, $this->message);
+    }
+
+    /**
+     * Verifies that a variable is of type float.
      */
     public function float()
     {
@@ -116,7 +142,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type int.
+     * Verifies that a variable is of type int.
      */
     public function int()
     {
@@ -124,7 +150,15 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type array.
+     * Verifies that a variable is of type iterable.
+     */
+    public function isIterable()
+    {
+        TestCase::assertIsIterable($this->actual, $this->message);
+    }
+
+    /**
+     * Verifies that a variable is not of type array.
      */
     public function notArray()
     {
@@ -132,7 +166,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type bool.
+     * Verifies that a variable is not of type bool.
      */
     public function notBool()
     {
@@ -140,7 +174,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type callable.
+     * Verifies that a variable is not of type callable.
      */
     public function notCallable()
     {
@@ -148,7 +182,15 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type float.
+     * Verifies that a variable is not of type resource.
+     */
+    public function isNotClosedResource()
+    {
+        TestCase::assertIsNotClosedResource($this->actual, $this->message);
+    }
+
+    /**
+     * Verifies that a variable is not of type float.
      */
     public function notFloat()
     {
@@ -156,7 +198,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type int.
+     * Verifies that a variable is not of type int.
      */
     public function notInt()
     {
@@ -164,7 +206,15 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type numeric.
+     * Verifies that a variable is not of type iterable.
+     */
+    public function isNotIterable()
+    {
+        TestCase::assertIsNotIterable($this->actual, $this->message);
+    }
+
+    /**
+     * Verifies that a variable is not of type numeric.
      */
     public function notNumeric()
     {
@@ -172,7 +222,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type object.
+     * Verifies that a variable is not of type object.
      */
     public function notObject()
     {
@@ -180,7 +230,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type resource.
+     * Verifies that a variable is not of type resource.
      */
     public function notResource()
     {
@@ -188,7 +238,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type scalar.
+     * Verifies that a variable is not of type scalar.
      */
     public function notScalar()
     {
@@ -196,7 +246,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not of type string.
+     * Verifies that a variable is not of type string.
      */
     public function notString()
     {
@@ -204,7 +254,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type numeric.
+     * Verifies that a variable is of type numeric.
      */
     public function numeric()
     {
@@ -212,7 +262,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type object.
+     * Verifies that a variable is of type object.
      */
     public function object()
     {
@@ -220,7 +270,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type resource.
+     * Verifies that a variable is of type resource.
      */
     public function resource()
     {
@@ -228,7 +278,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type scalar.
+     * Verifies that a variable is of type scalar.
      */
     public function scalar()
     {
@@ -236,7 +286,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is of type string.
+     * Verifies that a variable is of type string.
      */
     public function string()
     {
@@ -244,7 +294,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a value is smaller than another value.
+     * Verifies that a value is smaller than another value.
      *
      * @param $expected
      */
@@ -254,7 +304,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a value is smaller than or equal to another value.
+     * Verifies that a value is smaller than or equal to another value.
      *
      * @param $expected
      */
@@ -264,7 +314,15 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is not empty.
+     * Verifies that a variable is nan.
+     */
+    public function nan()
+    {
+        TestCase::assertNan($this->actual, $this->message);
+    }
+
+    /**
+     * Verifies that a variable is not empty.
      */
     public function notEmpty()
     {
@@ -272,7 +330,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that two variables are not equal (canonicalizing).
+     * Verifies that two variables are not equal (canonicalizing).
      *
      * @param $expected
      */
@@ -282,7 +340,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that two variables are not equal (ignoring case).
+     * Verifies that two variables are not equal (ignoring case).
      *
      * @param $expected
      */
@@ -292,28 +350,38 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that two variables are not equal (with delta).
+     * Verifies that two variables are not equal (with delta).
      *
      * @param $expected
      * @param float $delta
      */
-    public function notEqualsWithDelta($expected, $delta)
+    public function notEqualsWithDelta($expected, float $delta)
     {
         TestCase::assertNotEqualsWithDelta($expected, $this->actual, $delta, $this->message);
     }
 
     /**
-     * Asserts that a variable is not of a given type.
+     * Verifies that a condition is not false.
+     *
+     * @param $condition
+     */
+    public function notFalse($condition)
+    {
+        TestCase::assertNotFalse($condition, $this->message);
+    }
+
+    /**
+     * Verifies that a variable is not of a given type.
      *
      * @param string $expected
      */
-    public function isNotInstanceOf($expected)
+    public function isNotInstanceOf(string $expected)
     {
         TestCase::assertNotInstanceOf($expected, $this->actual, $this->message);
     }
 
     /**
-     * Asserts that a variable is not null.
+     * Verifies that a variable is not null.
      */
     public function notNull()
     {
@@ -321,7 +389,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that two variables do not have the same type and value.
+     * Verifies that two variables do not have the same type and value.
      *
      * @param $expected
      */
@@ -331,7 +399,17 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a variable is null.
+     * Verifies that a condition is not true.
+     *
+     * @param $condition
+     */
+    public function notTrue($condition)
+    {
+        TestCase::assertNotTrue($condition, $this->message);
+    }
+
+    /**
+     * Verifies that a variable is null.
      */
     public function null()
     {
@@ -339,7 +417,7 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that two variables have the same type and value.
+     * Verifies that two variables have the same type and value.
      *
      * @param $expected
      */
@@ -349,7 +427,21 @@ trait VerifyMixedTrait
     }
 
     /**
-     * Asserts that a condition is true.
+     * Evaluates a PHPUnit\Framework\Constraint matcher object.
+     *
+     * @param $value
+     */
+    public function that($value)
+    {
+        if ($this->actual instanceof Constraint) {
+            TestCase::assertThat($value, $this->actual, $this->message);
+            return;
+        }
+        throw new InvalidVerifyException(__FUNCTION__, $this->actual);
+    }
+
+    /**
+     * Verifies that a condition is true.
      */
     public function true()
     {
