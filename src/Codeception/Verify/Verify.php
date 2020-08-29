@@ -3,6 +3,7 @@
 namespace Codeception\Verify;
 
 use Codeception\Verify\Verifiers\VerifyArrayTrait;
+use Codeception\Verify\Verifiers\VerifyDirectoryTrait;
 use Codeception\Verify\Verifiers\VerifyFileTrait;
 use Codeception\Verify\Verifiers\VerifyMixedTrait;
 use Codeception\Verify\Verifiers\VerifyStringTrait;
@@ -14,6 +15,7 @@ class Verify
 {
     use
         VerifyArrayTrait,
+        VerifyDirectoryTrait,
         VerifyFileTrait,
         VerifyMixedTrait,
         VerifyStringTrait,
