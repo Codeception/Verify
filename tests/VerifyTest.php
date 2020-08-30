@@ -19,19 +19,19 @@ final class VerifyTest extends TestCase
 
     public function testEquals(): void
     {
-        Verify(5)->equals(5);
-        Verify('hello')->equals('hello');
-        Verify(5)->equals(5, 'user have 5 posts');
-        Verify(3.251)->equalsWithDelta(3.25, 0.01);
-        Verify(3.251)->equalsWithDelta(3.25, 0.01, 'respects delta');
+        verify(5)->equals(5);
+        verify('hello')->equals('hello');
+        verify(5)->equals(5, 'user have 5 posts');
+        verify(3.251)->equalsWithDelta(3.25, 0.01);
+        verify(3.251)->equalsWithDelta(3.25, 0.01, 'respects delta');
         Verify::File(__FILE__)->equals(__FILE__);
     }
 
     public function testNotEquals(): void
     {
-        Verify(3)->notEquals(5);
-        Verify(3.252)->notEqualsWithDelta(3.25, 0.001);
-        Verify(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
+        verify(3)->notEquals(5);
+        verify(3.252)->notEqualsWithDelta(3.25, 0.001);
+        verify(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
         Verify::File(__FILE__)->notEquals(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'composer.json');
     }
 
@@ -43,28 +43,28 @@ final class VerifyTest extends TestCase
 
     public function testGreaterLowerThan(): void
     {
-        Verify(7)->greaterThan(5);
-        Verify(7)->lessThan(10);
-        Verify(7)->lessThanOrEqual(7);
-        Verify(7)->lessThanOrEqual(8);
-        Verify(7)->greaterThanOrEqual(7);
-        Verify(7)->greaterThanOrEqual(5);
+        verify(7)->greaterThan(5);
+        verify(7)->lessThan(10);
+        verify(7)->lessThanOrEqual(7);
+        verify(7)->lessThanOrEqual(8);
+        verify(7)->greaterThanOrEqual(7);
+        verify(7)->greaterThanOrEqual(5);
     }
 
     public function testTrueFalseNull(): void
     {
-        Verify(true)->true();
-        Verify(false)->false();
-        Verify(null)->null();
-        Verify(true)->notNull();
-        Verify(false)->false('something should be false');
-        Verify(true)->true('something should be true');
+        verify(true)->true();
+        verify(false)->false();
+        verify(null)->null();
+        verify(true)->notNull();
+        verify(false)->false('something should be false');
+        verify(true)->true('something should be true');
     }
 
     public function testEmptyNotEmpty(): void
     {
-        Verify(array('3', '5'))->notEmpty();
-        Verify(array())->empty();
+        verify(array('3', '5'))->notEmpty();
+        verify(array())->empty();
     }
 
     public function testArrayHasKey(): void
@@ -77,8 +77,8 @@ final class VerifyTest extends TestCase
     public function testIsInstanceOf(): void
     {
         $testClass = new DateTime();
-        Verify($testClass)->instanceOf('DateTime');
-        Verify($testClass)->notInstanceOf('DateTimeZone');
+        verify($testClass)->instanceOf('DateTime');
+        verify($testClass)->notInstanceOf('DateTimeZone');
     }
 
     public function testHasAttribute(): void
@@ -152,8 +152,8 @@ final class VerifyTest extends TestCase
 
     public function testSame(): void
     {
-        Verify(1)->same(0+1);
-        Verify(1)->notSame(true);
+        verify(1)->same(0+1);
+        verify(1)->notSame(true);
     }
 
     public function testEndsWith(): void
@@ -202,92 +202,92 @@ final class VerifyTest extends TestCase
 
     public function testIsString(): void
     {
-        Verify('foo bar')->isString();
-        Verify(false)->isNotString();
+        verify('foo bar')->isString();
+        verify(false)->isNotString();
     }
 
     public function testIsArray(): void
     {
-        Verify([1,2,3])->isArray();
-        Verify(false)->isNotArray();
+        verify([1,2,3])->isArray();
+        verify(false)->isNotArray();
     }
 
     public function testIsBool(): void
     {
-        Verify(false)->isBool();
-        Verify([1,2,3])->isNotBool();
+        verify(false)->isBool();
+        verify([1,2,3])->isNotBool();
     }
 
     public function testIsFloat(): void
     {
-        Verify(1.5)->isFloat();
-        Verify(1)->isNotFloat();
+        verify(1.5)->isFloat();
+        verify(1)->isNotFloat();
     }
 
     public function testIsInt(): void
     {
-        Verify(5)->isInt();
-        Verify(1.5)->isNotInt();
+        verify(5)->isInt();
+        verify(1.5)->isNotInt();
     }
 
     public function testIsNumeric(): void
     {
-        Verify('1.5')->isNumeric();
-        Verify('foo bar')->isNotNumeric();
+        verify('1.5')->isNumeric();
+        verify('foo bar')->isNotNumeric();
     }
 
     public function testIsObject(): void
     {
-        Verify(new stdClass)->isObject();
-        Verify(false)->isNotObject();
+        verify(new stdClass)->isObject();
+        verify(false)->isNotObject();
     }
 
     public function testIsResource(): void
     {
-        Verify(fopen(__FILE__, 'r'))->isResource();
-        Verify(false)->isNotResource();
+        verify(fopen(__FILE__, 'r'))->isResource();
+        verify(false)->isNotResource();
     }
 
     public function testIsScalar(): void
     {
-        Verify('foo bar')->isScalar();
-        Verify([1,2,3])->isNotScalar();
+        verify('foo bar')->isScalar();
+        verify([1,2,3])->isNotScalar();
     }
 
     public function testIsCallable(): void
     {
-        Verify(function(): void {})->isCallable();
-        Verify(false)->isNotCallable();
+        verify(function(): void {})->isCallable();
+        verify(false)->isNotCallable();
     }
 
     public function testEqualsCanonicalizing(): void
     {
-        Verify([3, 2, 1])->equalsCanonicalizing([1, 2, 3]);
+        verify([3, 2, 1])->equalsCanonicalizing([1, 2, 3]);
     }
 
     public function testNotEqualsCanonicalizing(): void
     {
-        Verify([3, 2, 1])->notEqualsCanonicalizing([2, 3, 0, 1]);
+        verify([3, 2, 1])->notEqualsCanonicalizing([2, 3, 0, 1]);
     }
 
     public function testEqualsIgnoringCase(): void
     {
-        Verify('foo')->equalsIgnoringCase('FOO');
+        verify('foo')->equalsIgnoringCase('FOO');
     }
 
     public function testNotEqualsIgnoringCase(): void
     {
-        Verify('foo')->notEqualsIgnoringCase('BAR');
+        verify('foo')->notEqualsIgnoringCase('BAR');
     }
 
     public function testEqualsWithDelta(): void
     {
-        Verify(1.01)->equalsWithDelta(1.0, 0.1);
+        verify(1.01)->equalsWithDelta(1.0, 0.1);
     }
 
     public function testNotEqualsWithDelta(): void
     {
-        Verify(1.2)->notEqualsWithDelta(1.0, 0.1);
+        verify(1.2)->notEqualsWithDelta(1.0, 0.1);
     }
 
     public function testThrows(): void

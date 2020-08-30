@@ -2,37 +2,37 @@
 
 use Codeception\Verify\Verifiers\VerifyMixed;
 
-if (!function_exists('Verify'))
+if (!function_exists('verify'))
 {
     /**
      * @param mixed $actual
      * @return VerifyMixed
      */
-    function Verify($actual): VerifyMixed
+    function verify($actual): VerifyMixed
     {
         return new VerifyMixed($actual);
     }
 }
 
-if (!function_exists('VerifyThat'))
+if (!function_exists('verify_that'))
 {
     /**
      * @param mixed $actual
      * @return VerifyMixed
      */
-    function VerifyThat($actual): VerifyMixed
+    function verify_that($actual): VerifyMixed
     {
         return new VerifyMixed($actual);
     }
 }
 
-if (!function_exists('Expect'))
+if (!function_exists('expect'))
 {
     /**
      * @param mixed $actual
      * @return VerifyMixed
      */
-    function Expect($actual): VerifyMixed {
+    function expect($actual): VerifyMixed {
         return new VerifyMixed($actual);
     }
 }

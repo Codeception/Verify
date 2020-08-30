@@ -19,10 +19,9 @@ That is why **we have deleted verifiers as global functions** and we have used a
 
 According to the above:
 
- * `Verify` no longer receives a `string $message` as a parameter, now each _**verifier**_ fulfills this function.
- * `verify_that` was deleted. Use `VerifyThat` instead.
- * `verify_not` was deleted. Use `Verify()->empty` instead.
- * `expect_that` and `expect_not` were deleted. Use `Expect()->notEmpty` and `Expect()->empty` instead.
+ * `verify` no longer receives a `string $message` as a parameter, now each _**verifier**_ fulfills this function.
+ * `verify_not` was deleted. Use `verify()->empty` instead.
+ * `expect_that` and `expect_not` were deleted. Use `expect()->notEmpty` and `expect()->empty` instead.
  * `expect_file` and `setIsFileExpectation` were deleted. Use `Verify::File()` instead.
 
 Verifiers
@@ -30,31 +29,31 @@ Verifiers
 
 |                  Verify 1.x                     |                    Verify 2.x                     |
 |-------------------------------------------------|---------------------------------------------------|
-| `verify()->array`                               | `Verify()->isArray`                               |
-| `verify()->bool`                                | `Verify()->isBool`                                |
-| `verify()->callable`                            | `Verify()->isCallable`                            |
-| `verify()->float`                               | `Verify()->isFloat`                               |
-| `verify()->greaterOrEquals`                     | `Verify()->greaterThanOrEqual`                    |
-| `verify()->int`                                 | `Verify()->isInt`                                 |
-| `verify()->isEmpty`                             | `Verify()->empty`                                 |
-| `verify()->isInstanceOf`                        | `Verify()->instanceOf`                            |
-| `verify()->isNotInstanceOf`                     | `Verify()->notInstanceOf`                         |
-| `verify()->lessOrEquals`                        | `Verify()->lessThanOrEqual`                       |
-| `verify()->notArray`                            | `Verify()->isNotArray`                            |
-| `verify()->notBool`                             | `Verify()->isNotBool`                             |
-| `verify()->notCallable`                         | `Verify()->isNotCallable`                         |
-| `verify()->notFloat`                            | `Verify()->isNotFloat`                            |
-| `verify()->notInt`                              | `Verify()->isNotInt`                              |
-| `verify()->notNumeric`                          | `Verify()->isNotNumeric`                          |
-| `verify()->notObject`                           | `Verify()->isNotObject`                           |
-| `verify()->notResource`                         | `Verify()->isNotResource`                         |
-| `verify()->notScalar`                           | `Verify()->isNotScalar`                           |
-| `verify()->notString`                           | `Verify()->isNotString`                           |
-| `verify()->numeric`                             | `Verify()->isNumeric`                             |
-| `verify()->object`                              | `Verify()->isObject`                              |
-| `verify()->resource`                            | `Verify()->isResource`                            |
-| `verify()->scalar`                              | `Verify()->isScalar`                              |
-| `verify()->string`                              | `Verify()->isString`                              |
+| `verify()->array`                               | `verify()->isArray`                               |
+| `verify()->bool`                                | `verify()->isBool`                                |
+| `verify()->callable`                            | `verify()->isCallable`                            |
+| `verify()->float`                               | `verify()->isFloat`                               |
+| `verify()->greaterOrEquals`                     | `verify()->greaterThanOrEqual`                    |
+| `verify()->int`                                 | `verify()->isInt`                                 |
+| `verify()->isEmpty`                             | `verify()->empty`                                 |
+| `verify()->isInstanceOf`                        | `verify()->instanceOf`                            |
+| `verify()->isNotInstanceOf`                     | `verify()->notInstanceOf`                         |
+| `verify()->lessOrEquals`                        | `verify()->lessThanOrEqual`                       |
+| `verify()->notArray`                            | `verify()->isNotArray`                            |
+| `verify()->notBool`                             | `verify()->isNotBool`                             |
+| `verify()->notCallable`                         | `verify()->isNotCallable`                         |
+| `verify()->notFloat`                            | `verify()->isNotFloat`                            |
+| `verify()->notInt`                              | `verify()->isNotInt`                              |
+| `verify()->notNumeric`                          | `verify()->isNotNumeric`                          |
+| `verify()->notObject`                           | `verify()->isNotObject`                           |
+| `verify()->notResource`                         | `verify()->isNotResource`                         |
+| `verify()->notScalar`                           | `verify()->isNotScalar`                           |
+| `verify()->notString`                           | `verify()->isNotString`                           |
+| `verify()->numeric`                             | `verify()->isNumeric`                             |
+| `verify()->object`                              | `verify()->isObject`                              |
+| `verify()->resource`                            | `verify()->isResource`                            |
+| `verify()->scalar`                              | `verify()->isScalar`                              |
+| `verify()->string`                              | `verify()->isString`                              |
 | `verify()->hasAttribute`                        | `Verify::BaseObject()->hasAttribute`              |
 | `verify()->notHasAttribute`                     | `Verify::BaseObject()->notHasAttribute`           |
 | `verify()->throws`                              | `Verify::Callable()->throws`                      |

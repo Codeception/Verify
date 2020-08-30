@@ -24,7 +24,7 @@ composer require codeception/verify --dev
 
 ## Usage
 
-Use in any test `Verify` function instead of `$this->assert*` methods:
+Use in any test `verify` function instead of `$this->assert*` methods:
 
 ```php
 use Codeception\Verify\Verify;
@@ -32,9 +32,9 @@ use Codeception\Verify\Verify;
 $user = User::find(1);
 
 // equals
-Verify($user->getName())->equals('davert');
+verify($user->getName())->equals('davert');
 
-Verify($user->getNumPosts())
+verify($user->getNumPosts())
     ->equals(5, 'user have 5 posts')
     ->notEquals(3);
 
@@ -45,20 +45,20 @@ Verify::Array($user->getRoles())
 
 
 // greater / less
-Verify($user->getRate())
+verify($user->getRate())
     ->greaterThan(5)
     ->lessThan(10)
     ->equals(7, 'first user rate is 7');
 
 // true / false / null
-Verify($user->isAdmin())->true();
-Verify($user->isBanned())->false();
-Verify($user->invitedBy)->null();
-Verify($user->getPosts())->notNull();
+verify($user->isAdmin())->true();
+verify($user->isBanned())->false();
+verify($user->invitedBy)->null();
+verify($user->getPosts())->notNull();
 
 // empty
-Verify($user->getComments())->empty();
-Verify($user->getRoles())->notEmpty();
+verify($user->getComments())->empty();
+verify($user->getRoles())->notEmpty();
 
 // throws
 Verify::Callable($callback)
@@ -81,12 +81,12 @@ Verify::Callable($callback)
 
 ## Alternative Syntax
 
-If you follow TDD/BDD you'd rather use `Expect` or `VerifyThat` instead of `Verify`. Which are just an alias function:
+If you follow TDD/BDD you'd rather use `expect` or `verify_that` instead of `verify`. Which are just an alias function:
 
 ```php
-Expect($user->getNumPosts())->equals(5, 'user have 5 posts');
+expect($user->getNumPosts())->equals(5, 'user have 5 posts');
 
-VerifyThat($user->getRate())->equals(7, 'first user rate is 7');
+verify_that($user->getRate())->equals(7, 'first user rate is 7');
 ```
 
 ## Extending
