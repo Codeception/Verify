@@ -19,6 +19,9 @@ With [BDD][3] assertions influenced by [Chai][4], [Jasmine][5], and [RSpec][6] y
 composer require codeception/verify --dev
 ```
 
+> :arrow_up: **Upgrade from 1.x by following [the upgrade guide.][9]**
+
+
 ## Usage
 
 Use in any test `Verify` function instead of `$this->assert*` methods:
@@ -132,3 +135,4 @@ Verify is open-sourced software licensed under the [MIT][8] License.
 [6]: http://rspec.info/
 [7]: /docs/supported_verifiers.md
 [8]: /LICENSE
+[9]: /UPGRADE.md

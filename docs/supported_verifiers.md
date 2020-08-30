@@ -17,6 +17,12 @@ notSameSize
 sameSize
 ```
 
+### BaseObject
+```
+hasAttribute
+notHasAttribute
+```
+
 ### Callable
 ```
 throws
@@ -152,7 +158,7 @@ startsNotWith
 startsWith
 ```
 
-### String
+### XmlFile
 ```
 equalsXmlFile
 notEqualsXmlFile
