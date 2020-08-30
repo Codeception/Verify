@@ -11,6 +11,14 @@ PHP version
 Verify function
 -------
 
+In version `2.x` the `verifiers` are classes. Each verifier handles a specific type of data.
+
+Thanks to this you can enjoy an autocompletion of your `IDE` much more intelligent than before...
+
+That is why **we have deleted verifiers as global functions** and we have used a new class-based syntax.
+
+According to the above:
+
  * `Verify` no longer receives a `string $message` as a parameter, now each _**verifier**_ fulfills this function.
  * `verify_that` was deleted. Use `VerifyThat` instead.
  * `verify_not` was deleted. Use `Verify()->empty` instead.
