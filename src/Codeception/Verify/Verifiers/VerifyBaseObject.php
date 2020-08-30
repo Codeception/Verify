@@ -5,12 +5,12 @@ namespace Codeception\Verify\Verifiers;
 use Codeception\Verify\Verify;
 use PHPUnit\Framework\Assert;
 
-class VerifyObject extends Verify
+class VerifyBaseObject extends Verify
 {
     use VerifyDataTrait;
 
     /**
-     * VerifyObject constructor
+     * VerifyBaseObject constructor
      *
      * @param object $object
      */

@@ -26,19 +26,6 @@ class VerifyJsonString extends Verify
     }
 
     /**
-     * Verifies that the generated JSON encoded object and the content of the given file are not equal.
-     *
-     * @param string $expectedFile
-     * @param string $message
-     * @return self
-     */
-    public function notEqualsJsonFile(string $expectedFile, string $message = ''): self
-    {
-        Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
-        return $this;
-    }
-
-    /**
      * Verifies that two given JSON encoded objects or arrays are equal.
      *
      * @param string $expectedJson
@@ -48,6 +35,19 @@ class VerifyJsonString extends Verify
     public function equalsJsonString(string $expectedJson, string $message = ''): self
     {
         Assert::assertJsonStringEqualsJsonString($expectedJson, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Verifies that the generated JSON encoded object and the content of the given file are not equal.
+     *
+     * @param string $expectedFile
+     * @param string $message
+     * @return self
+     */
+    public function notEqualsJsonFile(string $expectedFile, string $message = ''): self
+    {
+        Assert::assertJsonStringNotEqualsJsonFile($expectedFile, $this->actual, $message);
         return $this;
     }
 

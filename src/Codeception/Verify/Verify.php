@@ -10,7 +10,7 @@ use Codeception\Verify\Verifiers\VerifyFile;
 use Codeception\Verify\Verifiers\VerifyJsonFile;
 use Codeception\Verify\Verifiers\VerifyJsonString;
 use Codeception\Verify\Verifiers\VerifyMixed;
-use Codeception\Verify\Verifiers\VerifyObject;
+use Codeception\Verify\Verifiers\VerifyBaseObject;
 use Codeception\Verify\Verifiers\VerifyString;
 use Codeception\Verify\Verifiers\VerifyXmlFile;
 use Codeception\Verify\Verifiers\VerifyXmlString;
@@ -65,9 +65,9 @@ abstract class Verify
         return new VerifyXmlString($xml);
     }
 
-    public static function BaseObject(object $object): VerifyObject
+    public static function BaseObject(object $object): VerifyBaseObject
     {
-        return new VerifyObject($object);
+        return new VerifyBaseObject($object);
     }
 
     public static function Class(string $className): VerifyClass

@@ -3,6 +3,8 @@
 namespace Codeception\Exception;
 
 use InvalidArgumentException;
+use function gettype;
+use function sprintf;
 
 final class InvalidVerifyException extends InvalidArgumentException
 {

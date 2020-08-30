@@ -30,23 +30,23 @@ class VerifyCallable extends Verify
 
         try {
             call_user_func($this->actual);
-        } catch (Throwable $e) {
+        } catch (Throwable $exception) {
             if (!$throws) {
                 return $this; // it throws
             }
 
-            $actualThrows = get_class($e);
-            $actualMessage = $e->getMessage();
+            $actualThrows = get_class($exception);
+            $actualMessage = $exception->getMessage();
 
-            Assert::assertSame($throws, $actualThrows, "exception '$throws' was expected, but '$actualThrows' was thrown");
+            Assert::assertSame($throws, $actualThrows, sprintf('exception \'%s\' was expected, but \'%s\' was thrown', $throws, $actualThrows));
 
             if ($message) {
-                Assert::assertSame($message, $actualMessage, "exception message '$message' was expected, but '$actualMessage' was received");
+                Assert::assertSame($message, $actualMessage, sprintf('exception message \'%s\' was expected, but \'%s\' was received', $message, $actualMessage));
             }
         }
 
-        if (!isset($e)) {
-            throw new ExpectationFailedException("exception '$throws' was not thrown as expected");
+        if (!isset($exception)) {
+            throw new ExpectationFailedException(sprintf('exception \'%s\' was not thrown as expected', $throws));
         }
 
         return $this;
@@ -66,23 +66,24 @@ class VerifyCallable extends Verify
 
         try {
             call_user_func($this->actual);
-        } catch (Throwable $e) {
+        } catch (Throwable $exception) {
             if (!$throws) {
                 throw new ExpectationFailedException('exception was not expected to be thrown');
             }
 
-            $actualThrows = get_class($e);
-            $actualMessage = $e->getMessage();
+            $actualThrows = get_class($exception);
+            $actualMessage = $exception->getMessage();
 
             if ($throws !== $actualThrows) {
                 return $this;
             }
+
             if (!$message) {
-                throw new ExpectationFailedException("exception '$throws' was not expected to be thrown");
+                throw new ExpectationFailedException(sprintf('exception \'%s\' was not expected to be thrown', $throws));
             }
 
             if ($message === $actualMessage) {
-                throw new ExpectationFailedException("exception '$throws' with message '$message' was not expected to be thrown");
+                throw new ExpectationFailedException(sprintf('exception \'%s\' with message \'%s\' was not expected to be thrown', $throws, $message));
             }
         }
 

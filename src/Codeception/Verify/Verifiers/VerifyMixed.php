@@ -32,6 +32,19 @@ class VerifyMixed extends Verify
     }
 
     /**
+     * Verifies that two variables are equal.
+     *
+     * @param $expected
+     * @param string $message
+     * @return self
+     */
+    public function equals($expected, string $message = ''): self
+    {
+        Assert::assertEquals($expected, $this->actual, $message);
+        return $this;
+    }
+
+    /**
      * Verifies that two variables are equal (canonicalizing).
      *
      * @param $expected
@@ -485,6 +498,19 @@ class VerifyMixed extends Verify
     }
 
     /**
+     * Verifies that two variables are not equal.
+     *
+     * @param $expected
+     * @param string $message
+     * @return self
+     */
+    public function notEquals($expected, string $message = ''): self
+    {
+        Assert::assertNotEquals($expected, $this->actual, $message);
+        return $this;
+    }
+
+    /**
      * Verifies that two variables are not equal (canonicalizing).
      *
      * @param $expected
@@ -641,32 +667,6 @@ class VerifyMixed extends Verify
     public function true(string $message = ''): self
     {
         Assert::assertTrue($this->actual, $message);
-        return $this;
-    }
-
-    /**
-     * Verifies that two variables are equal.
-     *
-     * @param $expected
-     * @param string $message
-     * @return self
-     */
-    public function equals($expected, string $message = ''): self
-    {
-        Assert::assertEquals($expected, $this->actual, $message);
-        return $this;
-    }
-
-    /**
-     * Verifies that two variables are not equal.
-     *
-     * @param $expected
-     * @param string $message
-     * @return self
-     */
-    public function notEquals($expected, string $message = ''): self
-    {
-        Assert::assertNotEquals($expected, $this->actual, $message);
         return $this;
     }
 }

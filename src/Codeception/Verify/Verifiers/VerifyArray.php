@@ -7,6 +7,9 @@ use Codeception\Exception\InvalidVerifyException;
 use Codeception\Verify\Verify;
 use Countable;
 use PHPUnit\Framework\Assert;
+use function basename;
+use function is_array;
+use function is_iterable;
 
 class VerifyArray extends Verify
 {
@@ -26,7 +29,7 @@ class VerifyArray extends Verify
             parent::__construct($actual);
             return;
         }
-        throw new InvalidVerifyException(basename(__CLASS__), $actual);
+        throw new InvalidVerifyException(basename(self::class), $actual);
     }
 
     /**

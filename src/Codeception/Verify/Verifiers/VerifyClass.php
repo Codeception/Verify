@@ -33,6 +33,19 @@ class VerifyClass extends Verify
     }
 
     /**
+     * Verifies that a class has a specified static attribute.
+     *
+     * @param string $attributeName
+     * @param string $message
+     * @return self
+     */
+    public function hasStaticAttribute(string $attributeName, string $message = ''): self
+    {
+        Assert::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
+        return $this;
+    }
+
+    /**
      * Verifies that a class does not have a specified attribute.
      *
      * @param string $attributeName
@@ -55,19 +68,6 @@ class VerifyClass extends Verify
     public function notHasStaticAttribute(string $attributeName, string $message = ''): self
     {
         Assert::assertClassNotHasStaticAttribute($attributeName, $this->actual, $message);
-        return $this;
-    }
-
-    /**
-     * Verifies that a class has a specified static attribute.
-     *
-     * @param string $attributeName
-     * @param string $message
-     * @return self
-     */
-    public function hasStaticAttribute(string $attributeName, string $message = ''): self
-    {
-        Assert::assertClassHasStaticAttribute($attributeName, $this->actual, $message);
         return $this;
     }
 }

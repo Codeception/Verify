@@ -12,44 +12,6 @@ class VerifyString extends Verify
         parent::__construct($string);
     }
 
-    /**
-     * Verifies that a string is a valid JSON string.
-     *
-     * @param string $message
-     * @return self
-     */
-    public function json(string $message = ''): self
-    {
-        Assert::assertJson($this->actual, $message);
-        return $this;
-    }
-
-    /**
-     * Verifies that a string does not match a given regular expression.
-     *
-     * @param string $pattern
-     * @param string $message
-     * @return self
-     */
-    public function doesNotMatchRegExp(string $pattern, string $message = ''): self
-    {
-        Assert::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
-        return $this;
-    }
-
-    /**
-     * Verifies that a string matches a given regular expression.
-     *
-     * @param string $pattern
-     * @param string $message
-     * @return self
-     */
-    public function matchesRegExp(string $pattern, string $message = ''): self
-    {
-        Assert::assertMatchesRegularExpression($pattern, $this->actual, $message);
-        return $this;
-    }
-
     public function containsString(string $needle, string $message = ''): self
     {
         Assert::assertStringContainsString($needle, $this->actual, $message);
@@ -63,41 +25,15 @@ class VerifyString extends Verify
     }
 
     /**
-     * Verifies that the contents of a string is equal to the contents of a file (canonicalizing).
+     * Verifies that a string does not match a given regular expression.
      *
-     * @param string $expectedFile
+     * @param string $pattern
      * @param string $message
      * @return self
      */
-    public function equalsFileCanonicalizing(string $expectedFile, string $message = ''): self
+    public function doesNotMatchRegExp(string $pattern, string $message = ''): self
     {
-        Assert::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
-        return $this;
-    }
-
-    /**
-     * Verifies that the contents of a string is equal to the contents of a file (ignoring case).
-     *
-     * @param string $expectedFile
-     * @param string $message
-     * @return self
-     */
-    public function equalsFileIgnoringCase(string $expectedFile, string $message = ''): self
-    {
-        Assert::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
-        return $this;
-    }
-
-    /**
-     * Verifies that a string ends not with a given suffix.
-     *
-     * @param string $suffix
-     * @param string $message
-     * @return self
-     */
-    public function notEndsWith(string $suffix, string $message = ''): self
-    {
-        Assert::assertStringEndsNotWith($suffix, $this->actual, $message);
+        Assert::assertDoesNotMatchRegularExpression($pattern, $this->actual, $message);
         return $this;
     }
 
@@ -128,6 +64,44 @@ class VerifyString extends Verify
     }
 
     /**
+     * Verifies that the contents of a string is equal to the contents of a file (canonicalizing).
+     *
+     * @param string $expectedFile
+     * @param string $message
+     * @return self
+     */
+    public function equalsFileCanonicalizing(string $expectedFile, string $message = ''): self
+    {
+        Assert::assertStringEqualsFileCanonicalizing($expectedFile, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Verifies that the contents of a string is equal to the contents of a file (ignoring case).
+     *
+     * @param string $expectedFile
+     * @param string $message
+     * @return self
+     */
+    public function equalsFileIgnoringCase(string $expectedFile, string $message = ''): self
+    {
+        Assert::assertStringEqualsFileIgnoringCase($expectedFile, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Verifies that a string is a valid JSON string.
+     *
+     * @param string $message
+     * @return self
+     */
+    public function json(string $message = ''): self
+    {
+        Assert::assertJson($this->actual, $message);
+        return $this;
+    }
+
+    /**
      * Verifies that a string matches a given format string.
      *
      * @param string $format
@@ -153,6 +127,19 @@ class VerifyString extends Verify
         return $this;
     }
 
+    /**
+     * Verifies that a string matches a given regular expression.
+     *
+     * @param string $pattern
+     * @param string $message
+     * @return self
+     */
+    public function matchesRegExp(string $pattern, string $message = ''): self
+    {
+        Assert::assertMatchesRegularExpression($pattern, $this->actual, $message);
+        return $this;
+    }
+
     public function notContainsString(string $needle, string $message = ''): self
     {
         Assert::assertStringNotContainsString($needle, $this->actual, $message);
@@ -162,6 +149,32 @@ class VerifyString extends Verify
     public function notContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
         Assert::assertStringNotContainsStringIgnoringCase($needle, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Verifies that a string ends not with a given suffix.
+     *
+     * @param string $suffix
+     * @param string $message
+     * @return self
+     */
+    public function notEndsWith(string $suffix, string $message = ''): self
+    {
+        Assert::assertStringEndsNotWith($suffix, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Verifies that the contents of a string is not equal to the contents of a file.
+     *
+     * @param string $expectedFile
+     * @param string $message
+     * @return self
+     */
+    public function notEqualsFile(string $expectedFile, string $message = ''): self
+    {
+        Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
         return $this;
     }
 
@@ -240,19 +253,6 @@ class VerifyString extends Verify
     public function startsWith(string $prefix, string $message = ''): self
     {
         Assert::assertStringStartsWith($prefix, $this->actual, $message);
-        return $this;
-    }
-
-    /**
-     * Verifies that the contents of a string is not equal to the contents of a file.
-     *
-     * @param string $expectedFile
-     * @param string $message
-     * @return self
-     */
-    public function notEqualsFile(string $expectedFile, string $message = ''): self
-    {
-        Assert::assertStringNotEqualsFile($expectedFile, $this->actual, $message);
         return $this;
     }
 }

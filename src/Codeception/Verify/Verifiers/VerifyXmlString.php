@@ -6,6 +6,8 @@ use Codeception\Exception\InvalidVerifyException;
 use Codeception\Verify\Verify;
 use DOMDocument;
 use PHPUnit\Framework\Assert;
+use function basename;
+use function is_string;
 
 class VerifyXmlString extends Verify
 {
@@ -20,7 +22,7 @@ class VerifyXmlString extends Verify
             parent::__construct($actualXml);
             return;
         }
-        throw new InvalidVerifyException(basename(__CLASS__), $actualXml);
+        throw new InvalidVerifyException(basename(self::class), $actualXml);
     }
 
     /**
