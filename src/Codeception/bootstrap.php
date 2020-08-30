@@ -14,6 +14,18 @@ if (!function_exists('Verify'))
     }
 }
 
+if (!function_exists('VerifyThat'))
+{
+    /**
+     * @param mixed $actual
+     * @return VerifyMixed
+     */
+    function VerifyThat($actual): VerifyMixed
+    {
+        return new VerifyMixed($actual);
+    }
+}
+
 if (!function_exists('Expect'))
 {
     /**

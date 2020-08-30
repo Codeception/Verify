@@ -81,10 +81,12 @@ Verify::Callable($callback)
 
 ## Alternative Syntax
 
-If you follow TDD/BDD you'd rather use `Expect` instead of `Verify`. Which are just an alias function:
+If you follow TDD/BDD you'd rather use `Expect` or `VerifyThat` instead of `Verify`. Which are just an alias function:
 
 ```php
 Expect($user->getNumPosts())->equals(5, 'user have 5 posts');
+
+VerifyThat($user->getRate())->equals(7, 'first user rate is 7');
 ```
 
 ## Extending

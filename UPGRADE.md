@@ -12,7 +12,8 @@ Verify function
 -------
 
  * `Verify` no longer receives a `string $message` as a parameter, now each _**verifier**_ fulfills this function.
- * `verify_that` and `verify_not` were deleted. Use `Verify()->notEmpty` and `Verify()->empty` instead.
+ * `verify_that` was deleted. Use `VerifyThat` instead.
+ * `verify_not` was deleted. Use `Verify()->empty` instead.
  * `expect_that` and `expect_not` were deleted. Use `Expect()->notEmpty` and `Expect()->empty` instead.
  * `expect_file` and `setIsFileExpectation` were deleted. Use `Verify::File()` instead.
 
