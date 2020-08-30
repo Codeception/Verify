@@ -11,7 +11,7 @@ final class VerifyTest extends TestCase
     /** @var DOMDocument */
     protected $xml;
 
-    protected function _setUp(): void
+    protected function setUp(): void
     {
         $this->xml = new DOMDocument;
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
@@ -87,8 +87,8 @@ final class VerifyTest extends TestCase
         Verify::Class('Exception')->notHasAttribute('fakeproperty');
 
         $testObject = (object) ['existingAttribute' => true];
-        Verify::Object($testObject)->hasAttribute('existingAttribute');
-        Verify::Object($testObject)->notHasAttribute('fakeproperty');
+        Verify::BaseObject($testObject)->hasAttribute('existingAttribute');
+        Verify::BaseObject($testObject)->notHasAttribute('fakeproperty');
     }
 
     public function testHasStaticAttribute(): void
@@ -256,7 +256,7 @@ final class VerifyTest extends TestCase
 
     public function testIsCallable(): void
     {
-        Verify(function() {})->isCallable();
+        Verify(function(): void {})->isCallable();
         Verify(false)->isNotCallable();
     }
 
@@ -292,7 +292,7 @@ final class VerifyTest extends TestCase
 
     public function testThrows(): void
     {
-        $func = function () {
+        $func = function (): void {
             throw new Exception('foo');
         };
 
@@ -302,22 +302,22 @@ final class VerifyTest extends TestCase
         Verify::Callable($func)->throws(new Exception());
         Verify::Callable($func)->throws(new Exception('foo'));
 
-        Verify::Callable(function () use ($func) {
+        Verify::Callable(function () use ($func): void {
             Verify::Callable($func)->throws(RuntimeException::class);
         })->throws(ExpectationFailedException::class);
 
-        Verify::Callable(function () {
-            Verify::Callable(function () {})->throws(Exception::class);
+        Verify::Callable(function (): void {
+            Verify::Callable(function (): void {})->throws(Exception::class);
         })->throws(new ExpectationFailedException("exception 'Exception' was not thrown as expected"));
     }
 
     public function testDoesNotThrow(): void
     {
-        $func = function () {
+        $func = function (): void {
             throw new Exception('foo');
         };
 
-        Verify::Callable(function () {})->doesNotThrow();
+        Verify::Callable(function (): void {})->doesNotThrow();
         Verify::Callable($func)->doesNotThrow(RuntimeException::class);
         Verify::Callable($func)->doesNotThrow(RuntimeException::class, 'bar');
         Verify::Callable($func)->doesNotThrow(RuntimeException::class, 'foo');
@@ -327,15 +327,15 @@ final class VerifyTest extends TestCase
         Verify::Callable($func)->doesNotThrow(Exception::class, 'bar');
         Verify::Callable($func)->doesNotThrow(new Exception('bar'));
 
-        Verify::Callable(function () use ($func) {
+        Verify::Callable(function () use ($func): void {
             Verify::Callable($func)->doesNotThrow();
         })->throws(new ExpectationFailedException('exception was not expected to be thrown'));
 
-        Verify::Callable(function () use ($func) {
+        Verify::Callable(function () use ($func): void {
             Verify::Callable($func)->doesNotThrow(Exception::class);
         })->throws(new ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
 
-        Verify::Callable(function () use ($func) {
+        Verify::Callable(function () use ($func): void {
             Verify::Callable($func)->doesNotThrow(Exception::class, 'foo');
         })->throws(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }

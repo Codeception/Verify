@@ -4,7 +4,7 @@ namespace Codeception\Exception;
 
 use InvalidArgumentException;
 
-class InvalidVerifyException extends InvalidArgumentException
+final class InvalidVerifyException extends InvalidArgumentException
 {
     public function __construct($verifyName, $actual)
     {

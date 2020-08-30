@@ -68,7 +68,7 @@ class VerifyCallable extends Verify
             call_user_func($this->actual);
         } catch (Throwable $e) {
             if (!$throws) {
-                throw new ExpectationFailedException("exception was not expected to be thrown");
+                throw new ExpectationFailedException('exception was not expected to be thrown');
             }
 
             $actualThrows = get_class($e);
@@ -77,10 +77,11 @@ class VerifyCallable extends Verify
             if ($throws !== $actualThrows) {
                 return $this;
             }
-
             if (!$message) {
                 throw new ExpectationFailedException("exception '$throws' was not expected to be thrown");
-            } elseif ($message === $actualMessage) {
+            }
+
+            if ($message === $actualMessage) {
                 throw new ExpectationFailedException("exception '$throws' with message '$message' was not expected to be thrown");
             }
         }

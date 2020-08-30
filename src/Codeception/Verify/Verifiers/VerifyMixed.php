@@ -25,7 +25,7 @@ class VerifyMixed extends Verify
      * @param string $message
      * @return self
      */
-    public function empty($message = ''): self
+    public function empty(string $message = ''): self
     {
         Assert::assertEmpty($this->actual, $message);
         return $this;
@@ -248,7 +248,7 @@ class VerifyMixed extends Verify
      * @param string $message
      * @return self
      */
-    public function isNotBool($message = ''): self
+    public function isNotBool(string $message = ''): self
     {
         Assert::assertIsNotBool($this->actual, $message);
         return $this;
@@ -651,7 +651,7 @@ class VerifyMixed extends Verify
      * @param string $message
      * @return self
      */
-    public function equals($expected, $message = ''): self
+    public function equals($expected, string $message = ''): self
     {
         Assert::assertEquals($expected, $this->actual, $message);
         return $this;
@@ -664,7 +664,7 @@ class VerifyMixed extends Verify
      * @param string $message
      * @return self
      */
-    public function notEquals($expected, $message = ''): self
+    public function notEquals($expected, string $message = ''): self
     {
         Assert::assertNotEquals($expected, $this->actual, $message);
         return $this;

@@ -9,6 +9,7 @@ use Codeception\Verify\Verifiers\VerifyClass;
 use Codeception\Verify\Verifiers\VerifyFile;
 use Codeception\Verify\Verifiers\VerifyJsonFile;
 use Codeception\Verify\Verifiers\VerifyJsonString;
+use Codeception\Verify\Verifiers\VerifyMixed;
 use Codeception\Verify\Verifiers\VerifyObject;
 use Codeception\Verify\Verifiers\VerifyString;
 use Codeception\Verify\Verifiers\VerifyXmlFile;
@@ -28,6 +29,15 @@ abstract class Verify
     protected function __construct($actual)
     {
         $this->actual = $actual;
+    }
+
+    /**
+     * @param mixed $actual
+     * @return self
+     */
+    public function __invoke($actual): self
+    {
+        return $this($actual);
     }
 
     public static function File(string $filename): VerifyFile
@@ -55,7 +65,7 @@ abstract class Verify
         return new VerifyXmlString($xml);
     }
 
-    public static function Object(object $object): VerifyObject
+    public static function BaseObject(object $object): VerifyObject
     {
         return new VerifyObject($object);
     }
@@ -87,5 +97,14 @@ abstract class Verify
     public static function Callable(callable $callable): VerifyCallable
     {
         return new VerifyCallable($callable);
+    }
+
+    /**
+     * @param mixed $actual
+     * @return VerifyMixed
+     */
+    public static function Mixed($actual): VerifyMixed
+    {
+        return new VerifyMixed($actual);
     }
 }

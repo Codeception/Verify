@@ -95,7 +95,7 @@ class VerifyArray extends Verify
      * @param string $message
      * @return self
      */
-    public function hasKey($key, $message = ''): self
+    public function hasKey($key, string $message = ''): self
     {
         Assert::assertArrayHasKey($key, $this->actual, $message);
         return $this;
