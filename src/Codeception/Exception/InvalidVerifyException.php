@@ -9,7 +9,7 @@ class InvalidVerifyException extends InvalidArgumentException
     public function __construct($verifyName, $actual)
     {
         $message = sprintf(
-            "%s type can't be used with %s verify.",
+            "%s type cannot be used with %s verify.",
             gettype($actual),
             $verifyName
         );

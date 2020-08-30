@@ -2,19 +2,26 @@
 
 namespace Codeception\Verify\Verifiers;
 
-use Codeception\PHPUnit\TestCase;
+use Codeception\Verify\Verify;
 use Exception;
+use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\ExpectationFailedException;
 use Throwable;
 
-trait VerifyThrowableTrait
+class VerifyCallable extends Verify
 {
+    public function __construct(callable $callable)
+    {
+        parent::__construct($callable);
+    }
+
     /**
      * @param Exception|string|null $throws
      * @param string|false $message
+     * @return VerifyCallable
      * @throws Throwable
      */
-    public function throws($throws = null, $message = false)
+    public function throws($throws = null, $message = false): self
     {
         if ($throws instanceof Exception) {
             $message = $throws->getMessage();
@@ -25,25 +32,32 @@ trait VerifyThrowableTrait
             call_user_func($this->actual);
         } catch (Throwable $e) {
             if (!$throws) {
-                return; // it throws
+                return $this; // it throws
             }
 
             $actualThrows = get_class($e);
             $actualMessage = $e->getMessage();
 
-            TestCase::assertSame($throws, $actualThrows, "exception '$throws' was expected, but '$actualThrows' was thrown");
+            Assert::assertSame($throws, $actualThrows, "exception '$throws' was expected, but '$actualThrows' was thrown");
 
             if ($message) {
-                TestCase::assertSame($message, $actualMessage, "exception message '$message' was expected, but '$actualMessage' was received");
+                Assert::assertSame($message, $actualMessage, "exception message '$message' was expected, but '$actualMessage' was received");
             }
         }
 
         if (!isset($e)) {
             throw new ExpectationFailedException("exception '$throws' was not thrown as expected");
         }
+
+        return $this;
     }
 
-    public function doesNotThrow($throws = null, $message = false)
+    /**
+     * @param Exception|string|null $throws
+     * @param string|false $message
+     * @return $this
+     */
+    public function doesNotThrow($throws = null, $message = false): self
     {
         if ($throws instanceof Exception) {
             $message = $throws->getMessage();
@@ -61,7 +75,7 @@ trait VerifyThrowableTrait
             $actualMessage = $e->getMessage();
 
             if ($throws !== $actualThrows) {
-                return;
+                return $this;
             }
 
             if (!$message) {
@@ -70,5 +84,7 @@ trait VerifyThrowableTrait
                 throw new ExpectationFailedException("exception '$throws' with message '$message' was not expected to be thrown");
             }
         }
+
+        return $this;
     }
 }

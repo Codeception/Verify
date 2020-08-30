@@ -13,14 +13,15 @@
         }
     ],
     "require": {
-        "php": ">= 7.1",
+        "php": "^7.3",
         "ext-dom": "*",
-        "phpunit/phpunit": ">= 7.0",
-        "codeception/phpunit-wrapper": "^7.8.0 | ^8.1.2 | ^9.0.2"
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
-        "files": ["src/Codeception/function.php"],
-        "psr-4":{
+        "files": [
+            "src/Codeception/bootstrap.php"
+        ],
+        "psr-4": {
             "Codeception\\": "src\\Codeception"
         }
     }
