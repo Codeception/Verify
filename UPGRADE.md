@@ -11,11 +11,11 @@ PHP version
 Verify function
 -------
 
-In version `2.x` the `verifiers` are classes. Each verifier handles a specific type of data.
+In version `2.x`, `verifiers` can be used as classes. Each verifier class handles a specific type of data.
 
 Thanks to this you can enjoy an autocompletion of your `IDE` much more intelligent than before...
 
-That is why **we have deleted verifiers as global functions** and we have used a new class-based syntax.
+That is why **we remove some global functions** that have a less intuitive behavior.
 
 According to the above:
 
