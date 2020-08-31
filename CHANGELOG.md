@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0
+
+* Support for Chained Verifiers.
+* The Verify API is now fully based on the PHPUnit public API.
+* Improved IDE autocompletion depending on the type of data you want to verify
+* Simplified data validations.
+* Improved code quality, performance and maintainability.
+* See **BC** details in the UPGRADE.md file.
+
 ## 1.5
 
 * Support for full PHPUnit API `(42 new verifiers!)`

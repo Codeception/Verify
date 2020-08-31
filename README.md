@@ -19,30 +19,36 @@ With [BDD][3] assertions influenced by [Chai][4], [Jasmine][5], and [RSpec][6] y
 composer require codeception/verify --dev
 ```
 
+> :arrow_up: **Upgrade from 1.x by following [the upgrade guide.][9]**
+
+
 ## Usage
 
 Use in any test `verify` function instead of `$this->assert*` methods:
 
 ```php
+use Codeception\Verify\Verify;
+
 $user = User::find(1);
 
-// equal
+// equals
 verify($user->getName())->equals('davert');
-verify("user have 5 posts", $user->getNumPosts())->equals(5);
-verify($user->getNumPosts())->notEquals(3);
+
+verify($user->getNumPosts())
+    ->equals(5, 'user have 5 posts')
+    ->notEquals(3);
 
 // contains
-verify('first user is admin', $user->getRoles())->contains('admin');
-verify("first user is not banned", $user->getRoles())->notContains('banned');
+Verify::Array($user->getRoles())
+    ->contains('admin', 'first user is admin')
+    ->notContains('banned', 'first user is not banned');
+
 
 // greater / less
-$rate = $user->getRate();
-verify('first user rate is 7', $rate)->equals(7);
-
-verify($rate)->greaterThan(5);
-verify($rate)->lessThan(10);
-verify($rate)->lessOrEquals(7);
-verify($rate)->greaterOrEquals(5);
+verify($user->getRate())
+    ->greaterThan(5)
+    ->lessThan(10)
+    ->equals(7, 'first user rate is 7');
 
 // true / false / null
 verify($user->isAdmin())->true();
@@ -51,68 +57,71 @@ verify($user->invitedBy)->null();
 verify($user->getPosts())->notNull();
 
 // empty
-verify($user->getComments())->isEmpty();
+verify($user->getComments())->empty();
 verify($user->getRoles())->notEmpty();
 
 // throws
-verify($callback)->throws();
-verify($callback)->throws(Exception::class);
-verify($callback)->throws(Exception::class, 'exception message');
-verify($callback)->throws(new Exception());
-verify($callback)->throws(new Exception('message'));
+Verify::Callable($callback)
+    ->throws()
+    ->throws(Exception::class)
+    ->throws(Exception::class, 'exception message')
+    ->throws(new Exception())
+    ->throws(new Exception('message'));
 
 // does not throw
-verify($callback)->doesNotThrow();
-verify($callback)->throws(Exception::class);
-verify($callback)->doesNotThrow(new Exception());
+Verify::Callable($callback)
+    ->doesNotThrow()
+    ->throws(Exception::class)
+    ->doesNotThrow(new Exception());
 
 // and many more !
 ```
 
-> ##### :page_facing_up: See Verifiers full list [here.][7]
-
-Shorthands for testing truth/fallacy:
-
-```php
-verify_that($user->isActivated());
-verify_not($user->isBanned());
-```
-
-These two functions don't check for strict true/false matching, rather `empty` function is used.
-`verify_that` checks that result is not empty value, `verify_not` does the opposite.
+> :page_facing_up: **See Verifiers full list [here.][7]**
 
 ## Alternative Syntax
 
-If you follow TDD/BDD you'd rather use `expect` instead of `verify`. Which are just an alias functions:
+If you follow TDD/BDD you'd rather use `expect` or `verify_that` instead of `verify`. Which are just an alias function:
 
 ```php
-expect("user have 5 posts", $user->getNumPosts())->equals(5);
-expect_that($user->isActive());
-expect_not($user->isBanned());
+expect($user->getNumPosts())->equals(5, 'user have 5 posts');
+
+verify_that($user->getRate())->equals(7, 'first user rate is 7');
 ```
 
 ## Extending
 
-In order to add more assertions you can override `Codeception\Verify` class:
+In order to add more assertions you can extend the abstract class `Verify`:
 
 ```php
-class MyVerify extends \Codeception\Verify {
+use Codeception\Verify\Verify;
+use PHPUnit\Framework\Assert;
 
-    public function success()
+class MyVerify extends Verify {
+
+    //you can type $actual to only receive a specific data type
+
+    public function __construct($actual = null)
     {
+        parent::__construct($actual);
+    }
+
+    public function success(string $message = '')
+    {
+        Assert::assertTrue(true, $message);
     }
 
 }
 ```
 
-Set the class name to `Codeception\Verify::$override` property to `verify` function use it:
+And use it!
   
 ```php
+$myVerify = new MyVerify;
 
-\Codeception\Verify::$override = MyVerify::class;
+$myVerify->success('it works!');
 
-// access overridden class
-verify('it works')->success();
+$myVerify::Mixed('this also')->notEquals('works');
 ```
 
 ## License
@@ -128,3 +137,4 @@ Verify is open-sourced software licensed under the [MIT][8] License.
 [6]: http://rspec.info/
 [7]: /docs/supported_verifiers.md
 [8]: /LICENSE
+[9]: /UPGRADE.md

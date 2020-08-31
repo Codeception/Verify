@@ -1,359 +1,342 @@
-<?php
+<?php declare(strict_types=1);
 
-include_once __DIR__.'/../src/Codeception/function.php';
+include_once __DIR__.'/../src/Codeception/bootstrap.php';
 
-class VerifyTest extends \Codeception\PHPUnit\TestCase {
+use PHPUnit\Framework\ExpectationFailedException;
+use PHPUnit\Framework\TestCase;
 
+final class VerifyTest extends TestCase
+{
+    /** @var DOMDocument */
     protected $xml;
 
-    protected function _setUp()
+    protected function setUp(): void
     {
-        $this->xml = new DomDocument;
+        $this->xml = new DOMDocument;
         $this->xml->loadXML('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
-    public function testEquals()
+    public function testEquals(): void
     {
         verify(5)->equals(5);
-        verify("hello")->equals("hello");
-        verify("user have 5 posts", 5)->equals(5);
-        verify(3.251)->equals(3.25, 0.01);
-        verify("respects delta", 3.251)->equals(3.25, 0.01);
-        verify_file(__FILE__)->equals(__FILE__);
+        verify('hello')->equals('hello');
+        verify(5)->equals(5, 'user have 5 posts');
+        verify(3.251)->equalsWithDelta(3.25, 0.01);
+        verify(3.251)->equalsWithDelta(3.25, 0.01, 'respects delta');
+        verify(__FILE__)->fileEquals(__FILE__);
     }
 
-    public function testNotEquals()
+    public function testNotEquals(): void
     {
         verify(3)->notEquals(5);
-        verify(3.252)->notEquals(3.25, 0.001);
-        verify("respects delta", 3.252, 0.001);
-        verify_file(__FILE__)->notEquals(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'composer.json');
+        verify(3.252)->notEqualsWithDelta(3.25, 0.001);
+        verify(3.252)->notEqualsWithDelta(3.25, 0.001, 'respects delta');
+        verify(__FILE__)->fileNotEquals(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'composer.json');
     }
 
-    public function testContains()
+    public function testContains(): void
     {
-        verify(array(3, 2))->contains(3);
-        verify("user have 5 posts", array(3, 2))->notContains(5);
+        verify([3, 2])->arrayContains(3);
+        verify([3, 2])->arrayNotContains(5, 'user have 5 posts');
     }
 
-    public function testGreaterLowerThan()
+    public function testGreaterLowerThan(): void
     {
         verify(7)->greaterThan(5);
         verify(7)->lessThan(10);
-        verify(7)->lessOrEquals(7);
-        verify(7)->lessOrEquals(8);
-        verify(7)->greaterOrEquals(7);
-        verify(7)->greaterOrEquals(5);
+        verify(7)->lessThanOrEqual(7);
+        verify(7)->lessThanOrEqual(8);
+        verify(7)->greaterThanOrEqual(7);
+        verify(7)->greaterThanOrEqual(5);
     }
 
-    public function testTrueFalseNull()
+    public function testTrueFalseNull(): void
     {
         verify(true)->true();
         verify(false)->false();
         verify(null)->null();
         verify(true)->notNull();
-        verify('something should be false', false)->false();
-        verify('something should be true', true)->true();
+        verify(false)->false('something should be false');
+        verify(true)->true('something should be true');
     }
 
-    public function testEmptyNotEmpty()
+    public function testEmptyNotEmpty(): void
     {
         verify(array('3', '5'))->notEmpty();
-        verify(array())->isEmpty();
+        verify(array())->empty();
     }
 
-    public function testVerifyThat()
+    public function testArrayHasKey(): void
     {
-        verify_that(12);
-        verify_that('hello world');
-        verify_that(array('hello'));
+        $errors = ['title' => 'You should add title'];
+        verify($errors)->arrayHasKey('title');
+        verify($errors)->arrayHasNotKey('body');
     }
 
-    public function testVerifyNot()
-    {
-        verify_not(false);
-        verify_not(null);
-        verify_not(array());
-    }
-
-    public function testExpectFunctions()
-    {
-        expect(12)->equals(12);
-        expect_that(true);
-        expect_not(false);
-    }
-
-    public function testArrayHasKey()
-    {
-        $errors = array('title' => 'You should add title');
-        expect($errors)->hasKey('title');
-        expect($errors)->hasNotKey('body');
-    }
-
-    public function testIsInstanceOf()
+    public function testIsInstanceOf(): void
     {
         $testClass = new DateTime();
-        expect($testClass)->isInstanceOf('DateTime');
-        expect($testClass)->isNotInstanceOf('DateTimeZone');
+        verify($testClass)->instanceOf('DateTime');
+        verify($testClass)->notInstanceOf('DateTimeZone');
     }
 
-    public function testHasAttribute()
+    public function testHasAttribute(): void
     {
-        expect('Exception')->hasAttribute('message');
-        expect('Exception')->notHasAttribute('fakeproperty');
+        verify('Exception')->classHasAttribute('message');
+        verify('Exception')->classNotHasAttribute('fakeproperty');
 
-        $testObject = (object) array('existingAttribute' => true);
-        expect($testObject)->hasAttribute('existingAttribute');
-        expect($testObject)->notHasAttribute('fakeproperty');
+        $testObject = (object) ['existingAttribute' => true];
+        verify($testObject)->baseObjectHasAttribute('existingAttribute');
+        verify($testObject)->baseObjectNotHasAttribute('fakeproperty');
     }
 
-    public function testHasStaticAttribute()
+    public function testHasStaticAttribute(): void
     {
-        expect('FakeClassForTesting')->hasStaticAttribute('staticProperty');
-        expect('FakeClassForTesting')->notHasStaticAttribute('fakeProperty');
+        verify('FakeClassForTesting')->classHasStaticAttribute('staticProperty');
+        verify('FakeClassForTesting')->classNotHasStaticAttribute('fakeProperty');
     }
 
-    public function testContainsOnly()
+    public function testContainsOnly(): void
     {
-        expect(array('1', '2', '3'))->containsOnly('string');
-        expect(array('1', '2', 3))->notContainsOnly('string');
+        verify(['1', '2', '3'])->arrayContainsOnly('string');
+        verify(['1', '2', 3])->arrayNotContainsOnly('string');
     }
 
-    public function testContainsOnlyInstancesOf()
+    public function testContainsOnlyInstancesOf(): void
     {
-        expect(array(new FakeClassForTesting(), new FakeClassForTesting(), new FakeClassForTesting()))
-            ->containsOnlyInstancesOf('FakeClassForTesting');
+        verify([new FakeClassForTesting(), new FakeClassForTesting(), new FakeClassForTesting()])
+            ->arrayContainsOnlyInstancesOf('FakeClassForTesting');
     }
 
-    public function testCount()
+    public function testCount(): void
     {
-        expect(array(1,2,3))->count(3);
-        expect(array(1,2,3))->notCount(2);
+        verify([1, 2, 3])->arrayCount(3);
+        verify([1, 2, 3])->arrayNotCount(2);
     }
 
-    public function testFileExists()
+    public function testFileExists(): void
     {
-        expect_file(__FILE__)->exists();
-        expect_file('completelyrandomfilename.txt')->notExists();
+        verify(__FILE__)->fileExists();
+        verify('completelyrandomfilename.txt')->fileDoesNotExists();
     }
 
-    public function testEqualsJsonFile()
+    public function testEqualsJsonFile(): void
     {
-        expect_file(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'json-test-file.json')
-            ->equalsJsonFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
-        expect('{"some" : "data"}')->equalsJsonFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
+        verify(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'json-test-file.json')
+            ->jsonFileEqualsJsonFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
+        verify('{"some" : "data"}')->jsonStringEqualsJsonFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'equal-json-test-file.json');
     }
 
-    public function testEqualsJsonString()
+    public function testEqualsJsonString(): void
     {
-        expect('{"some" : "data"}')->equalsJsonString('{"some" : "data"}');
+        verify('{"some" : "data"}')->jsonStringEqualsJsonString('{"some" : "data"}');
     }
 
-    public function testRegExp()
+    public function testRegExp(): void
     {
-        expect('somestring')->regExp('/string/');
+        verify('somestring')->stringMatchesRegExp('/string/');
     }
 
-    public function testMatchesFormat()
+    public function testMatchesFormat(): void
     {
-        expect('somestring')->matchesFormat('%s');
-        expect('somestring')->notMatchesFormat('%i');
+        verify('somestring')->stringMatchesFormat('%s');
+        verify('somestring')->stringNotMatchesFormat('%i');
     }
 
-    public function testMatchesFormatFile()
+    public function testMatchesFormatFile(): void
     {
-        expect('23')->matchesFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
-        expect('asdfas')->notMatchesFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        verify('23')->stringMatchesFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        verify('asdfas')->stringNotMatchesFormatFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
     }
 
-    public function testSame()
+    public function testSame(): void
     {
-        expect(1)->same(0+1);
-        expect(1)->notSame(true);
+        verify(1)->same(0+1);
+        verify(1)->notSame(true);
     }
 
-    public function testEndsWith()
+    public function testEndsWith(): void
     {
-        expect('A completely not funny string')->endsWith('ny string');
-        expect('A completely not funny string')->notEndsWith('A completely');
+        verify('A completely not funny string')->stringEndsWith('ny string');
+        verify('A completely not funny string')->stringNotEndsWith('A completely');
     }
 
-    public function testEqualsFile()
+    public function testEqualsFile(): void
     {
-        expect('%i')->equalsFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
-        expect('Another string')->notEqualsFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        verify('%i')->stringEqualsFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
+        verify('Another string')->stringNotEqualsFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'format-file.txt');
     }
 
-    public function testStartsWith()
+    public function testStartsWith(): void
     {
-        expect('A completely not funny string')->startsWith('A completely');
-        expect('A completely not funny string')->notStartsWith('string');
+        verify('A completely not funny string')->stringStartsWith('A completely');
+        verify('A completely not funny string')->stringStartsNotWith('string');
     }
 
-    public function testEqualsXmlFile()
+    public function testEqualsXmlFile(): void
     {
-        expect_file(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml')
-            ->equalsXmlFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
-        expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
-            ->equalsXmlFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
+        verify(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml')
+            ->xmlFileEqualsXmlFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
+        verify('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
+            ->xmlStringEqualsXmlFile(__DIR__ . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'xml-test-file.xml');
     }
 
-    public function testEqualsXmlString()
+    public function testEqualsXmlString(): void
     {
-        expect('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
-            ->equalsXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
+        verify('<foo><bar>Baz</bar><bar>Baz</bar></foo>')
+            ->xmlStringEqualsXmlString('<foo><bar>Baz</bar><bar>Baz</bar></foo>');
     }
 
-    public function testStringContainsString()
+    public function testStringContainsString(): void
     {
         verify('foo bar')->stringContainsString('o b');
         verify('foo bar')->stringNotContainsString('BAR');
     }
 
-    public function testStringContainsStringIgnoringCase()
+    public function testStringContainsStringIgnoringCase(): void
     {
         verify('foo bar')->stringContainsStringIgnoringCase('O b');
         verify('foo bar')->stringNotContainsStringIgnoringCase('baz');
     }
 
-    public function testIsString()
+    public function testIsString(): void
     {
-        verify('foo bar')->string();
-        verify(false)->notString();
+        verify('foo bar')->isString();
+        verify(false)->isNotString();
     }
 
-    public function testIsArray()
+    public function testIsArray(): void
     {
-        verify([1,2,3])->array();
-        verify(false)->notArray();
+        verify([1,2,3])->isArray();
+        verify(false)->isNotArray();
     }
 
-    public function testIsBool()
+    public function testIsBool(): void
     {
-        verify(false)->bool();
-        verify([1,2,3])->notBool();
+        verify(false)->isBool();
+        verify([1,2,3])->isNotBool();
     }
 
-    public function testIsFloat()
+    public function testIsFloat(): void
     {
-        verify(1.5)->float();
-        verify(1)->notFloat();
+        verify(1.5)->isFloat();
+        verify(1)->isNotFloat();
     }
 
-    public function testIsInt()
+    public function testIsInt(): void
     {
-        verify(5)->int();
-        verify(1.5)->notInt();
+        verify(5)->isInt();
+        verify(1.5)->isNotInt();
     }
 
-    public function testIsNumeric()
+    public function testIsNumeric(): void
     {
-        verify('1.5')->numeric();
-        verify('foo bar')->notNumeric();
+        verify('1.5')->isNumeric();
+        verify('foo bar')->isNotNumeric();
     }
 
-    public function testIsObject()
+    public function testIsObject(): void
     {
-        verify(new stdClass)->object();
-        verify(false)->notObject();
+        verify(new stdClass)->isObject();
+        verify(false)->isNotObject();
     }
 
-    public function testIsResource()
+    public function testIsResource(): void
     {
-        verify(fopen(__FILE__, 'r'))->resource();
-        verify(false)->notResource();
+        verify(fopen(__FILE__, 'r'))->isResource();
+        verify(false)->isNotResource();
     }
 
-    public function testIsScalar()
+    public function testIsScalar(): void
     {
-        verify('foo bar')->scalar();
-        verify([1,2,3])->notScalar();
+        verify('foo bar')->isScalar();
+        verify([1,2,3])->isNotScalar();
     }
 
-    public function testIsCallable()
+    public function testIsCallable(): void
     {
-        verify(function() {})->callable();
-        verify(false)->notCallable();
+        verify(function(): void {})->isCallable();
+        verify(false)->isNotCallable();
     }
 
-    public function testEqualsCanonicalizing()
+    public function testEqualsCanonicalizing(): void
     {
         verify([3, 2, 1])->equalsCanonicalizing([1, 2, 3]);
     }
 
-    public function testNotEqualsCanonicalizing()
+    public function testNotEqualsCanonicalizing(): void
     {
         verify([3, 2, 1])->notEqualsCanonicalizing([2, 3, 0, 1]);
     }
 
-    public function testEqualsIgnoringCase()
+    public function testEqualsIgnoringCase(): void
     {
         verify('foo')->equalsIgnoringCase('FOO');
     }
 
-    public function testNotEqualsIgnoringCase()
+    public function testNotEqualsIgnoringCase(): void
     {
         verify('foo')->notEqualsIgnoringCase('BAR');
     }
 
-    public function testEqualsWithDelta()
+    public function testEqualsWithDelta(): void
     {
         verify(1.01)->equalsWithDelta(1.0, 0.1);
     }
 
-    public function testNotEqualsWithDelta()
+    public function testNotEqualsWithDelta(): void
     {
         verify(1.2)->notEqualsWithDelta(1.0, 0.1);
     }
 
-    public function testThrows()
+    public function testThrows(): void
     {
-        $func = function () {
+        $func = function (): void {
             throw new Exception('foo');
         };
 
-        verify($func)->throws();
-        verify($func)->throws(Exception::class);
-        verify($func)->throws(Exception::class, 'foo');
-        verify($func)->throws(new Exception());
-        verify($func)->throws(new Exception('foo'));
+        verify($func)->callableThrows();
+        verify($func)->callableThrows(Exception::class);
+        verify($func)->callableThrows(Exception::class, 'foo');
+        verify($func)->callableThrows(new Exception());
+        verify($func)->callableThrows(new Exception('foo'));
 
-        verify(function () use ($func) {
-            verify($func)->throws(RuntimeException::class);
-        })->throws(\PHPUnit\Framework\ExpectationFailedException::class);
+        verify(function () use ($func): void {
+            verify($func)->callableThrows(RuntimeException::class);
+        })->callableThrows(ExpectationFailedException::class);
 
-        verify(function () {
-            verify(function () {})->throws(Exception::class);
-        })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception 'Exception' was not thrown as expected"));
+        verify(function (): void {
+            verify(function (): void {})->callableThrows(Exception::class);
+        })->callableThrows(new ExpectationFailedException("exception 'Exception' was not thrown as expected"));
     }
 
-    public function testDoesNotThrow()
+    public function testDoesNotThrow(): void
     {
-        $func = function () {
+        $func = function (): void {
             throw new Exception('foo');
         };
 
-        verify(function () {})->doesNotThrow();
-        verify($func)->doesNotThrow(RuntimeException::class);
-        verify($func)->doesNotThrow(RuntimeException::class, 'bar');
-        verify($func)->doesNotThrow(RuntimeException::class, 'foo');
-        verify($func)->doesNotThrow(new RuntimeException());
-        verify($func)->doesNotThrow(new RuntimeException('bar'));
-        verify($func)->doesNotThrow(new RuntimeException('foo'));
-        verify($func)->doesNotThrow(Exception::class, 'bar');
-        verify($func)->doesNotThrow(new Exception('bar'));
+        verify(function (): void {})->callableDoesNotThrow();
+        verify($func)->callableDoesNotThrow(RuntimeException::class);
+        verify($func)->callableDoesNotThrow(RuntimeException::class, 'bar');
+        verify($func)->callableDoesNotThrow(RuntimeException::class, 'foo');
+        verify($func)->callableDoesNotThrow(new RuntimeException());
+        verify($func)->callableDoesNotThrow(new RuntimeException('bar'));
+        verify($func)->callableDoesNotThrow(new RuntimeException('foo'));
+        verify($func)->callableDoesNotThrow(Exception::class, 'bar');
+        verify($func)->callableDoesNotThrow(new Exception('bar'));
 
-        verify(function () use ($func) {
-            verify($func)->doesNotThrow();
-        })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception was not expected to be thrown"));
+        verify(function () use ($func): void {
+            verify($func)->callableDoesNotThrow();
+        })->callableThrows(new ExpectationFailedException('exception was not expected to be thrown'));
 
-        verify(function () use ($func) {
-            verify($func)->doesNotThrow(Exception::class);
-        })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
+        verify(function () use ($func): void {
+            verify($func)->callableDoesNotThrow(Exception::class);
+        })->callableThrows(new ExpectationFailedException("exception 'Exception' was not expected to be thrown"));
 
-        verify(function () use ($func) {
-            verify($func)->doesNotThrow(Exception::class, 'foo');
-        })->throws(new \PHPUnit\Framework\ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
+        verify(function () use ($func): void {
+            verify($func)->callableDoesNotThrow(Exception::class, 'foo');
+        })->callableThrows(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }
 }
 
