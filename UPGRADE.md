@@ -27,71 +27,45 @@ According to the above:
 Verifiers
 -------
 
-|                  Verify 1.x                     |                    Verify 2.x                     |
-|-------------------------------------------------|---------------------------------------------------|
-| `verify()->array`                               | `verify()->isArray`                               |
-| `verify()->bool`                                | `verify()->isBool`                                |
-| `verify()->callable`                            | `verify()->isCallable`                            |
-| `verify()->float`                               | `verify()->isFloat`                               |
-| `verify()->greaterOrEquals`                     | `verify()->greaterThanOrEqual`                    |
-| `verify()->int`                                 | `verify()->isInt`                                 |
-| `verify()->isEmpty`                             | `verify()->empty`                                 |
-| `verify()->isInstanceOf`                        | `verify()->instanceOf`                            |
-| `verify()->isNotInstanceOf`                     | `verify()->notInstanceOf`                         |
-| `verify()->lessOrEquals`                        | `verify()->lessThanOrEqual`                       |
-| `verify()->notArray`                            | `verify()->isNotArray`                            |
-| `verify()->notBool`                             | `verify()->isNotBool`                             |
-| `verify()->notCallable`                         | `verify()->isNotCallable`                         |
-| `verify()->notFloat`                            | `verify()->isNotFloat`                            |
-| `verify()->notInt`                              | `verify()->isNotInt`                              |
-| `verify()->notNumeric`                          | `verify()->isNotNumeric`                          |
-| `verify()->notObject`                           | `verify()->isNotObject`                           |
-| `verify()->notResource`                         | `verify()->isNotResource`                         |
-| `verify()->notScalar`                           | `verify()->isNotScalar`                           |
-| `verify()->notString`                           | `verify()->isNotString`                           |
-| `verify()->numeric`                             | `verify()->isNumeric`                             |
-| `verify()->object`                              | `verify()->isObject`                              |
-| `verify()->resource`                            | `verify()->isResource`                            |
-| `verify()->scalar`                              | `verify()->isScalar`                              |
-| `verify()->string`                              | `verify()->isString`                              |
-| `verify()->hasAttribute`                        | `Verify::BaseObject()->hasAttribute`              |
-| `verify()->notHasAttribute`                     | `Verify::BaseObject()->notHasAttribute`           |
-| `verify()->throws`                              | `Verify::Callable()->throws`                      |
-| `verify()->doesNotThrow`                        | `Verify::Callable()->doesNotThrow`                |
-| `verify()->hasStaticAttribute`                  | `Verify::Class()->hasStaticAttribute`             |
-| `verify()->notHasStaticAttribute`               | `Verify::Class()->notHasStaticAttribute`          |
-| `verify()->hasAttribute`                        | `Verify::Class()->hasAttribute`                   |
-| `verify()->notHasAttribute`                     | `Verify::Class()->notHasAttribute`                |
-| `verify()->directoryDoesNotExist`               | `Verify::Directory()->doesNotExist`               |
-| `verify()->directoryExists`                     | `Verify::Directory()->exists`                     |
-| `verify()->directoryIsNotReadable`              | `Verify::Directory()->isNotReadable`              |
-| `verify()->directoryIsNotWritable`              | `Verify::Directory()->isNotWritable`              |
-| `verify()->notExists`                           | `Verify::File()->doesNotExists`                   |
-| `verify()->fileEqualsCanonicalizing`            | `Verify::File()->equalsCanonicalizing`            |
-| `verify()->fileEqualsIgnoringCase`              | `Verify::File()->equalsIgnoringCase`              |
-| `verify()->fileIsNotReadable`                   | `Verify::File()->isNotReadable`                   |
-| `verify()->fileIsNotWritable`                   | `Verify::File()->isNotWritable`                   |
-| `verify()->fileIsReadable`                      | `Verify::File()->isReadable`                      |
-| `verify()->fileIsWritable`                      | `Verify::File()->isWritable`                      |
-| `verify()->fileNotEqualsCanonicalizing`         | `Verify::File()->notEqualsCanonicalizing`         |
-| `verify()->fileNotEqualsIgnoringCase`           | `Verify::File()->notEqualsIgnoringCase`           |
-| `verify()->jsonFileNotEqualsJsonFile`           | `Verify::JsonFile()->notEqualsJsonFile`           |
-| `verify()->jsonStringNotEqualsJsonFile`         | `Verify::JsonString()->notEqualsJsonFile`         |
-| `verify()->jsonStringNotEqualsJsonString`       | `Verify::JsonString()->otEqualsJsonString`        |
-| `verify()->regExp`                              | `Verify::String()->matchesRegExp`                 |
-| `verify()->stringContainsString`                | `Verify::String()->containsString`                |
-| `verify()->stringContainsStringIgnoringCase`    | `Verify::String()->containsStringIgnoringCase`    |
-| `verify()->stringEqualsFileCanonicalizing`      | `Verify::String()->equalsFileCanonicalizing`      |
-| `verify()->stringEqualsFileIgnoringCase`        | `Verify::String()->equalsFileIgnoringCase`        |
-| `verify()->stringNotEqualsFileCanonicalizing`   | `Verify::String()->notEqualsFileCanonicalizing`   |
-| `verify()->stringNotEqualsFileIgnoringCase`     | `Verify::String()->notEqualsFileIgnoringCase`     |
-| `verify()->notRegExp`                           | `Verify::String()->doesNotMatchRegExp`            |
-| `verify()->stringNotContainsString`             | `Verify::String()->notContainsString`             |
-| `verify()->stringNotContainsStringIgnoringCase` | `Verify::String()->notContainsStringIgnoringCase` |
-| `verify()->notStartsWith`                       | `Verify::String()->notStartsWith`                 |
-| `verify()->xmlFileNotEqualsXmlFile`             | `Verify::XmlFile()->notEqualsXmlFile`             |
-| `verify()->xmlStringNotEqualsXmlFile`           | `Verify::XmlString()->notEqualsXmlFile`           |
-| `verify()->xmlStringNotEqualsXmlString`         | `Verify::XmlString()->notEqualsXmlString`         |
+|                  Verify 1.x                     |                   Verify 2.x                    |
+|-------------------------------------------------|-------------------------------------------------|
+| `verify()->array`                               | `verify()->isArray`                             |
+| `verify()->bool`                                | `verify()->isBool`                              |
+| `verify()->callable`                            | `verify()->isCallable`                          |
+| `verify()->float`                               | `verify()->isFloat`                             |
+| `verify()->greaterOrEquals`                     | `verify()->greaterThanOrEqual`                  |
+| `verify()->int`                                 | `verify()->isInt`                               |
+| `verify()->isEmpty`                             | `verify()->empty`                               |
+| `verify()->isInstanceOf`                        | `verify()->instanceOf`                          |
+| `verify()->isNotInstanceOf`                     | `verify()->notInstanceOf`                       |
+| `verify()->lessOrEquals`                        | `verify()->lessThanOrEqual`                     |
+| `verify()->notArray`                            | `verify()->isNotArray`                          |
+| `verify()->notBool`                             | `verify()->isNotBool`                           |
+| `verify()->notCallable`                         | `verify()->isNotCallable`                       |
+| `verify()->notFloat`                            | `verify()->isNotFloat`                          |
+| `verify()->notInt`                              | `verify()->isNotInt`                            |
+| `verify()->notNumeric`                          | `verify()->isNotNumeric`                        |
+| `verify()->notObject`                           | `verify()->isNotObject`                         |
+| `verify()->notResource`                         | `verify()->isNotResource`                       |
+| `verify()->notScalar`                           | `verify()->isNotScalar`                         |
+| `verify()->notString`                           | `verify()->isNotString`                         |
+| `verify()->numeric`                             | `verify()->isNumeric`                           |
+| `verify()->object`                              | `verify()->isObject`                            |
+| `verify()->resource`                            | `verify()->isResource`                          |
+| `verify()->scalar`                              | `verify()->isScalar`                            |
+| `verify()->string`                              | `verify()->isString`                            |
+| `verify()->hasAttribute`                        | `Verify()->baseObjectHasAttribute`              |
+| `verify()->notHasAttribute`                     | `Verify()->baseObjectNotHasAttribute`           |
+| `verify()->throws`                              | `Verify()->callableThrows`                      |
+| `verify()->doesNotThrow`                        | `Verify()->callableDoesNotThrow`                |
+| `verify()->hasStaticAttribute`                  | `Verify()->classHasStaticAttribute`             |
+| `verify()->notHasStaticAttribute`               | `Verify()->classNotHasStaticAttribute`          |
+| `verify()->hasAttribute`                        | `Verify()->classHasAttribute`                   |
+| `verify()->notHasAttribute`                     | `Verify()->classNotHasAttribute`                |
+| `verify()->notExists`                           | `Verify()->fileDoesNotExists`                   |
+| `verify()->regExp`                              | `Verify()->stringMatchesRegExp`                 |
+| `verify()->notRegExp`                           | `Verify()->stringDoesNotMatchRegExp`            |
+| `verify()->notStartsWith`                       | `Verify()->stringNotStartsWith`                 |
 
 
 Extending

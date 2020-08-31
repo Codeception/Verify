@@ -1,5 +1,7 @@
 ## Verifiers List
 
+`verify()` supports all the verifiers listed here! :rocket:
+
 ### Array
 ```
 contains

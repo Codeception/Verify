@@ -6,6 +6,7 @@ use ArrayAccess;
 use Codeception\Verify\Verifiers\VerifyArray;
 use Codeception\Verify\Verifiers\VerifyCallable;
 use Codeception\Verify\Verifiers\VerifyClass;
+use Codeception\Verify\Verifiers\VerifyDirectory;
 use Codeception\Verify\Verifiers\VerifyFile;
 use Codeception\Verify\Verifiers\VerifyJsonFile;
 use Codeception\Verify\Verifiers\VerifyJsonString;
@@ -75,9 +76,9 @@ abstract class Verify
         return new VerifyClass($className);
     }
 
-    public static function Directory(string $directory): VerifyClass
+    public static function Directory(string $directory): VerifyDirectory
     {
-        return new VerifyClass($directory);
+        return new VerifyDirectory($directory);
     }
 
     /**

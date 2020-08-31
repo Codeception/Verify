@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-use Codeception\Verify\Verifiers\VerifyMixed;
+use Codeception\Verify\Verifiers\VerifyAny;
 
 if (!function_exists('verify'))
 {
     /**
      * @param mixed $actual
-     * @return VerifyMixed
+     * @return VerifyAny
      */
-    function verify($actual): VerifyMixed
+    function verify($actual): VerifyAny
     {
-        return new VerifyMixed($actual);
+        return new VerifyAny($actual);
     }
 }
 
@@ -18,11 +18,11 @@ if (!function_exists('verify_that'))
 {
     /**
      * @param mixed $actual
-     * @return VerifyMixed
+     * @return VerifyAny
      */
-    function verify_that($actual): VerifyMixed
+    function verify_that($actual): VerifyAny
     {
-        return new VerifyMixed($actual);
+        return new VerifyAny($actual);
     }
 }
 
@@ -30,9 +30,9 @@ if (!function_exists('expect'))
 {
     /**
      * @param mixed $actual
-     * @return VerifyMixed
+     * @return VerifyAny
      */
-    function expect($actual): VerifyMixed {
-        return new VerifyMixed($actual);
+    function expect($actual): VerifyAny {
+        return new VerifyAny($actual);
     }
 }
