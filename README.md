@@ -11,6 +11,8 @@ BDD Assertions for [PHPUnit][1] or [Codeception][2]
 This is very tiny wrapper for PHPUnit assertions, that are aimed to make tests a bit more readable.
 With [BDD][3] assertions influenced by [Chai][4], [Jasmine][5], and [RSpec][6] your assertions would be a bit closer to natural language.
 
+⚠️ This is the Verify 2.0 documentation, to see v1.x docs click [here.](https://github.com/Codeception/Verify/tree/1.x)
+
 ## Installation
 
 *Requires PHP  7.1 or higher*
