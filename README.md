@@ -21,7 +21,7 @@ With [BDD][3] assertions influenced by [Chai][4], [Jasmine][5], and [RSpec][6] y
 composer require codeception/verify --dev
 ```
 
-> :arrow_up: **Upgrade from 1.x by following [the upgrade guide.][9]**
+> :arrow_up: **Upgrade from 1.x by following [the upgrade guide.][10]**
 
 
 ## Usage
@@ -91,7 +91,7 @@ expect($user->getNumPosts())
     ->toBeInt()
     ->toEqual(5, 'user have 5 posts');
 ```
-> :page_facing_up: **See Expectations full list [here.][7]**
+> :page_facing_up: **See Expectations full list [here.][8]**
 >
 Or `verify_that` which is just an alias function:
 
@@ -136,7 +136,7 @@ $myVerify::Mixed('this also')->notEquals('works');
 
 ## License
 
-Verify is open-sourced software licensed under the [MIT][8] License.
+Verify is open-sourced software licensed under the [MIT][9] License.
 © Codeception PHP Testing Framework
 
 [1]: https://phpunit.de/
@@ -146,5 +146,6 @@ Verify is open-sourced software licensed under the [MIT][8] License.
 [5]: http://jasmine.github.io/
 [6]: http://rspec.info/
 [7]: /docs/supported_verifiers.md
-[8]: /LICENSE
-[9]: /UPGRADE.md
+[8]: /docs/supported_expectations.md
+[9]: /LICENSE
+[10]: /UPGRADE.md
