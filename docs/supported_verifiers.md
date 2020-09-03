@@ -43,6 +43,10 @@ notHasStaticAttribute
 ```
 doesNotExist
 exists
+existsAndIsNotReadable
+existsAndIsNotWritable
+existsAndIsReadable
+existsAndIsWritable
 isNotReadable
 isNotWritable
 isReadable
@@ -56,6 +60,10 @@ equals
 equalsCanonicalizing
 equalsIgnoringCase
 exists
+existsAndIsNotReadable
+existsAndIsNotWritable
+existsAndIsReadable
+existsAndIsWritable
 isNotReadable
 isNotWritable
 isReadable
@@ -131,7 +139,6 @@ notSame
 notTrue
 null
 same
-that
 true
 ```
 

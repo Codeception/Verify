@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Codeception\Verify\Verifiers;
+namespace Codeception\Verify\Expectations;
 
-use Codeception\Verify\Verify;
+use Codeception\Verify\Expect;
 use PHPUnit\Framework\Assert;
 
-class VerifyDirectory extends Verify
+class ExpectDirectory extends Expect
 {
-    use VerifyDataTrait;
+    use ExpectDataTrait;
 
     /**
-     * VerifyDirectory constructor
+     * ExpectDirectory constructor
      *
      * @param string $directory
      */
@@ -20,72 +20,72 @@ class VerifyDirectory extends Verify
     }
 
     /**
-     * Verifies that a directory does not exist.
+     * Expect that a directory does not exist.
      *
      * @param string $message
      * @return self
      */
-    public function doesNotExist(string $message = ''): self
+    public function notToExist(string $message = ''): self
     {
         Assert::assertDirectoryDoesNotExist($this->actual, $message);
         return $this;
     }
 
     /**
-     * Verifies that a directory exists.
+     * Expect that a directory exists.
      *
      * @param string $message
      * @return self
      */
-    public function exists(string $message = ''): self
+    public function toExist(string $message = ''): self
     {
         Assert::assertDirectoryExists($this->actual, $message);
         return $this;
     }
 
     /**
-     * Verifies that a directory exists and is not readable.
+     * Expect that a directory exists and is not readable.
      *
      * @param string $message
      * @return self
      */
-    public function existsAndIsNotReadable(string $message = ''): self
+    public function toExistAndNotToBeReadable(string $message = ''): self
     {
         Assert::assertDirectoryIsNotReadable($this->actual, $message);
         return $this;
     }
 
     /**
-     * Verifies that a directory exists and is not writable.
+     * Expect that a directory exists and is not writable.
      *
      * @param string $message
      * @return self
      */
-    public function existsAndIsNotWritable(string $message = ''): self
+    public function toExistAndNotToBeWritable(string $message = ''): self
     {
         Assert::assertDirectoryIsNotWritable($this->actual, $message);
         return $this;
     }
 
     /**
-     * Verifies that a directory exists and is readable.
+     * Expect that a directory exists and is readable.
      *
      * @param string $message
      * @return self
      */
-    public function existsAndIsReadable(string $message = ''): self
+    public function toExistAndToBeReadable(string $message = ''): self
     {
         Assert::assertDirectoryIsReadable($this->actual, $message);
         return $this;
     }
 
     /**
-     * Verifies that a directory exists and is writable.
+     * Expect that a directory exists and is writable.
      *
      * @param string $message
      * @return self
      */
-    public function existsAndIsWritable(string $message = ''): self
+    public function toExistAndToBeWritable(string $message = ''): self
     {
         Assert::assertDirectoryIsWritable($this->actual, $message);
         return $this;

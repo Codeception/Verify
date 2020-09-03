@@ -1,54 +1,54 @@
 <?php declare(strict_types=1);
 
-namespace Codeception\Verify\Verifiers;
+namespace Codeception\Verify\Expectations;
 
 use PHPUnit\Framework\Assert;
 
-trait VerifyDataTrait
+trait ExpectDataTrait
 {
     /**
-     * Verifies that a file/dir is not readable.
+     * Expect that a file/dir is not readable.
      *
      * @param string $message
      * @return self
      */
-    public function isNotReadable(string $message = ''): self
+    public function notToBeReadable(string $message = ''): self
     {
         Assert::assertIsNotReadable($this->actual, $message);
         return $this;
     }
 
     /**
-     * Verifies that a file/dir is not writable.
+     * Expect that a file/dir is not writable.
      *
      * @param string $message
      * @return self
      */
-    public function isNotWritable(string $message = ''): self
+    public function notToBeWritable(string $message = ''): self
     {
         Assert::assertIsNotWritable($this->actual, $message);
         return $this;
     }
 
     /**
-     * Verifies that a file/dir is readable.
+     * Expect that a file/dir is readable.
      *
      * @param string $message
      * @return self
      */
-    public function isReadable(string $message = ''): self
+    public function toBeReadable(string $message = ''): self
     {
         Assert::assertIsReadable($this->actual, $message);
         return $this;
     }
 
     /**
-     * Verifies that a file/dir is writable.
+     * Expect that a file/dir is writable.
      *
      * @param string $message
      * @return self
      */
-    public function isWritable(string $message = ''): self
+    public function toBeWritable(string $message = ''): self
     {
         Assert::assertIsWritable($this->actual, $message);
         return $this;

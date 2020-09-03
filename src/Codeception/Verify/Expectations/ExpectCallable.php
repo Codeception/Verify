@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Codeception\Verify\Verifiers;
+namespace Codeception\Verify\Expectations;
 
 use Codeception\Verify\Asserts\AssertThrows;
-use Codeception\Verify\Verify;
+use Codeception\Verify\Expect;
 use Exception;
 use Throwable;
 
-class VerifyCallable extends Verify
+class ExpectCallable extends Expect
 {
     use AssertThrows;
 
@@ -19,21 +19,21 @@ class VerifyCallable extends Verify
     /**
      * @param Exception|string|null $throws
      * @param string|false $message
-     * @return VerifyCallable
-     * @throws Throwable
+     * @return $this
      */
-    public function throws($throws = null, $message = false): self
+    public function notToThrow($throws = null, $message = false): self
     {
-        return $this->assertThrows($throws, $message);
+        return $this->assertDoesNotThrow($throws, $message);
     }
 
     /**
      * @param Exception|string|null $throws
      * @param string|false $message
-     * @return $this
+     * @return ExpectCallable
+     * @throws Throwable
      */
-    public function doesNotThrow($throws = null, $message = false): self
+    public function toThrow($throws = null, $message = false): self
     {
-        return $this->assertDoesNotThrow($throws, $message);
+        return $this->assertThrows($throws, $message);
     }
 }
