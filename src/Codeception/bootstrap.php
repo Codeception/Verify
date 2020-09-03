@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use Codeception\Verify\Expectations\ExpectAny;
 use Codeception\Verify\Verifiers\VerifyAny;
 
 if (!function_exists('verify'))
@@ -30,9 +31,9 @@ if (!function_exists('expect'))
 {
     /**
      * @param mixed $actual
-     * @return VerifyAny
+     * @return ExpectAny
      */
-    function expect($actual): VerifyAny {
-        return new VerifyAny($actual);
+    function expect($actual): ExpectAny {
+        return new ExpectAny($actual);
     }
 }

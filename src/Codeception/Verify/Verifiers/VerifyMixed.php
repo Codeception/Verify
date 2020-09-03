@@ -2,10 +2,8 @@
 
 namespace Codeception\Verify\Verifiers;
 
-use Codeception\Exception\InvalidVerifyException;
 use Codeception\Verify\Verify;
 use PHPUnit\Framework\Assert;
-use PHPUnit\Framework\Constraint\Constraint;
 
 class VerifyMixed extends Verify
 {
@@ -553,13 +551,12 @@ class VerifyMixed extends Verify
     /**
      * Verifies that a condition is not false.
      *
-     * @param $condition
      * @param string $message
      * @return self
      */
-    public function notFalse($condition, string $message = ''): self
+    public function notFalse(string $message = ''): self
     {
-        Assert::assertNotFalse($condition, $message);
+        Assert::assertNotFalse($this->actual, $message);
         return $this;
     }
 
@@ -604,13 +601,12 @@ class VerifyMixed extends Verify
     /**
      * Verifies that a condition is not true.
      *
-     * @param $condition
      * @param string $message
      * @return self
      */
-    public function notTrue($condition, string $message = ''): self
+    public function notTrue(string $message = ''): self
     {
-        Assert::assertNotTrue($condition, $message);
+        Assert::assertNotTrue($this->actual, $message);
         return $this;
     }
 
@@ -637,25 +633,6 @@ class VerifyMixed extends Verify
     {
         Assert::assertSame($expected, $this->actual, $message);
         return $this;
-    }
-
-    /**
-     * Evaluates a PHPUnit\Framework\Constraint matcher object.
-     *
-     * @param $value
-     * @param string $message
-     * @return self
-     */
-    public function that($value, string $message = ''): self
-    {
-        if ($this->actual instanceof Constraint) {
-            Assert::assertThat($value, $this->actual, $message);
-            return $this;
-        }
-        throw new InvalidVerifyException(
-            basename(__CLASS__).'->'.__FUNCTION__.'()',
-            $this->actual
-        );
     }
 
     /**

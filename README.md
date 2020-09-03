@@ -83,11 +83,19 @@ Verify::Callable($callback)
 
 ## Alternative Syntax
 
-If you follow TDD/BDD you'd rather use `expect` or `verify_that` instead of `verify`. Which are just an alias function:
+If you follow TDD/BDD you'd rather use `expect` instead of `verify`:
 
 ```php
-expect($user->getNumPosts())->equals(5, 'user have 5 posts');
+expect($user->getNumPosts())
+    ->notToBeNull()
+    ->toBeInt()
+    ->toEqual(5, 'user have 5 posts');
+```
+> :page_facing_up: **See Expectations full list [here.][7]**
+>
+Or `verify_that` which is just an alias function:
 
+```php
 verify_that($user->getRate())->equals(7, 'first user rate is 7');
 ```
 
@@ -117,7 +125,7 @@ class MyVerify extends Verify {
 ```
 
 And use it!
-  
+
 ```php
 $myVerify = new MyVerify;
 

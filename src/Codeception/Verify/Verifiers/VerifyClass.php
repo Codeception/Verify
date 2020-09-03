@@ -7,8 +7,6 @@ use PHPUnit\Framework\Assert;
 
 class VerifyClass extends Verify
 {
-    use VerifyDataTrait;
-
     /**
      * VerifyClass constructor
      *

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1
+
+* Added new expect-toBe and expect-notTo BDD Syntax.
+* Added full documentation about Expectations.
+* Fixed minor bugs.
+* Deleted RoboFile and VERSION file.
+* **BC:** `expect` function now works with expectations instead of verifiers.
+
 ## 2.0
 
 * Support for Chained Verifiers.
