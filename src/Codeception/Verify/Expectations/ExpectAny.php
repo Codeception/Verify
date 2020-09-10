@@ -278,13 +278,13 @@ class ExpectAny extends ExpectMixed
 
     public function stringToContainString($needle, string $message = ''): self
     {
-        Expect::String($this->actual)->notToContainString($needle, $message);
+        Expect::String($this->actual)->toContainString($needle, $message);
         return $this;
     }
 
     public function stringToContainStringIgnoringCase($needle, string $message = ''): self
     {
-        Expect::String($this->actual)->notToContainStringIgnoringCase($needle, $message);
+        Expect::String($this->actual)->toContainStringIgnoringCase($needle, $message);
         return $this;
     }
 
