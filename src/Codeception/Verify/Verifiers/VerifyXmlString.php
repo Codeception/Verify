@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Codeception\Verify\Verifiers;
 
@@ -22,6 +24,7 @@ class VerifyXmlString extends Verify
             parent::__construct($actualXml);
             return;
         }
+        
         throw new InvalidVerifyException(basename(self::class), $actualXml);
     }
 

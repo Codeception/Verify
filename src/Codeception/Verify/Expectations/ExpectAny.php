@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Codeception\Verify\Expectations;
 
@@ -18,19 +20,19 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function arrayToContainOnly($type, $isNativeType = null, string $message = ''): self
+    public function arrayToContainOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         Expect::Array($this->actual)->toContainOnly($type, $isNativeType, $message);
         return $this;
     }
 
-    public function arrayToContainOnlyInstancesOf($className, string $message = ''): self
+    public function arrayToContainOnlyInstancesOf(string $className, string $message = ''): self
     {
         Expect::Array($this->actual)->toContainOnlyInstancesOf($className, $message);
         return $this;
     }
 
-    public function arrayToHaveCount($expectedCount, string $message = ''): self
+    public function arrayToHaveCount(int $expectedCount, string $message = ''): self
     {
         Expect::Array($this->actual)->toHaveCount($expectedCount, $message);
         return $this;
@@ -60,13 +62,13 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function arrayNotToContainOnly($type, $isNativeType = null, string $message = ''): self
+    public function arrayNotToContainOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         Expect::Array($this->actual)->notToContainOnly($type, $isNativeType, $message);
         return $this;
     }
 
-    public function arrayNotToHaveCount($expectedCount, string $message = ''): self
+    public function arrayNotToHaveCount(int $expectedCount, string $message = ''): self
     {
         Expect::Array($this->actual)->notToHaveCount($expectedCount, $message);
         return $this;
@@ -84,13 +86,13 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function baseObjectToHaveAttribute($attributeName, string $message = ''): self
+    public function baseObjectToHaveAttribute(string $attributeName, string $message = ''): self
     {
         Expect::BaseObject($this->actual)->toHaveAttribute($attributeName, $message);
         return $this;
     }
 
-    public function baseObjectNotToHaveAttribute($attributeName, string $message = ''): self
+    public function baseObjectNotToHaveAttribute(string $attributeName, string $message = ''): self
     {
         Expect::BaseObject($this->actual)->notToHaveAttribute($attributeName, $message);
         return $this;
@@ -108,25 +110,25 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function classToHaveAttribute($attributeName, string $message = ''): self
+    public function classToHaveAttribute(string $attributeName, string $message = ''): self
     {
         Expect::Class($this->actual)->toHaveAttribute($attributeName, $message);
         return $this;
     }
 
-    public function classToHaveStaticAttribute($attributeName, string $message = ''): self
+    public function classToHaveStaticAttribute(string $attributeName, string $message = ''): self
     {
         Expect::Class($this->actual)->toHaveStaticAttribute($attributeName, $message);
         return $this;
     }
 
-    public function classNotToHaveAttribute($attributeName, string $message = ''): self
+    public function classNotToHaveAttribute(string $attributeName, string $message = ''): self
     {
         Expect::Class($this->actual)->notToHaveAttribute($attributeName, $message);
         return $this;
     }
 
-    public function classNotToHaveStaticAttribute($attributeName, string $message = ''): self
+    public function classNotToHaveStaticAttribute(string $attributeName, string $message = ''): self
     {
         Expect::Class($this->actual)->notToHaveStaticAttribute($attributeName, $message);
         return $this;
@@ -174,19 +176,19 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function fileToBeEqual($expected, string $message = ''): self
+    public function fileToBeEqual(string $expected, string $message = ''): self
     {
         Expect::File($this->actual)->toBeEqual($expected, $message);
         return $this;
     }
 
-    public function fileToBeEqualCanonicalizing($expected, string $message = ''): self
+    public function fileToBeEqualCanonicalizing(string $expected, string $message = ''): self
     {
         Expect::File($this->actual)->toBeEqualCanonicalizing($expected, $message);
         return $this;
     }
 
-    public function fileToBeEqualIgnoringCase($expected, string $message = ''): self
+    public function fileToBeEqualIgnoringCase(string $expected, string $message = ''): self
     {
         Expect::File($this->actual)->toBeEqualIgnoringCase($expected, $message);
         return $this;
@@ -222,61 +224,61 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function fileToNotEqual($expected, string $message = ''): self
+    public function fileToNotEqual(string $expected, string $message = ''): self
     {
         Expect::File($this->actual)->toNotEqual($expected, $message);
         return $this;
     }
 
-    public function fileToNotEqualCanonicalizing($expected, string $message = ''): self
+    public function fileToNotEqualCanonicalizing(string $expected, string $message = ''): self
     {
         Expect::File($this->actual)->toNotEqualCanonicalizing($expected, $message);
         return $this;
     }
 
-    public function fileToNotEqualIgnoringCase($expected, string $message = ''): self
+    public function fileToNotEqualIgnoringCase(string $expected, string $message = ''): self
     {
         Expect::File($this->actual)->toNotEqualIgnoringCase($expected, $message);
         return $this;
     }
 
-    public function jsonFileToEqualJsonFile($expectedFile, string $message = ''): self
+    public function jsonFileToEqualJsonFile(string $expectedFile, string $message = ''): self
     {
         Expect::JsonFile($this->actual)->toEqualJsonFile($expectedFile, $message);
         return $this;
     }
 
-    public function jsonFileNotToEqualJsonFile($expectedFile, string $message = ''): self
+    public function jsonFileNotToEqualJsonFile(string $expectedFile, string $message = ''): self
     {
         Expect::JsonFile($this->actual)->notToEqualJsonFile($expectedFile, $message);
         return $this;
     }
 
-    public function jsonStringToEqualJsonFile($expectedFile, string $message = ''): self
+    public function jsonStringToEqualJsonFile(string $expectedFile, string $message = ''): self
     {
         Expect::JsonString($this->actual)->toEqualJsonFile($expectedFile, $message);
         return $this;
     }
 
-    public function jsonStringToEqualJsonString($expectedJson, string $message = ''): self
+    public function jsonStringToEqualJsonString(string $expectedJson, string $message = ''): self
     {
         Expect::JsonString($this->actual)->toEqualJsonString($expectedJson, $message);
         return $this;
     }
 
-    public function jsonStringNotToEqualJsonFile($expectedFile, string $message = ''): self
+    public function jsonStringNotToEqualJsonFile(string $expectedFile, string $message = ''): self
     {
         Expect::JsonString($this->actual)->notToEqualJsonFile($expectedFile, $message);
         return $this;
     }
 
-    public function jsonStringNotToEqualJsonString($expectedJson, string $message = ''): self
+    public function jsonStringNotToEqualJsonString(string $expectedJson, string $message = ''): self
     {
         Expect::JsonString($this->actual)->notToEqualJsonString($expectedJson, $message);
         return $this;
     }
 
-    public function stringToContainString($needle, string $message = ''): self
+    public function stringToContainString(string $needle, string $message = ''): self
     {
         Expect::String($this->actual)->toContainString($needle, $message);
         return $this;
@@ -288,31 +290,31 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function stringNotToMatchRegExp($pattern, string $message = ''): self
+    public function stringNotToMatchRegExp(string $pattern, string $message = ''): self
     {
         Expect::String($this->actual)->notToMatchRegExp($pattern, $message);
         return $this;
     }
 
-    public function stringToEndWith($suffix, string $message = ''): self
+    public function stringToEndWith(string $suffix, string $message = ''): self
     {
         Expect::String($this->actual)->toEndWith($suffix, $message);
         return $this;
     }
 
-    public function stringToEqualFile($expectedFile, string $message = ''): self
+    public function stringToEqualFile(string $expectedFile, string $message = ''): self
     {
         Expect::String($this->actual)->toEqualFile($expectedFile, $message);
         return $this;
     }
 
-    public function stringToEqualFileCanonicalizing($expectedFile, string $message = ''): self
+    public function stringToEqualFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         Expect::String($this->actual)->toEqualFileCanonicalizing($expectedFile, $message);
         return $this;
     }
 
-    public function stringToEqualFileIgnoringCase($expectedFile, string $message = ''): self
+    public function stringToEqualFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         Expect::String($this->actual)->toEqualFileIgnoringCase($expectedFile, $message);
         return $this;
@@ -324,55 +326,55 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function stringToMatchFormat($format, string $message = ''): self
+    public function stringToMatchFormat(string $format, string $message = ''): self
     {
         Expect::String($this->actual)->toMatchFormat($format, $message);
         return $this;
     }
 
-    public function stringToMatchFormatFile($formatFile, string $message = ''): self
+    public function stringToMatchFormatFile(string $formatFile, string $message = ''): self
     {
         Expect::String($this->actual)->toMatchFormatFile($formatFile, $message);
         return $this;
     }
 
-    public function stringToMatchRegExp($pattern, string $message = ''): self
+    public function stringToMatchRegExp(string $pattern, string $message = ''): self
     {
         Expect::String($this->actual)->toMatchRegExp($pattern, $message);
         return $this;
     }
 
-    public function stringNotToContainString($needle, string $message = ''): self
+    public function stringNotToContainString(string $needle, string $message = ''): self
     {
         Expect::String($this->actual)->notToContainString($needle, $message);
         return $this;
     }
 
-    public function stringNotToContainStringIgnoringCase($needle, string $message = ''): self
+    public function stringNotToContainStringIgnoringCase(string $needle, string $message = ''): self
     {
         Expect::String($this->actual)->notToContainStringIgnoringCase($needle, $message);
         return $this;
     }
 
-    public function stringNotToEndWith($suffix, string $message = ''): self
+    public function stringNotToEndWith(string $suffix, string $message = ''): self
     {
         Expect::String($this->actual)->notToEndWith($suffix, $message);
         return $this;
     }
 
-    public function stringNotToEqualFile($expectedFile, string $message = ''): self
+    public function stringNotToEqualFile(string $expectedFile, string $message = ''): self
     {
         Expect::String($this->actual)->notToEqualFile($expectedFile, $message);
         return $this;
     }
 
-    public function stringNotToEqualFileCanonicalizing($expectedFile, string $message = ''): self
+    public function stringNotToEqualFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         Expect::String($this->actual)->notToEqualFileCanonicalizing($expectedFile, $message);
         return $this;
     }
 
-    public function stringNotToEqualFileIgnoringCase($expectedFile, string $message = ''): self
+    public function stringNotToEqualFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         Expect::String($this->actual)->notToEqualFileIgnoringCase($expectedFile, $message);
         return $this;
@@ -384,37 +386,37 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function stringNotToMatchFormatFile($formatFile, string $message = ''): self
+    public function stringNotToMatchFormatFile(string $formatFile, string $message = ''): self
     {
         Expect::String($this->actual)->notToMatchFormatFile($formatFile, $message);
         return $this;
     }
 
-    public function stringNotToStartWith($prefix, string $message = ''): self
+    public function stringNotToStartWith(string $prefix, string $message = ''): self
     {
         Expect::String($this->actual)->notToStartWith($prefix, $message);
         return $this;
     }
 
-    public function stringToStartWith($prefix, string $message = ''): self
+    public function stringToStartWith(string $prefix, string $message = ''): self
     {
         Expect::String($this->actual)->toStartWith($prefix, $message);
         return $this;
     }
 
-    public function xmlFileToEqualXmlFile($expectedFile, string $message = ''): self
+    public function xmlFileToEqualXmlFile(string $expectedFile, string $message = ''): self
     {
         Expect::XmlFile($this->actual)->toEqualXmlFile($expectedFile, $message);
         return $this;
     }
 
-    public function xmlFileNotToEqualXmlFile($expectedFile, string $message = ''): self
+    public function xmlFileNotToEqualXmlFile(string $expectedFile, string $message = ''): self
     {
         Expect::XmlFile($this->actual)->notToEqualXmlFile($expectedFile, $message);
         return $this;
     }
 
-    public function xmlStringToEqualXmlFile($expectedFile, string $message = ''): self
+    public function xmlStringToEqualXmlFile(string $expectedFile, string $message = ''): self
     {
         Expect::XmlString($this->actual)->toEqualXmlFile($expectedFile, $message);
         return $this;
@@ -426,7 +428,7 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
-    public function xmlStringNotToEqualXmlFile($expectedFile, string $message = ''): self
+    public function xmlStringNotToEqualXmlFile(string $expectedFile, string $message = ''): self
     {
         Expect::XmlString($this->actual)->notToEqualXmlFile($expectedFile, $message);
         return $this;

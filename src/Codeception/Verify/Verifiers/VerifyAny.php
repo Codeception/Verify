@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Codeception\Verify\Verifiers;
 
@@ -18,19 +20,19 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function arrayContainsOnly($type, $isNativeType = null, string $message = ''): self
+    public function arrayContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         Verify::Array($this->actual)->containsOnly($type, $isNativeType, $message);
         return $this;
     }
 
-    public function arrayContainsOnlyInstancesOf($className, string $message = ''): self
+    public function arrayContainsOnlyInstancesOf(string $className, string $message = ''): self
     {
         Verify::Array($this->actual)->containsOnlyInstancesOf($className, $message);
         return $this;
     }
 
-    public function arrayCount($expectedCount, string $message = ''): self
+    public function arrayCount(int $expectedCount, string $message = ''): self
     {
         Verify::Array($this->actual)->count($expectedCount, $message);
         return $this;
@@ -60,13 +62,13 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function arrayNotContainsOnly($type, $isNativeType = null, string $message = ''): self
+    public function arrayNotContainsOnly(string $type, ?bool $isNativeType = null, string $message = ''): self
     {
         Verify::Array($this->actual)->notContainsOnly($type, $isNativeType, $message);
         return $this;
     }
 
-    public function arrayNotCount($expectedCount, string $message = ''): self
+    public function arrayNotCount(int $expectedCount, string $message = ''): self
     {
         Verify::Array($this->actual)->notCount($expectedCount, $message);
         return $this;
@@ -84,13 +86,13 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function baseObjectHasAttribute($attributeName, string $message = ''): self
+    public function baseObjectHasAttribute(string $attributeName, string $message = ''): self
     {
         Verify::BaseObject($this->actual)->hasAttribute($attributeName, $message);
         return $this;
     }
 
-    public function baseObjectNotHasAttribute($attributeName, string $message = ''): self
+    public function baseObjectNotHasAttribute(string $attributeName, string $message = ''): self
     {
         Verify::BaseObject($this->actual)->notHasAttribute($attributeName, $message);
         return $this;
@@ -108,25 +110,25 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function classHasAttribute($attributeName, string $message = ''): self
+    public function classHasAttribute(string $attributeName, string $message = ''): self
     {
         Verify::Class($this->actual)->hasAttribute($attributeName, $message);
         return $this;
     }
 
-    public function classHasStaticAttribute($attributeName, string $message = ''): self
+    public function classHasStaticAttribute(string $attributeName, string $message = ''): self
     {
         Verify::Class($this->actual)->hasStaticAttribute($attributeName, $message);
         return $this;
     }
 
-    public function classNotHasAttribute($attributeName, string $message = ''): self
+    public function classNotHasAttribute(string $attributeName, string $message = ''): self
     {
         Verify::Class($this->actual)->notHasAttribute($attributeName, $message);
         return $this;
     }
 
-    public function classNotHasStaticAttribute($attributeName, string $message = ''): self
+    public function classNotHasStaticAttribute(string $attributeName, string $message = ''): self
     {
         Verify::Class($this->actual)->notHasStaticAttribute($attributeName, $message);
         return $this;
@@ -174,19 +176,19 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function fileEquals($expected, string $message = ''): self
+    public function fileEquals(string $expected, string $message = ''): self
     {
         Verify::File($this->actual)->equals($expected, $message);
         return $this;
     }
 
-    public function fileEqualsCanonicalizing($expected, string $message = ''): self
+    public function fileEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         Verify::File($this->actual)->equalsCanonicalizing($expected, $message);
         return $this;
     }
 
-    public function fileEqualsIgnoringCase($expected, string $message = ''): self
+    public function fileEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         Verify::File($this->actual)->equalsIgnoringCase($expected, $message);
         return $this;
@@ -222,61 +224,61 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function fileNotEquals($expected, string $message = ''): self
+    public function fileNotEquals(string $expected, string $message = ''): self
     {
         Verify::File($this->actual)->notEquals($expected, $message);
         return $this;
     }
 
-    public function fileNotEqualsCanonicalizing($expected, string $message = ''): self
+    public function fileNotEqualsCanonicalizing(string $expected, string $message = ''): self
     {
         Verify::File($this->actual)->notEqualsCanonicalizing($expected, $message);
         return $this;
     }
 
-    public function fileNotEqualsIgnoringCase($expected, string $message = ''): self
+    public function fileNotEqualsIgnoringCase(string $expected, string $message = ''): self
     {
         Verify::File($this->actual)->notEqualsIgnoringCase($expected, $message);
         return $this;
     }
 
-    public function jsonFileEqualsJsonFile($expectedFile, string $message = ''): self
+    public function jsonFileEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         Verify::JsonFile($this->actual)->equalsJsonFile($expectedFile, $message);
         return $this;
     }
 
-    public function jsonFileNotEqualsJsonFile($expectedFile, string $message = ''): self
+    public function jsonFileNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         Verify::JsonFile($this->actual)->notEqualsJsonFile($expectedFile, $message);
         return $this;
     }
 
-    public function jsonStringEqualsJsonFile($expectedFile, string $message = ''): self
+    public function jsonStringEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         Verify::JsonString($this->actual)->equalsJsonFile($expectedFile, $message);
         return $this;
     }
 
-    public function jsonStringEqualsJsonString($expectedJson, string $message = ''): self
+    public function jsonStringEqualsJsonString(string $expectedJson, string $message = ''): self
     {
         Verify::JsonString($this->actual)->equalsJsonString($expectedJson, $message);
         return $this;
     }
 
-    public function jsonStringNotEqualsJsonFile($expectedFile, string $message = ''): self
+    public function jsonStringNotEqualsJsonFile(string $expectedFile, string $message = ''): self
     {
         Verify::JsonString($this->actual)->notEqualsJsonFile($expectedFile, $message);
         return $this;
     }
 
-    public function jsonStringNotEqualsJsonString($expectedJson, string $message = ''): self
+    public function jsonStringNotEqualsJsonString(string $expectedJson, string $message = ''): self
     {
         Verify::JsonString($this->actual)->notEqualsJsonString($expectedJson, $message);
         return $this;
     }
 
-    public function stringContainsString($needle, string $message = ''): self
+    public function stringContainsString(string $needle, string $message = ''): self
     {
         Verify::String($this->actual)->containsString($needle, $message);
         return $this;
@@ -288,31 +290,31 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function stringDoesNotMatchRegExp($pattern, string $message = ''): self
+    public function stringDoesNotMatchRegExp(string $pattern, string $message = ''): self
     {
         Verify::String($this->actual)->doesNotMatchRegExp($pattern, $message);
         return $this;
     }
 
-    public function stringEndsWith($suffix, string $message = ''): self
+    public function stringEndsWith(string $suffix, string $message = ''): self
     {
         Verify::String($this->actual)->endsWith($suffix, $message);
         return $this;
     }
 
-    public function stringEqualsFile($expectedFile, string $message = ''): self
+    public function stringEqualsFile(string $expectedFile, string $message = ''): self
     {
         Verify::String($this->actual)->equalsFile($expectedFile, $message);
         return $this;
     }
 
-    public function stringEqualsFileCanonicalizing($expectedFile, string $message = ''): self
+    public function stringEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         Verify::String($this->actual)->equalsFileCanonicalizing($expectedFile, $message);
         return $this;
     }
 
-    public function stringEqualsFileIgnoringCase($expectedFile, string $message = ''): self
+    public function stringEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         Verify::String($this->actual)->equalsFileIgnoringCase($expectedFile, $message);
         return $this;
@@ -324,55 +326,55 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function stringMatchesFormat($format, string $message = ''): self
+    public function stringMatchesFormat(string $format, string $message = ''): self
     {
         Verify::String($this->actual)->matchesFormat($format, $message);
         return $this;
     }
 
-    public function stringMatchesFormatFile($formatFile, string $message = ''): self
+    public function stringMatchesFormatFile(string $formatFile, string $message = ''): self
     {
         Verify::String($this->actual)->matchesFormatFile($formatFile, $message);
         return $this;
     }
 
-    public function stringMatchesRegExp($pattern, string $message = ''): self
+    public function stringMatchesRegExp(string $pattern, string $message = ''): self
     {
         Verify::String($this->actual)->matchesRegExp($pattern, $message);
         return $this;
     }
 
-    public function stringNotContainsString($needle, string $message = ''): self
+    public function stringNotContainsString(string $needle, string $message = ''): self
     {
         Verify::String($this->actual)->notContainsString($needle, $message);
         return $this;
     }
 
-    public function stringNotContainsStringIgnoringCase($needle, string $message = ''): self
+    public function stringNotContainsStringIgnoringCase(string $needle, string $message = ''): self
     {
         Verify::String($this->actual)->notContainsStringIgnoringCase($needle, $message);
         return $this;
     }
 
-    public function stringNotEndsWith($suffix, string $message = ''): self
+    public function stringNotEndsWith(string $suffix, string $message = ''): self
     {
         Verify::String($this->actual)->notEndsWith($suffix, $message);
         return $this;
     }
 
-    public function stringNotEqualsFile($expectedFile, string $message = ''): self
+    public function stringNotEqualsFile(string $expectedFile, string $message = ''): self
     {
         Verify::String($this->actual)->notEqualsFile($expectedFile, $message);
         return $this;
     }
 
-    public function stringNotEqualsFileCanonicalizing($expectedFile, string $message = ''): self
+    public function stringNotEqualsFileCanonicalizing(string $expectedFile, string $message = ''): self
     {
         Verify::String($this->actual)->notEqualsFileCanonicalizing($expectedFile, $message);
         return $this;
     }
 
-    public function stringNotEqualsFileIgnoringCase($expectedFile, string $message = ''): self
+    public function stringNotEqualsFileIgnoringCase(string $expectedFile, string $message = ''): self
     {
         Verify::String($this->actual)->notEqualsFileIgnoringCase($expectedFile, $message);
         return $this;
@@ -384,37 +386,37 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function stringNotMatchesFormatFile($formatFile, string $message = ''): self
+    public function stringNotMatchesFormatFile(string $formatFile, string $message = ''): self
     {
         Verify::String($this->actual)->notMatchesFormatFile($formatFile, $message);
         return $this;
     }
 
-    public function stringStartsNotWith($prefix, string $message = ''): self
+    public function stringStartsNotWith(string $prefix, string $message = ''): self
     {
         Verify::String($this->actual)->startsNotWith($prefix, $message);
         return $this;
     }
 
-    public function stringStartsWith($prefix, string $message = ''): self
+    public function stringStartsWith(string $prefix, string $message = ''): self
     {
         Verify::String($this->actual)->startsWith($prefix, $message);
         return $this;
     }
 
-    public function xmlFileEqualsXmlFile($expectedFile, string $message = ''): self
+    public function xmlFileEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         Verify::XmlFile($this->actual)->equalsXmlFile($expectedFile, $message);
         return $this;
     }
 
-    public function xmlFileNotEqualsXmlFile($expectedFile, string $message = ''): self
+    public function xmlFileNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         Verify::XmlFile($this->actual)->notEqualsXmlFile($expectedFile, $message);
         return $this;
     }
 
-    public function xmlStringEqualsXmlFile($expectedFile, string $message = ''): self
+    public function xmlStringEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         Verify::XmlString($this->actual)->equalsXmlFile($expectedFile, $message);
         return $this;
@@ -426,7 +428,7 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
-    public function xmlStringNotEqualsXmlFile($expectedFile, string $message = ''): self
+    public function xmlStringNotEqualsXmlFile(string $expectedFile, string $message = ''): self
     {
         Verify::XmlString($this->actual)->notEqualsXmlFile($expectedFile, $message);
         return $this;

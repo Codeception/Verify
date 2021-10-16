@@ -15,7 +15,7 @@ With [BDD][3] assertions influenced by [Chai][4], [Jasmine][5], and [RSpec][6] y
 
 ## Installation
 
-*Requires PHP  7.1 or higher*
+*Requires PHP  7.4 or higher*
 
 ```
 composer require codeception/verify --dev

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 include_once __DIR__.'/../src/Codeception/bootstrap.php';
 
@@ -30,7 +32,7 @@ final class MyVerify extends Verify
         parent::__construct($actual);
     }
 
-    public function success(string $message = '')
+    public function success(string $message = ''): void
     {
         Assert::assertTrue(true, $message);
     }

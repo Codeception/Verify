@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Codeception\Verify\Expectations;
 
@@ -29,6 +31,7 @@ class ExpectArray extends Expect
             parent::__construct($actual);
             return;
         }
+        
         throw new InvalidVerifyException(basename(self::class), $actual);
     }
 
@@ -45,7 +48,7 @@ class ExpectArray extends Expect
         return $this;
     }
 
-    public function notToContainEqual($needle, $message = ''): self
+    public function notToContainEqual($needle, string $message = ''): self
     {
         Assert::assertNotContainsEquals($needle, $this->actual, $message);
         return $this;
