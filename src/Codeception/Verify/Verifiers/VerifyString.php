@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Codeception\Verify\Verifiers;
 
@@ -18,7 +20,7 @@ class VerifyString extends Verify
         return $this;
     }
 
-    public function containsStringIgnoringCase($needle, string $message = ''): self
+    public function containsStringIgnoringCase(string $needle, string $message = ''): self
     {
         Assert::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
         return $this;
@@ -211,7 +213,7 @@ class VerifyString extends Verify
      * @param string $message
      * @return self
      */
-    public function notMatchesFormat($format, string $message = ''): self
+    public function notMatchesFormat(string $format, string $message = ''): self
     {
         Assert::assertStringNotMatchesFormat($format, $this->actual, $message);
         return $this;

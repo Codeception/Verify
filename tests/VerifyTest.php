@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 include_once __DIR__.'/../src/Codeception/bootstrap.php';
 
@@ -7,8 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class VerifyTest extends TestCase
 {
-    /** @var DOMDocument */
-    protected $xml;
+    protected DOMDocument $xml;
 
     protected function setUp(): void
     {
@@ -76,8 +77,8 @@ final class VerifyTest extends TestCase
     public function testIsInstanceOf(): void
     {
         $testClass = new DateTime();
-        verify($testClass)->instanceOf('DateTime');
-        verify($testClass)->notInstanceOf('DateTimeZone');
+        verify($testClass)->instanceOf(DateTime::class);
+        verify($testClass)->notInstanceOf(DateTimeZone::class);
     }
 
     public function testHasAttribute(): void

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Codeception\Verify\Verifiers;
 
@@ -29,6 +31,7 @@ class VerifyArray extends Verify
             parent::__construct($actual);
             return;
         }
+        
         throw new InvalidVerifyException(basename(self::class), $actual);
     }
 
@@ -130,7 +133,7 @@ class VerifyArray extends Verify
         return $this;
     }
 
-    public function notContainsEquals($needle, $message = ''): self
+    public function notContainsEquals($needle, string $message = ''): self
     {
         Assert::assertNotContainsEquals($needle, $this->actual, $message);
         return $this;

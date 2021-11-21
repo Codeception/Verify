@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Codeception\Verify\Expectations;
 
@@ -83,7 +85,7 @@ class ExpectString extends Expect
      * @param string $message
      * @return self
      */
-    public function notToMatchFormat($format, string $message = ''): self
+    public function notToMatchFormat(string $format, string $message = ''): self
     {
         Assert::assertStringNotMatchesFormat($format, $this->actual, $message);
         return $this;
@@ -146,7 +148,7 @@ class ExpectString extends Expect
         return $this;
     }
 
-    public function toContainStringIgnoringCase($needle, string $message = ''): self
+    public function toContainStringIgnoringCase(string $needle, string $message = ''): self
     {
         Assert::assertStringContainsStringIgnoringCase($needle, $this->actual, $message);
         return $this;
