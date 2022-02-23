@@ -12,6 +12,7 @@
             "homepage": "https://medium.com/@ganieves"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-dom": "*",
