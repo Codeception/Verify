@@ -6,6 +6,7 @@ include_once __DIR__.'/../src/Codeception/bootstrap.php';
 
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Runner\Version;
 
 final class VerifyTest extends TestCase
 {
@@ -83,6 +84,9 @@ final class VerifyTest extends TestCase
 
     public function testHasAttribute(): void
     {
+        if (Version::series() <= 10) {
+            $this->markTestIncomplete('assertClassHasAttribute() is deprecated and will be removed in PHPUnit 11.');
+        }
         verify('Exception')->classHasAttribute('message');
         verify('Exception')->classNotHasAttribute('fakeproperty');
 
@@ -93,6 +97,9 @@ final class VerifyTest extends TestCase
 
     public function testHasStaticAttribute(): void
     {
+        if (Version::series() <= 10) {
+            $this->markTestIncomplete('assertClassHasAttribute() is deprecated and will be removed in PHPUnit 11.');
+        }
         verify('FakeClassForTesting')->classHasStaticAttribute('staticProperty');
         verify('FakeClassForTesting')->classNotHasStaticAttribute('fakeProperty');
     }
