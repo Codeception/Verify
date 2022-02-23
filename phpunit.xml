@@ -1,4 +1,4 @@
-<phpunit colors="true">
+<phpunit colors="true" failOnWarning="false">
     <testsuites>
      <testsuite name="Verify">
       <directory>tests</directory>
