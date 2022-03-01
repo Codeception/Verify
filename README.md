@@ -140,11 +140,11 @@ Verify is open-sourced software licensed under the [MIT][9] License.
 © Codeception PHP Testing Framework
 
 [1]: https://phpunit.de/
-[2]: http://codeception.com/
+[2]: https://codeception.com/
 [3]: https://en.wikipedia.org/wiki/Behavior-driven_development
-[4]: http://chaijs.com/
-[5]: http://jasmine.github.io/
-[6]: http://rspec.info/
+[4]: https://chaijs.com/
+[5]: https://jasmine.github.io/
+[6]: https://rspec.info/
 [7]: /docs/supported_verifiers.md
 [8]: /docs/supported_expectations.md
 [9]: /LICENSE
