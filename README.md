@@ -7,6 +7,8 @@ BDD Assertions for [PHPUnit][1] or [Codeception][2]
 [![Total Downloads](https://poser.pugx.org/codeception/verify/downloads)](https://packagist.org/packages/codeception/verify)
 [![Build Status](https://travis-ci.org/Codeception/Verify.png?branch=master)](https://travis-ci.org/Codeception/Verify)
 [![License](https://poser.pugx.org/codeception/specify/license)](https://packagist.org/packages/codeception/verify)
+[![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
+
 
 This is very tiny wrapper for PHPUnit assertions, that are aimed to make tests a bit more readable.
 With [BDD][3] assertions influenced by [Chai][4], [Jasmine][5], and [RSpec][6] your assertions would be a bit closer to natural language.
