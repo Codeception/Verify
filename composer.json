@@ -12,11 +12,11 @@
             "homepage": "https://medium.com/@ganieves"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "RC",
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-dom": "*",
-        "phpunit/phpunit": "dev-master as 9.5.99"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "files": [
