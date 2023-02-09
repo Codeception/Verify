@@ -7,7 +7,6 @@ namespace Codeception\Verify;
 use ArrayAccess;
 use Codeception\Verify\Verifiers\VerifyArray;
 use Codeception\Verify\Verifiers\VerifyCallable;
-use Codeception\Verify\Verifiers\VerifyClass;
 use Codeception\Verify\Verifiers\VerifyDirectory;
 use Codeception\Verify\Verifiers\VerifyFile;
 use Codeception\Verify\Verifiers\VerifyJsonFile;
@@ -71,11 +70,6 @@ abstract class Verify
     public static function BaseObject(object $object): VerifyBaseObject
     {
         return new VerifyBaseObject($object);
-    }
-
-    public static function Class(string $className): VerifyClass
-    {
-        return new VerifyClass($className);
     }
 
     public static function Directory(string $directory): VerifyDirectory

@@ -82,28 +82,6 @@ final class VerifyTest extends TestCase
         verify($testClass)->notInstanceOf(DateTimeZone::class);
     }
 
-    public function testHasAttribute(): void
-    {
-        if (Version::series() <= 10) {
-            $this->markTestIncomplete('assertClassHasAttribute() is deprecated and will be removed in PHPUnit 11.');
-        }
-        verify('Exception')->classHasAttribute('message');
-        verify('Exception')->classNotHasAttribute('fakeproperty');
-
-        $testObject = (object) ['existingAttribute' => true];
-        verify($testObject)->baseObjectHasAttribute('existingAttribute');
-        verify($testObject)->baseObjectNotHasAttribute('fakeproperty');
-    }
-
-    public function testHasStaticAttribute(): void
-    {
-        if (Version::series() <= 10) {
-            $this->markTestIncomplete('assertClassHasAttribute() is deprecated and will be removed in PHPUnit 11.');
-        }
-        verify('FakeClassForTesting')->classHasStaticAttribute('staticProperty');
-        verify('FakeClassForTesting')->classNotHasStaticAttribute('fakeProperty');
-    }
-
     public function testContainsOnly(): void
     {
         verify(['1', '2', '3'])->arrayContainsOnly('string');
