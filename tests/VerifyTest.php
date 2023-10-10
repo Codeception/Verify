@@ -324,6 +324,30 @@ final class VerifyTest extends TestCase
             verify($func)->callableDoesNotThrow(Exception::class, 'foo');
         })->callableThrows(new ExpectationFailedException("exception 'Exception' with message 'foo' was not expected to be thrown"));
     }
+
+    public function testObjectHasProperty(): void
+    {
+        $object = new \Stdclass();
+        $object->bar = 'baz';
+
+        verify($object)->baseObjectHasProperty('bar');
+
+        verify(function () use ($object): void {
+            verify($object)->baseObjectHasProperty('foo', 'foobar');
+        })->callableThrows(new ExpectationFailedException("foobar\nFailed asserting that object of class \"stdClass\" has property \"foo\"."));
+    }
+
+    public function testObjectNotHasProperty(): void
+    {
+        $object = new \Stdclass();
+        $object->bar = 'baz';
+
+        verify($object)->baseObjectNotHasProperty('foo');
+
+        verify(function () use ($object): void {
+            verify($object)->baseObjectNotHasProperty('bar', 'foobar');
+        })->callableThrows(new ExpectationFailedException("foobar\nFailed asserting that object of class \"stdClass\" does not have property \"bar\"."));
+    }
 }
 
 

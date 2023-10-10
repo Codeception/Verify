@@ -46,4 +46,30 @@ class VerifyBaseObject extends Verify
         Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
         return $this;
     }
+
+    /**
+     * Verifies that an object has a specified property.
+     *
+     * @param string $propertyName
+     * @param string $message
+     * @return self
+     */
+    public function hasProperty(string $propertyName, string $message = ''): self
+    {
+        Assert::assertObjectHasProperty($propertyName, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Verifies that an object does not have a specified property.
+     *
+     * @param string $propertyName
+     * @param string $message
+     * @return self
+     */
+    public function notHasProperty(string $propertyName, string $message = ''): self
+    {
+        Assert::assertObjectNotHasProperty($propertyName, $this->actual, $message);
+        return $this;
+    }
 }
