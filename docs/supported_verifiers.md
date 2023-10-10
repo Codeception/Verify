@@ -23,6 +23,8 @@ sameSize
 ```
 hasAttribute
 notHasAttribute
+hasProperty
+notHasProperty
 ```
 
 ### Callable

@@ -23,6 +23,8 @@ toHaveSameSizeAs
 ```
 notToHaveAttribute
 toHaveAttribute
+notToHaveProperty
+toHaveProperty
 ```
 
 ### Callable
