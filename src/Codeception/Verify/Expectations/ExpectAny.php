@@ -98,6 +98,18 @@ class ExpectAny extends ExpectMixed
         return $this;
     }
 
+    public function baseObjectToHaveProperty(string $propertyName, string $message = ''): self
+    {
+        Expect::BaseObject($this->actual)->toHaveProperty($propertyName, $message);
+        return $this;
+    }
+
+    public function baseObjectNotToHaveProperty(string $propertyName, string $message = ''): self
+    {
+        Expect::BaseObject($this->actual)->notToHaveProperty($propertyName, $message);
+        return $this;
+    }
+
     public function callableToThrow($throws = null, string $message = ''): self
     {
         Expect::Callable($this->actual)->toThrow($throws, $message);

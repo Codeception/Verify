@@ -46,4 +46,30 @@ class ExpectBaseObject extends Expect
         Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
         return $this;
     }
+
+    /**
+     * Expect that an object does not have a specified property.
+     *
+     * @param string $propertyName
+     * @param string $message
+     * @return self
+     */
+    public function notToHaveProperty(string $propertyName, string $message = ''): self
+    {
+        Assert::assertObjectNotHasProperty($propertyName, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Expect that an object has a specified property.
+     *
+     * @param string $propertyName
+     * @param string $message
+     * @return self
+     */
+    public function toHaveProperty(string $propertyName, string $message = ''): self
+    {
+        Assert::assertObjectHasProperty($propertyName, $this->actual, $message);
+        return $this;
+    }
 }
