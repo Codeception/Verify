@@ -21,8 +21,6 @@ sameSize
 
 ### BaseObject
 ```
-hasAttribute
-notHasAttribute
 hasProperty
 notHasProperty
 ```
