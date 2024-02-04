@@ -98,6 +98,18 @@ class VerifyAny extends VerifyMixed
         return $this;
     }
 
+    public function baseObjectHasProperty(string $propertyName, string $message = ''): self
+    {
+        Verify::BaseObject($this->actual)->hasProperty($propertyName, $message);
+        return $this;
+    }
+
+    public function baseObjectNotHasProperty(string $propertyName, string $message = ''): self
+    {
+        Verify::BaseObject($this->actual)->notHasProperty($propertyName, $message);
+        return $this;
+    }
+
     public function callableThrows($throws = null, string $message = ''): self
     {
         Verify::Callable($this->actual)->throws($throws, $message);

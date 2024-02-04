@@ -24,18 +24,22 @@ class VerifyBaseObject extends Verify
     /**
      * Verifies that an object has a specified attribute.
      *
+     * @deprecated Deprecated in favour of hasProperty
+     *
      * @param string $attributeName
      * @param string $message
      * @return self
      */
     public function hasAttribute(string $attributeName, string $message = ''): self
     {
-        Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
+        Assert::assertObjectHasProperty($attributeName, $this->actual, $message);
         return $this;
     }
 
     /**
      * Verifies that an object does not have a specified attribute.
+     *
+     * @deprecated Deprecated in favour of notHasProperty
      *
      * @param string $attributeName
      * @param string $message
@@ -43,7 +47,33 @@ class VerifyBaseObject extends Verify
      */
     public function notHasAttribute(string $attributeName, string $message = ''): self
     {
-        Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
+        Assert::assertObjectNotHasProperty($attributeName, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Verifies that an object has a specified property.
+     *
+     * @param string $propertyName
+     * @param string $message
+     * @return self
+     */
+    public function hasProperty(string $propertyName, string $message = ''): self
+    {
+        Assert::assertObjectHasProperty($propertyName, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Verifies that an object does not have a specified property.
+     *
+     * @param string $propertyName
+     * @param string $message
+     * @return self
+     */
+    public function notHasProperty(string $propertyName, string $message = ''): self
+    {
+        Assert::assertObjectNotHasProperty($propertyName, $this->actual, $message);
         return $this;
     }
 }

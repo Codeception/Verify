@@ -147,7 +147,7 @@ Verify is open-sourced software licensed under the [MIT][9] License.
 [4]: https://chaijs.com/
 [5]: https://jasmine.github.io/
 [6]: https://rspec.info/
-[7]: /docs/supported_verifiers.md
-[8]: /docs/supported_expectations.md
-[9]: /LICENSE
-[10]: /UPGRADE.md
+[7]: ./docs/supported_verifiers.md
+[8]: ./docs/supported_expectations.md
+[9]: ./LICENSE
+[10]: ./UPGRADE.md

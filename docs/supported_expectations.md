@@ -21,8 +21,8 @@ toHaveSameSizeAs
 
 ### BaseObject
 ```
-notToHaveAttribute
-toHaveAttribute
+notToHaveProperty
+toHaveProperty
 ```
 
 ### Callable

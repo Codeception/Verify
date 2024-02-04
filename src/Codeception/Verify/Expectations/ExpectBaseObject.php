@@ -24,18 +24,22 @@ class ExpectBaseObject extends Expect
     /**
      * Expect that an object does not have a specified attribute.
      *
+     * @deprecated Deprecated in favour of notToHaveProperty
+     *
      * @param string $attributeName
      * @param string $message
      * @return self
      */
     public function notToHaveAttribute(string $attributeName, string $message = ''): self
     {
-        Assert::assertObjectNotHasAttribute($attributeName, $this->actual, $message);
+        Assert::assertObjectNotHasProperty($attributeName, $this->actual, $message);
         return $this;
     }
 
     /**
      * Expect that an object has a specified attribute.
+     *
+     * @deprecated Deprecated in favour of toHaveProperty
      *
      * @param string $attributeName
      * @param string $message
@@ -43,7 +47,33 @@ class ExpectBaseObject extends Expect
      */
     public function toHaveAttribute(string $attributeName, string $message = ''): self
     {
-        Assert::assertObjectHasAttribute($attributeName, $this->actual, $message);
+        Assert::assertObjectHasProperty($attributeName, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Expect that an object does not have a specified property.
+     *
+     * @param string $propertyName
+     * @param string $message
+     * @return self
+     */
+    public function notToHaveProperty(string $propertyName, string $message = ''): self
+    {
+        Assert::assertObjectNotHasProperty($propertyName, $this->actual, $message);
+        return $this;
+    }
+
+    /**
+     * Expect that an object has a specified property.
+     *
+     * @param string $propertyName
+     * @param string $message
+     * @return self
+     */
+    public function toHaveProperty(string $propertyName, string $message = ''): self
+    {
+        Assert::assertObjectHasProperty($propertyName, $this->actual, $message);
         return $this;
     }
 }
