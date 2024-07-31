@@ -32,11 +32,12 @@ class VerifyMixed extends Verify
     }
 
     /**
-     * Verifies that two variables are equal.
+     * Verifies that two variables are equal without comparing the type.
      *
      * @param $expected
      * @param string $message
      * @return self
+     * @see same for comparing values and their types (type-safe comparison)
      */
     public function equals($expected, string $message = ''): self
     {
@@ -630,6 +631,7 @@ class VerifyMixed extends Verify
      * @param $expected
      * @param string $message
      * @return self
+     * @see equals for comparing variables in a non-type-safe manner
      */
     public function same($expected, string $message = ''): self
     {
