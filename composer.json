@@ -16,7 +16,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-dom": "*",
-        "phpunit/phpunit": "^9.6.11 || ^10.0 || ^11.0"
+        "phpunit/phpunit": "^9.6.11 || ^10.0 || ^11.0 || ^12.0"
     },
     "autoload": {
         "files": [
